@@ -13,7 +13,8 @@ const Home = () => {
     return (
         <div className={classes["Home_Container"]}>
             <div className={classes["Text_Container"]}>
-                <h1>Bienvenidos a 
+                <h1>
+                    Bienvenido a
                     <br />
                     <span>HAPPY</span>
                 </h1>
