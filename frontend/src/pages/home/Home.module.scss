@@ -1,0 +1,156 @@
+@import "./../../variables";
+
+.Home_Container {
+    width: 100%;
+
+    min-height: 100dvh;
+    display: grid;
+    grid-template-areas: "Text Image";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    background-color: $pc-400;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: '';
+        background-color: $pc-50;
+        min-width: 90%;
+        height: 90%;
+        border-bottom-right-radius: 28.125rem;
+    }
+
+    >.Text_Container {
+        padding: 6.0625rem;
+        position: relative;
+        grid-area: Text;
+
+        display: flex;
+        gap: 2.5rem;
+        flex-direction: column;
+        justify-content: center;
+
+        > h1 {
+            margin-top: auto;
+            color: $pc-300;
+            font-size: clamp(2.25rem, 1.7222rem + 2.3457vw, 4.625rem);
+            font-weight: 900;
+            line-height: 0.85;
+            letter-spacing: -2px;
+
+            >span {
+                color: $pc-950;
+                font-size: clamp(4.625rem, 3.875rem + 3.3333vw, 8rem);
+            }
+        }
+
+        > button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            > svg {
+                font-size: 1.5rem;
+            }
+
+            max-width: 15.625rem;
+            height: 3.875rem;
+            background-color: $tc-light;
+            border-radius: 0.5rem;
+            border: none;
+            outline: 2.5px solid $pc-200;
+
+            font-size: 1.125rem;
+            font-weight: 400;
+
+            &:hover {
+                cursor: pointer;
+                background-color: $pc-50;
+                outline: 2.5px solid $pc-300;
+            }
+        }
+
+        > span {
+            padding-block: 2rem;
+            margin-block: auto 3rem;
+            border-left: 0.25rem solid $pc-300;
+            padding-left: 2rem;
+            color: $pc-300;
+            font-weight: 900;
+            font-size: clamp(0.9375rem, 0.7292rem + 0.9259vw, 1.875rem);
+        }
+        
+    }
+    >.Image_Container {
+        position: relative;
+        grid-area: Image;        
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        overflow: hidden;
+
+        > img {
+            
+            max-width: 100%;
+            object-fit: contain;
+            position: absolute;
+            right: -15%;
+            bottom: -5rem;
+        }
+        
+    }
+
+    @media screen and (max-width: 900px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "Text" "Image";
+        >.Text_Container {
+            padding: 0 1.5rem;
+
+            > h1 {
+                line-height: 1.05;
+            }
+
+            > button {
+                font-size: 0.75rem;
+                max-width: 12.1875rem;
+                height: 2.5625rem;
+            }
+
+            > span {
+                padding-block: 0.3rem;
+                margin: 0;
+                padding-left: 1rem;
+            }
+        }
+
+        >.Image_Container {
+            > img {
+                height: 100%;
+                right: -10%;
+                bottom: -3.5rem;
+            }
+        }
+    }
+
+    @media screen and (max-width: 350px) {
+        > .Text_Container {
+            h1 {
+                font-size: clamp(1rem, 1rem + 4vw, 1.875rem);
+    
+                >span {
+                    font-size: clamp(1.5rem, 1.5rem + 10.2857vw, 3.75rem);
+                }
+            }
+        }
+
+        >.Image_Container {
+            > img {
+                height: 100%;
+                right: -15%;
+                bottom: -5rem;
+            }
+        }
+    }
+}
