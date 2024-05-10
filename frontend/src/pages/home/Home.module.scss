@@ -1,0 +1,139 @@
+@import "./../../variables";
+
+.Home_Container {
+    width: 100%;
+
+    min-height: 100dvh;
+    display: grid;
+    grid-template-areas: "Text Image";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    background-color: $pc-400;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: '';
+        background-color: $pc-50;
+        min-width: 90%;
+        height: 90%;
+        border-bottom-right-radius: 28.125rem;
+    }
+
+    >.Text_Container {
+        padding: 6.0625rem;
+        position: relative;
+        grid-area: Text;
+
+        display: flex;
+        gap: 2.5rem;
+        flex-direction: column;
+        justify-content: center;
+
+        > h1 {
+            margin-top: auto;
+            color: $pc-300;
+            font-size: clamp(1.5rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 0.75;
+
+            >span {
+                color: $pc-950;
+                font-size: clamp(3rem, 5vw, 8rem);
+            }
+        }
+
+        > button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            > svg {
+                font-size: 1.5rem;
+            }
+
+            max-width: 15.625rem;
+            height: 3.875rem;
+            background-color: $tc-light;
+            border-radius: 0.5rem;
+            border: none;
+            outline: 2.5px solid $pc-100;
+
+            font-size: 1.125rem;
+            font-weight: 400;
+
+            &:hover {
+                cursor: pointer;
+                background-color: $pc-50;
+                outline: 2.5px solid $pc-200;
+            }
+        }
+
+        > span {
+            padding-block: 2rem;
+            margin-block: auto 3rem;
+            border-left: 0.25rem solid $pc-400;
+            padding-left: 2rem;
+            color: $pc-300;
+            font-weight: 900;
+            font-size: clamp(0.9375rem, 5vw, 1.875rem);
+        }
+        
+    }
+    >.Image_Container {
+        position: relative;
+        grid-area: Image;        
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        overflow: hidden;
+
+        > img {
+            min-width: 50%;
+            max-width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: absolute;
+            right: clamp(-30%, 5vw, -15%);
+            bottom: clamp(-30%, -22%, -15%);
+        }
+        
+    }
+
+    @media screen and (max-width: 900px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "Text" "Image";
+        >.Text_Container {
+            padding: 0 1.5rem;
+
+            > button {
+                font-size: 0.75rem;
+                max-width: 12.1875rem;
+                height: 2.5625rem;
+            }
+
+            > span {
+                padding-block: 0;
+                margin: 0;
+            }
+        }
+
+        >.Image_Container {
+            
+        }
+    }
+
+    /*@media screen and (max-width: 1024px) {
+        >.Text_Container {
+            padding-inline: 3rem;
+        }
+
+        >.Image_Container {
+            > img {
+                bottom: -30%;
+            }
+        }
+    }*/
+}
