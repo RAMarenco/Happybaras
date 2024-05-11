@@ -1,0 +1,42 @@
+@import "/src/variables";
+
+header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem;
+
+    .RightContainer {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        gap: 1.25rem;
+    }
+
+    .Avatar {
+        border-radius: 50%;
+        width: 4rem;
+        height: 4rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+header.Visitor, header.MainResident, header.NormalResident {
+    background-color: $pc-200;
+}
+
+header.Admin {
+    background-color: $acg-500;
+}
+
+header.Guard {
+    background-color: $acy-500;
+}
