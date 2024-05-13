@@ -1,0 +1,111 @@
+import { useEffect } from "react";
+import { BsCameraFill } from "react-icons/bs";
+import useScanner from "../../hooks/scanner/useScanner";
+import classes from "./GuardLanding.module.scss";
+import InputGroup from "../../components/inputs/inputGroup";
+
+const GuardLanding = () => {
+    const {
+        handleChange,
+        handleStartScanning,
+        cameras,
+        selectedCamera,
+        scanning,
+        ref,
+        scanResult,
+    } = useScanner();
+
+    useEffect(() => {
+        if (scanResult !== "") alert(scanResult);
+    }, [scanResult]);
+
+    const cameraMap =
+        cameras.length > 0 &&
+        cameras.map((camera) => {
+            return (
+                <option key={camera.deviceId} value={camera.deviceId}>
+                    {camera.label}
+                </option>
+            );
+        });
+
+    const inputs = [
+        {
+            text: "Nombre de la persona o entidad",
+            type: "text",
+            class: "full",
+        },
+        {
+            text: "Documento de identidad",
+            type: "text",
+            class: "md",
+        },
+        {
+            text: "Numero de residencia a visitar",
+            type: "text",
+            class: "md",
+        },
+        {
+            text: "Razon de entrada",
+            type: "area",
+            class: "full",
+        },
+    ];
+
+    return (
+        <div className={classes["GuardLanding_Container"]}>
+            <section className={classes["Scanner_Container"]}>
+                <div>
+                    <h3>Escanear QR para control de acceso</h3>
+                    <select onChange={handleChange}>
+                        {cameras.length > 0 && cameraMap}
+                    </select>
+                </div>
+
+                <div className={classes["Scanner_Frame"]}>
+                    <video ref={ref}/>
+                    { !scanning && <BsCameraFill />}
+                    <div
+                        className={[
+                            classes["line"],
+                            classes["top-left-line"],
+                        ].join(" ")}
+                    ></div>
+                    <div
+                        className={[
+                            classes["line"],
+                            classes["top-right-line"],
+                        ].join(" ")}
+                    ></div>
+                    <div
+                        className={[
+                            classes["line"],
+                            classes["bottom-left-line"],
+                        ].join(" ")}
+                    ></div>
+                    <div
+                        className={[
+                            classes["line"],
+                            classes["bottom-right-line"],
+                        ].join(" ")}
+                    ></div>
+                </div>
+                <button
+                    disabled={selectedCamera == ""}
+                    onClick={handleStartScanning}
+                >
+                    {!scanning ? "Escanear QR" : "Dejar de escanear"}
+                </button>
+            </section>
+            <section className={classes["Form_Container"]}>
+                <h3>Registro de autoridades o servicios</h3>
+                <div>
+                    <InputGroup inputs={inputs} />
+                    <button>Registrar</button>
+                </div>
+            </section>
+        </div>
+    );
+};
+
+export default GuardLanding;
