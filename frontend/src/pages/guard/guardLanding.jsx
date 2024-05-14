@@ -1,10 +1,24 @@
 import { useEffect } from "react";
+import useForm from "./../../hooks/form/useForm";
 import { BsCameraFill } from "react-icons/bs";
 import useScanner from "../../hooks/scanner/useScanner";
 import classes from "./GuardLanding.module.scss";
 import InputGroup from "../../components/inputs/inputGroup";
+import { ManualInputs } from "../../consts/inputConsts";
 
 const GuardLanding = () => {
+    const info = {
+        name: "",
+        document: "",
+        address: "",
+        reason: "",
+    };
+
+    const { handleOnChange, handleOnSubmit, validForm } = useForm(
+        "visit",
+        info
+    );
+
     const {
         handleChange,
         handleStartScanning,
@@ -29,29 +43,6 @@ const GuardLanding = () => {
             );
         });
 
-    const inputs = [
-        {
-            text: "Nombre de la persona o entidad",
-            type: "text",
-            class: "full",
-        },
-        {
-            text: "Documento de identidad",
-            type: "text",
-            class: "md",
-        },
-        {
-            text: "Numero de residencia a visitar",
-            type: "text",
-            class: "md",
-        },
-        {
-            text: "Razon de entrada",
-            type: "area",
-            class: "full",
-        },
-    ];
-
     return (
         <div className={classes["GuardLanding_Container"]}>
             <section className={classes["Scanner_Container"]}>
@@ -63,8 +54,8 @@ const GuardLanding = () => {
                 </div>
 
                 <div className={classes["Scanner_Frame"]}>
-                    <video ref={ref}/>
-                    { !scanning && <BsCameraFill />}
+                    <video ref={ref} />
+                    {!scanning && <BsCameraFill />}
                     <div
                         className={[
                             classes["line"],
@@ -100,8 +91,13 @@ const GuardLanding = () => {
             <section className={classes["Form_Container"]}>
                 <h3>Registro de autoridades o servicios</h3>
                 <div>
-                    <InputGroup inputs={inputs} />
-                    <button>Registrar</button>
+                    <InputGroup
+                        inputs={ManualInputs}
+                        onChange={(e) => handleOnChange(e)}
+                    />
+                    <button onClick={handleOnSubmit} disabled={!validForm()}>
+                        Registrar
+                    </button>
                 </div>
             </section>
         </div>

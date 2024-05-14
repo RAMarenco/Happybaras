@@ -8,9 +8,9 @@ const InputGroup = ({inputs = [], onChange}) => {
                 {input.text}
                 {
                     input.type == "area" ? 
-                    <textarea></textarea>
+                    <textarea name={input.name} onChange={onChange}></textarea>
                     :
-                    <input type={input.type} onChange={onChange}/>
+                    <input type={input.type} onChange={onChange} name={input.name}/>
                 }
             </label>
         )

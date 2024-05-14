@@ -32,6 +32,16 @@
             cursor: pointer;
             background-color: colors.$acy-600;
         }
+
+        &:disabled {
+            background-color: colors.$acy-100;
+            color: colors.$acy-400;
+
+            &:hover {
+                background-color: colors.$acy-100;
+                cursor: default;
+            }
+        }
     }
 
     > .Scanner_Container {
@@ -50,7 +60,7 @@
             gap: 2rem;
     
             > select {
-                width: clamp(13rem, 5vw, 18.75rem);
+                width: clamp(13rem, 20vw + 5rem, 18.75rem);
                 border: none;
                 border-radius: 0.5rem;
                 padding: 0.5rem;
