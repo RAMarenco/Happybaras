@@ -1,0 +1,57 @@
+@use "./../../variables" as colors;
+
+$gap: 1rem;
+
+.Input_Group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap;
+    --shf: 4.9406564584124654e-322;
+
+    > label {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: calc($gap / 2);
+
+        font-weight: 500;
+        > input, textarea {
+            padding-inline: 1.25rem;
+            border-radius: 0.5rem;
+
+            border: none;
+            outline: 1px solid colors.$tc-dark;
+        }
+
+        > textarea {
+            padding-block: 1.25rem;
+            min-height: 9.375rem;
+        }
+
+        > input {
+            width: 100%;
+            height: 3.125rem;
+        }
+
+        &.full {
+            width: 100%;
+        }
+
+        &.md {
+            width: calc((100% / 2 - $gap / 2) * var(--shf) / var(--shf));
+        }
+
+        &.sm {
+            width: calc(30% - $gap / 3);
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        > label {
+            &.full, &.md, &.sm {
+                width: 100%;
+            }
+        }
+    }
+}

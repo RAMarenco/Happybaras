@@ -1,3 +1,4 @@
+import GuardLayout from "../layouts/guard/guardLayout";
 import Home from "../pages/home/home";
 /*
     TODO import NotFound from "../pages/notFound/NotFound";
@@ -8,6 +9,10 @@ const Routes = [
     {
         path: "/",
         element: <Home />,
+    },
+    {
+        path: "/scan",
+        element: <GuardLayout/>
     },
     /*{
         element: <ProtectedRoute />,
