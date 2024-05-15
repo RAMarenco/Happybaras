@@ -4,7 +4,7 @@ import classes from './VisitorLayout.module.scss'
 export const VisitorLayout = ({children}) => {
     return(
         <>
-            <Header userType={"Visitor"}/>
+            <Header/>
             {children}
         </>
         
