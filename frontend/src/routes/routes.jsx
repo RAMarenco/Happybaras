@@ -1,3 +1,4 @@
+import GuardLayout from "../layouts/guard/guardLayout";
 import Home from "../pages/home/home";
 import VisitorPermits from "../pages/VisitorPermits/VisitorPermits"
 /*
@@ -13,6 +14,8 @@ const Routes = [
     {
         path: "/permits", 
         element: <VisitorPermits/>,
+        path: "/scan",
+        element: <GuardLayout/>
     },
     /*{
         element: <ProtectedRoute />,
