@@ -12,10 +12,12 @@ const Routes = [
         element: <Home />,
     },
     {
-        path: "/permits", 
-        element: <VisitorPermits/>,
         path: "/scan",
         element: <GuardLayout/>
+    },
+    {
+        path: "/permits", 
+        element: <VisitorPermits/>,
     },
     /*{
         element: <ProtectedRoute />,
