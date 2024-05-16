@@ -42,6 +42,10 @@
                 font-size: 1.5rem;
                 color: $pc-50;
             }
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
         .Avatar {

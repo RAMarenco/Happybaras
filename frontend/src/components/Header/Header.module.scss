@@ -8,6 +8,12 @@ header {
 
     padding: 1rem;
 
+    .Logo {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
     .RightContainer {
         display: flex;
         flex-flow: row wrap;
@@ -34,6 +40,10 @@ header {
                 font-size: 1.5rem;
                 color: $pc-50;
             }
+
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 
@@ -49,6 +59,10 @@ header {
             box-shadow: 0 0.25rem 0.25rem rgba($tc-dark, 0.25);
 
             object-fit: cover;
+        }
+
+        &:hover {
+            cursor: pointer;
         }
     }
 }

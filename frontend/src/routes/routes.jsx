@@ -1,6 +1,6 @@
 import GuardLayout from "../layouts/guard/guardLayout";
 import Home from "../pages/home/home";
-import VisitorPermits from "../pages/VisitorPermits/VisitorPermits"
+import VisitorPermits from "../pages/visitor/visitor"
 /*
     TODO import NotFound from "../pages/notFound/NotFound";
     TODO import { ProtectedRoute } from "../components/ProtectedRoute";

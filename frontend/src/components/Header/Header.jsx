@@ -1,8 +1,8 @@
 import { useRole, useAvatar } from '../../hooks/useUserInfo';
-import { Roles } from '../../utils/RolesEnum';
+import { Roles } from '../../consts/RolesEnum';
 import { useState } from 'react';
-import NoActionsHeader from './NoActionsHeader/NoActionsHeader';
-import WithActionsHeader from './WithActionsHeader/WithActionsHeader';
+import NoActionsHeader from './noActionsHeader/noActionsHeader';
+import WithActionsHeader from './withActionsHeader/withActionsHeader';
 
 const Header = () => {
     const role = useRole();
@@ -16,7 +16,7 @@ const Header = () => {
     const renderHeader = () => {
         if(role === Roles.ADMIN || role === Roles.MAINRESIDENT || role === Roles.NORMALRESIDENT) {
             return (
-                <WithActionsHeader role={role} imgSource={imgSource}/>
+                <WithActionsHeader role={role} imgSource={imgSource} isClicked={isClicked} handleClick={handleClick}/>
             );
         } 
         else if(role === Roles.VISITOR || role === Roles.GUARD) {

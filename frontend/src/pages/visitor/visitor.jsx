@@ -1,6 +1,6 @@
-import { VisitorLayout } from "../../layouts/VisitorLayout/VisitorLayout";
+import { VisitorLayout } from "../../layouts/visitorLayout/visitorLayout";
 
-const VisitorPermits = () => {
+const Visitor = () => {
     return(
         <>
             <VisitorLayout>
@@ -10,4 +10,4 @@ const VisitorPermits = () => {
     )
 }
 
-export default VisitorPermits;
+export default Visitor;

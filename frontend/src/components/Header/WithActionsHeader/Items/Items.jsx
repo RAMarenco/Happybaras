@@ -1,4 +1,4 @@
-import { Roles } from "../../../../utils/RolesEnum";
+import { Roles } from "../../../../consts/RolesEnum";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from 'react-responsive';
 

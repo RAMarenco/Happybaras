@@ -1,7 +1,7 @@
-import classes from './Modal.module.scss';
-import Items from '../Items/Items';
+import classes from './modal.module.scss';
+import Items from '../items/items';
 import { MdOutlineClear } from "react-icons/md";
-import { Roles } from '../../../../utils/RolesEnum';
+import { Roles } from '../../../../consts/RolesEnum';
 
 const Modal = ({role, imgSource, handleClick}) => {
     

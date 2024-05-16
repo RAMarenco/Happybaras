@@ -1,5 +1,5 @@
-import Header from '../../components/Header/Header'
-import classes from './VisitorLayout.module.scss'
+import Header from '../../components/header/header'
+import classes from './visitorLayout.module.scss'
 
 export const VisitorLayout = ({children}) => {
     return(
