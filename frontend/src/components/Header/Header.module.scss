@@ -6,7 +6,9 @@ header {
     justify-content: space-between;
     align-items: center;
 
-    padding: 1rem;
+    height: 6rem;
+
+    padding: 0 1rem;
 
     .Logo {
         &:hover {
@@ -21,8 +23,6 @@ header {
         align-items: center;
 
         gap: 1.25rem;
-
-        position: relative;
 
         .MenuButton {
             width: 3.125rem;

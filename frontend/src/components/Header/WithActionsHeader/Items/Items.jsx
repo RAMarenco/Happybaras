@@ -41,7 +41,7 @@ const Items = ({role}) => {
                     adminActions.map((action) => {
                         return (
                             <Link 
-                            key={action.link} 
+                            key={action.name} 
                             to={action.link} 
                             style={isMovile ? 
                                 {color: "#001021", textDecoration: "none"}  : 
@@ -55,7 +55,7 @@ const Items = ({role}) => {
                     residentActions.map((action) => {
                         return (
                             <Link 
-                                key={action.link} 
+                                key={action.name} 
                                 to={action.link} 
                                 style={isMovile ? 
                                     {color: "#001021", textDecoration: "none"}  : 

@@ -28,7 +28,7 @@ const WithActionsHeader = ({role, imgSource, isClicked, handleClick}) => {
     }
 
     return (
-        <header style={role === Roles.ADMIN ? {backgroundColor: "#2F6C3C"} : {backgroundColor: "#CBDFEC"}}>
+        <header style={role === Roles.ADMIN ? {backgroundColor: "#41884E"} : {backgroundColor: "#CBDFEC"}}>
             <Link to={"/"}>
                 <img className={classes["Logo"]} src="/src/assets/Logo.svg" alt="Logo" />
             </Link>
