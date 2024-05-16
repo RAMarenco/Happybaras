@@ -47,7 +47,7 @@ const WithActionsHeader = ({role, imgSource}) => {
                         handleMenuChange()
                     :
                         <>
-                            <Items/>
+                            <Items role={role}/>
                             <figure className={classes["Avatar"]}>
                                 <img src={imgSource} alt="Avatar" />
                             </figure>

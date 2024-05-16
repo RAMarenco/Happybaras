@@ -45,7 +45,7 @@ const Items = ({role}) => {
                             to={action.link} 
                             style={isMovile ? 
                                 {color: "#001021", textDecoration: "none"}  : 
-                                {color: "#254155", textDecoration: "none"}}
+                                {color: "#F4F8FB", textDecoration: "none"}}
                             >
                                 {action.name}
                             </Link>
@@ -59,7 +59,7 @@ const Items = ({role}) => {
                                 to={action.link} 
                                 style={isMovile ? 
                                     {color: "#001021", textDecoration: "none"}  : 
-                                    {color: "#F4F8FB", textDecoration: "none"}}
+                                    {color: "#254155", textDecoration: "none"}}
                                 >
                                 {action.name}
                             </Link>
