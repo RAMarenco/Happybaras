@@ -1,38 +1,41 @@
-import { Link } from "react-router-dom";
-import { Roles } from "../../../utils/RolesEnum";
 import classes from '../Header.module.scss';
+import { Roles } from "../../../utils/RolesEnum";
 import { useMediaQuery } from 'react-responsive';
+import { useState } from "react";
+import { MdOutlineMenu } from "react-icons/md";
+import Modal from "./Modal/Modal";
+import Items from "./Items/Items";
 
-const WithActionsHeader = ({children, role, imgSource}) => {
+const WithActionsHeader = ({role, imgSource}) => {
     const isMovile = useMediaQuery({ query: '(max-width: 900px)' });
-    const adminActions = [
-        {
-            name: "Usuarios", 
-            link: "/",
-        },
-        {
-            name: "Residentes", 
-            link: "/",
-        },
-        {
-            name: "Reportes", 
-            link: "/",
-        },
-    ];
-    const residentActions = [
-        {
-            name: "Visitas", 
-            link: "/",
-        },
-        {
-            name: "Historial", 
-            link: "/",
-        },
-        {
-            name: "Miembros", 
-            link: "/",
-        },
-    ];
+    const [isClicked, setIsClicked] = useState(false);
+
+    const handleClick = () => {
+        if(isClicked) {
+            setIsClicked(false);
+        }
+        else {
+            setIsClicked(true)
+        }
+    }
+
+    const handleMenuChange = () => {
+        if(isClicked) 
+            return (
+                <Modal role={role} imgSource={imgSource} handleClick={handleClick}/>
+            )
+        else
+            return (
+                <figure 
+                    onClick={handleClick} 
+                    className={classes["MenuButton"]}
+                    style={role === Roles.ADMIN ? {backgroundColor: "#6BAA75"} : {backgroundColor: "#4281A4"}}
+                    >
+                    <MdOutlineMenu />
+                </figure>
+            )
+        
+    }
 
     return (
         <header style={role === Roles.ADMIN ? {backgroundColor: "#2F6C3C"} : {backgroundColor: "#CBDFEC"}}>
@@ -40,26 +43,15 @@ const WithActionsHeader = ({children, role, imgSource}) => {
 
             <div className={classes["RightContainer"]}>
                 {
-                    role === Roles.ADMIN ? 
-                        adminActions.map((name, link) => {
-                            <Link to={link} className={classes["HeaderButton"]}>
-                                {name}
-                            </Link>  
-                        })
-                    :
-                        residentActions.map((name, link) => {
-                            <Link to={link} className={classes["HeaderButton"]}>
-                                {name}
-                            </Link>
-                        })
-                }
-                {
                     isMovile ? 
-                        <></>
+                        handleMenuChange()
                     :
-                        <figure className={classes["Avatar"]}>
-                            <img src={imgSource} alt="Avatar" />
-                        </figure>
+                        <>
+                            <Items/>
+                            <figure className={classes["Avatar"]}>
+                                <img src={imgSource} alt="Avatar" />
+                            </figure>
+                        </>
                 }
                 
             </div>

@@ -9,9 +9,6 @@ header {
     padding: 1rem;
 
     .RightContainer {
-        width: auto;
-        height: auto;
-        
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
@@ -20,18 +17,38 @@ header {
         gap: 1.25rem;
 
         position: relative;
+
+        .MenuButton {
+            width: 3.125rem;
+            height: 3.125rem;
+            box-shadow: 0 0.25rem 0.25rem rgba($tc-dark, 0.25);
+
+            border-radius: 50%;
+
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+            
+            svg {
+                font-size: 1.5rem;
+                color: $pc-50;
+            }
+        }
     }
 
     .Avatar {
-        border-radius: 50%;
         width: 4rem;
         height: 4rem;
-
-        box-shadow: 0 0.25rem 0.25rem rgba($tc-dark, 0.25);
 
         img {
             width: 100%;
             height: 100%;
+            border-radius: 50%;
+
+            box-shadow: 0 0.25rem 0.25rem rgba($tc-dark, 0.25);
+
+            object-fit: cover;
         }
     }
 }
