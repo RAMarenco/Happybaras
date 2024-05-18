@@ -1,8 +1,10 @@
+import AdminLayout from "../layouts/admin/adminLayout";
 import GuardLayout from "../layouts/guard/guardLayout";
 import Home from "../pages/home/home";
+import AdminLanding from "../pages/admin/landing/adminLanding";
+import ProtectedRoutes from "../components/protectedRoutes/protectedRoutes";
 /*
     TODO import NotFound from "../pages/notFound/NotFound";
-    TODO import { ProtectedRoute } from "../components/ProtectedRoute";
 */
 
 const Routes = [
@@ -11,18 +13,24 @@ const Routes = [
         element: <Home />,
     },
     {
-        path: "/scan",
-        element: <GuardLayout/>
-    },
-    /*{
-        element: <ProtectedRoute />,
+        element: <ProtectedRoutes />,
         children: [
             {
-                path: "/dashboard",
-                element: <>Dashboard</>,
+                path: "/scan",
+                element: <GuardLayout />,
+            },
+            {
+                path: "/admin",
+                element: <AdminLayout />,
+                children: [
+                    {
+                        path: "",
+                        element: <AdminLanding />,
+                    },
+                ],
             },
         ],
-    },*/
+    },
     {
         path: "*",
         element: <h1>Not Found</h1>,
