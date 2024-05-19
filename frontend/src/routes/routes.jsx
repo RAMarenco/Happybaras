@@ -1,6 +1,7 @@
 import AdminLayout from "../layouts/admin/adminLayout";
 import GuardLayout from "../layouts/guard/guardLayout";
 import Home from "../pages/home/home";
+import VisitorPermits from "../pages/visitor/visitor"
 import AdminLanding from "../pages/admin/landing/adminLanding";
 import ProtectedRoutes from "../components/protectedRoutes/protectedRoutes";
 /*
@@ -19,6 +20,10 @@ const Routes = [
                 path: "/scan",
                 element: <GuardLayout />,
             },
+            {
+                path: "/permits", 
+                element: <VisitorPermits/>,
+            }
             {
                 path: "/admin",
                 element: <AdminLayout />,
