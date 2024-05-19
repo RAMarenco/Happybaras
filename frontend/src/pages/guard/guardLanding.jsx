@@ -4,7 +4,7 @@ import { BsCameraFill } from "react-icons/bs";
 import useScanner from "../../hooks/scanner/useScanner";
 import classes from "./GuardLanding.module.scss";
 import InputGroup from "../../components/inputs/inputGroup";
-import { ManualInputs } from "../../consts/inputConsts";
+import { INPUTS } from "../../consts/consts";
 
 const GuardLanding = () => {
     const info = {
@@ -92,7 +92,7 @@ const GuardLanding = () => {
                 <h3>Registro de autoridades o servicios</h3>
                 <div>
                     <InputGroup
-                        inputs={ManualInputs}
+                        inputs={INPUTS.ManualInputs}
                         onChange={(e) => handleOnChange(e)}
                     />
                     <button onClick={handleOnSubmit} disabled={!validForm()}>

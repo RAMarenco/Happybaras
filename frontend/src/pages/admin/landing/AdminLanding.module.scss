@@ -1,0 +1,31 @@
+@use "./../../../variables" as colors;
+
+.AdminLanding_Container{
+    position: relative;
+    min-height: calc(100dvh - 5rem);
+    display: grid;
+    place-content: center;
+    isolation: isolate;
+
+    > .Background_container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-image: url('/residential.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: blur(4px) brightness(0.8);
+    }
+
+    > .Logo_Container {
+        z-index: 1;
+        pointer-events: none;
+
+        > img {
+            width: clamp(9.375rem, 1.5625rem + 13.8889vw, 18.75rem);
+            height: clamp(9.375rem, 1.5625rem + 13.8889vw, 18.75rem);
+        }
+    }
+}
