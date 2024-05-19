@@ -1,0 +1,52 @@
+@use "../../variables" as colors;
+
+@mixin chip($chipColor, $chipTextColor) {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    background-color: $chipColor;
+    color: $chipTextColor;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+
+    @media(max-width: 900px) {
+        font-size: 0.75rem;
+    }
+}
+
+.chip-container {
+    // Chip rol
+    &.admin {
+        @include chip(colors.$acg-100, colors.$acg-800);
+    }
+
+    &.guard {
+        @include chip(colors.$acy-100, colors.$acy-800);
+    }
+
+    &.mainResident {
+        @include chip(colors.$pc-100, colors.$pc-800);
+    }
+
+    &.normalResident {
+        @include chip(colors.$pc-100, colors.$pc-800);
+    }
+
+    &.visitor {
+        @include chip(colors.$acr-100, colors.$acr-800);
+    }
+
+    // Chip state
+    &.Aprobado {
+        @include chip(colors.$acg-100, colors.$acg-800);
+    }
+
+    &.Desaprobado {
+        @include chip(colors.$acr-100, colors.$acr-800);
+    }
+
+    &.Enespera {
+        @include chip(colors.$acy-100, colors.$acy-800);
+    }
+}
