@@ -2,7 +2,7 @@ import { useAuth } from "../../hooks/auth/useAuth";
 import { Navigate } from "react-router-dom";
 import { ROLES } from "../../consts/consts";
 import GuardLanding from "../../pages/guard/guardLanding";
-import classes from "./GuardLayout.module.scss";
+import Header from "../../components/header/header";
 
 const GuardLayout = () => {
     const { verifyRole } = useAuth();
@@ -12,7 +12,7 @@ const GuardLayout = () => {
 
     return (
         <>
-            <nav className={classes["guard-nav"]}></nav>
+            <Header />
             <GuardLanding />
         </>
     );

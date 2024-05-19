@@ -4,7 +4,7 @@
     z-index: 100;
     position: absolute;
     left: 0;
-    top: 0;
+    top: -100%;
 
     width: 100vw;
     height: 100vh;
@@ -15,6 +15,8 @@
     justify-content: flex-start;
     
     background-color: $pc-50;
+
+    transition: all 500ms ease-in-out;
 
     .UpperContainer {
         width: 100%;
@@ -71,5 +73,9 @@
         flex-flow: column wrap;
         justify-content: space-around;
         align-items: center;
+    }
+
+    &.Active {
+        top: 0;
     }
 }

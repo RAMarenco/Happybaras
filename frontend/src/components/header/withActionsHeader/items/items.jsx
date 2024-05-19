@@ -1,44 +1,16 @@
-import { Roles } from "../../../../consts/RolesEnum";
+import { ROLES } from "../../../../consts/consts";
+import { ACTIONS } from "../../../../consts/consts";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from 'react-responsive';
 
 const Items = ({role}) => {
     const isMovile = useMediaQuery({ query: '(max-width: 900px)' });
 
-    const adminActions = [
-        {
-            name: "Usuarios", 
-            link: "/",
-        },
-        {
-            name: "Residencias", 
-            link: "/",
-        },
-        {
-            name: "Reportes", 
-            link: "/",
-        },
-    ];
-    const residentActions = [
-        {
-            name: "Visitas", 
-            link: "/",
-        },
-        {
-            name: "Historial", 
-            link: "/",
-        },
-        {
-            name: "Miembros", 
-            link: "/",
-        },
-    ];
-
     return(
         <>
             {   
-                role === Roles.ADMIN ? 
-                    adminActions.map((action) => {
+                role === ROLES.ADMIN ? 
+                ACTIONS.ADMINACTIONS.map((action) => {
                         return (
                             <Link 
                             key={action.name} 
@@ -52,7 +24,7 @@ const Items = ({role}) => {
                         )  
                     })
                 :
-                    residentActions.map((action) => {
+                ACTIONS.RESIDENTACTIONS.map((action) => {
                         return (
                             <Link 
                                 key={action.name} 

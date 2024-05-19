@@ -1,44 +1,47 @@
-import { useRole, useAvatar } from '../../hooks/useUserInfo';
-import { Roles } from '../../consts/RolesEnum';
-import { useState } from 'react';
-import NoActionsHeader from './noActionsHeader/noActionsHeader';
-import WithActionsHeader from './withActionsHeader/withActionsHeader';
+import { useAvatar } from "../../hooks/useUserInfo";
+import { ROLES } from "../../consts/consts";
+import { useState } from "react";
+import NoActionsHeader from "./noActionsHeader/noActionsHeader";
+import WithActionsHeader from "./withActionsHeader/withActionsHeader";
+import { useAuth } from "../../hooks/auth/useAuth";
 
 const Header = () => {
-    const role = useRole();
+    const { getRole, verifyRole } = useAuth();
     const imgSource = useAvatar();
     const [isClicked, setIsClicked] = useState(false);
 
     const handleClick = () => {
         isClicked ? setIsClicked(false) : setIsClicked(true);
-    }
+    };
 
     const renderHeader = () => {
-        if(role === Roles.ADMIN || role === Roles.MAINRESIDENT || role === Roles.NORMALRESIDENT) {
+        if (
+            verifyRole(ROLES.ADMIN) ||
+            verifyRole(ROLES.MAINRESIDENT) ||
+            verifyRole(ROLES.NORMALRESIDENT)
+        ) {
             return (
-                <WithActionsHeader role={role} imgSource={imgSource} isClicked={isClicked} handleClick={handleClick}/>
+                <WithActionsHeader
+                    role={getRole()}
+                    imgSource={imgSource}
+                    isClicked={isClicked}
+                    handleClick={handleClick}
+                />
             );
-        } 
-        else if(role === Roles.VISITOR || role === Roles.GUARD) {
+        } else if (verifyRole(ROLES.VISITOR) || verifyRole(ROLES.GUARD)) {
             return (
-                <NoActionsHeader role={role} imgSource={imgSource} handleClick={handleClick}/>
+                <NoActionsHeader
+                    role={getRole()}
+                    imgSource={imgSource}
+                    handleClick={handleClick}
+                />
             );
+        } else {
+            return <h1>Ocurrió un error</h1>;
         }
-        else {
-            return (
-                <h1>Ocurrió un error</h1>
-            )
-        }
-    }
+    };
 
-    if(role != "")
-        return (
-            <>
-                {
-                    renderHeader()
-                }
-            </>
-        )
-}
+    return <>{renderHeader()}</>;
+};
 
 export default Header;

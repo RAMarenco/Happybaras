@@ -13,6 +13,13 @@ header {
     .Logo {
         width: 3rem;
         height: 3rem;
+
+        &.No_action {
+            &:hover {
+                cursor: default;
+            }
+        }
+        
         &:hover {
             cursor: pointer;
         }

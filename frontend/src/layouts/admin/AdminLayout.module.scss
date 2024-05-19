@@ -1,9 +1,0 @@
-@use "./../../variables" as colors;
-
-
-.admin-nav {
-    background-color: colors.$acg-500;
-    height: 80px;
-    width: 100%;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.24);
-}

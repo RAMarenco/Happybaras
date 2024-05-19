@@ -1,11 +1,9 @@
-import { VisitorLayout } from "../../layouts/visitorLayout/visitorLayout";
-
 const Visitor = () => {
     return(
         <>
-            <VisitorLayout>
-                {/* Componentes hijos */}
-            </VisitorLayout>
+            <h1>Visitor Permits</h1>
+            {/* Componentes hijos */}
+            
         </>
     )
 }

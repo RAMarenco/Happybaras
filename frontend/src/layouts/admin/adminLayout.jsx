@@ -2,7 +2,7 @@ import { Outlet, useOutlet } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { ROLES } from "../../consts/consts";
 import { useAuth } from "../../hooks/auth/useAuth";
-import classes from "./AdminLayout.module.scss";
+import Header from "../../components/header/header";
 
 const AdminLayout = () => {
     const { verifyRole, getRole } = useAuth();
@@ -13,7 +13,7 @@ const AdminLayout = () => {
     const outlet = useOutlet();
     return (
         <>
-            <nav className={classes["admin-nav"]}></nav>
+            <Header />
             {outlet && <Outlet />}
         </>
     );
