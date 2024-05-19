@@ -23,7 +23,7 @@ const Routes = [
             {
                 path: "/permits", 
                 element: <VisitorPermits/>,
-            }
+            },
             {
                 path: "/admin",
                 element: <AdminLayout />,

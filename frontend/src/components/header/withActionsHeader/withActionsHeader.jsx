@@ -5,6 +5,7 @@ import { MdOutlineMenu } from "react-icons/md";
 import Modal from "./modal/modal";
 import Items from "./items/items";
 import { Link } from 'react-router-dom';
+import Logo from './../../../assets/Logo.svg';
 
 const WithActionsHeader = ({role, imgSource, isClicked, handleClick}) => {
     const isMovile = useMediaQuery({ query: '(max-width: 900px)' });
@@ -30,7 +31,7 @@ const WithActionsHeader = ({role, imgSource, isClicked, handleClick}) => {
     return (
         <header style={role === Roles.ADMIN ? {backgroundColor: "#41884E"} : {backgroundColor: "#CBDFEC"}}>
             <Link to={"/"}>
-                <img className={classes["Logo"]} src="/src/assets/Logo.svg" alt="Logo" />
+                <img className={classes["Logo"]} src={Logo} alt="Logo" />
             </Link>
 
             <div className={classes["RightContainer"]}>
