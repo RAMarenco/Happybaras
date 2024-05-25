@@ -1,0 +1,48 @@
+@use "./../../variables" as *;
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: $tc-light;
+    gap: 0.25rem;
+
+    .label {
+        font-weight: 500;
+    }
+
+    .input-container {
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+
+        .input {
+            padding-inline: 1.25rem;
+            border-radius: 0.5rem;
+            width: 100%;
+            border: none;
+            outline: 1px solid $tc-dark;
+            padding-block: 1.25rem;
+            height: 3.125rem;
+
+            &::-webkit-calendar-picker-indicator {
+                display: none !important;
+            }
+        }
+    }
+
+    .arrow {
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent; 
+        border-right: 6px solid transparent;
+        border-top: 8px solid $pc-700;
+        transform: translateY(-50%);
+        pointer-events: none;
+        border-radius: 2px;
+    }
+    
+}

@@ -4,6 +4,7 @@ import Home from "../pages/home/home";
 import VisitorLayout from "../layouts/visitor/visitorLayout";
 import AdminLanding from "../pages/admin/landing/adminLanding";
 import ProtectedRoutes from "../components/protectedRoutes/protectedRoutes";
+import { AdminResidences } from "../pages/admin/residences/AdminResidences";
 /*
     TODO import NotFound from "../pages/notFound/NotFound";
 */
@@ -32,6 +33,10 @@ const Routes = [
                         path: "",
                         element: <AdminLanding />,
                     },
+                    {
+                        path: "residences",
+                        element: <AdminResidences />,
+                    }
                 ],
             },
         ],
