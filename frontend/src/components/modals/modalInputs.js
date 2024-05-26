@@ -4,12 +4,14 @@ const editModalInputs = [
         name: "name",
         type: "text",
         class: "full",
+        disabled: true
     },
     {
         text: "Correo",
         name: "name",
         type: "text",
         class: "full",
+        disabled: true
     }
 ]
 
@@ -31,35 +33,35 @@ const editModalDropdown = [
 // TODO: Delete dummy data
 const dummyAddresses = [
     {
-        address: "Casa 1",
+        address: "Olivos #1",
         value: "1",
     },
     {
-        address: "Casa 2",
+        address: "Olivos #2",
         value: "2",
     },
     {
-        address: "Casa 3",
+        address: "Olivos #3",
         value: "3",
     },
     {
-        address: "Casa 11",
+        address: "Olivos #11",
         value: "11"
     },
     {
-        address: "Casa 12",
+        address: "Olivos #12",
         value: "1",
     },
     {
-        address: "Casa 13",
+        address: "Olivos #13",
         value: "2",
     },
     {
-        address: "Casa 14",
+        address: "Olivos #14",
         value: "3",
     },
     {
-        address: "Casa 21",
+        address: "Olivos #21",
         value: "11"
     }
 ]

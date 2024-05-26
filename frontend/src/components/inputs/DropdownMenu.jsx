@@ -1,25 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect, useCallback } from 'react';
 import classes from './DropdownMenu.module.scss';
+import PropTypes from 'prop-types';
 
 export const DropdownMenu = ({
     label,
     list,
     name,
-    maxResults = 10,
     onChange,
     options = [],
-    filterOption,
-    renderOption
+    filterOption = useCallback((option, searchTerm) => option.address.toLowerCase().includes(searchTerm.toLowerCase()), []),
+    renderOption = (option) => option.label,
+    defaultValue = ""
 }) => {
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchTerm, setSearchTerm] = useState(defaultValue);
     const [filteredOptions, setFilteredOptions] = useState([]);
 
     useEffect(() => {
         setFilteredOptions(
-            options.filter(option => filterOption(option, searchTerm)).slice(0, maxResults)
+            options.filter(option => filterOption(option, searchTerm))
         );
-    }, [options, searchTerm, maxResults, filterOption]);
+    }, [options, searchTerm, filterOption]);
+
+    useEffect(() => {
+        setSearchTerm(defaultValue);
+    }, [defaultValue]);
 
     const handleInputChange = (e) => {
         setSearchTerm(e.target.value);
@@ -38,6 +42,9 @@ export const DropdownMenu = ({
                     onChange={handleInputChange}
                     className={classes["input"]}
                     value={searchTerm}
+                    onFocus={() => setFilteredOptions(
+                        options.filter(option => filterOption(option, searchTerm))
+                    )}
                 />
                 <span className={classes["arrow"]}></span>
             </div>
@@ -54,15 +61,8 @@ DropdownMenu.propTypes = {
     label: PropTypes.string.isRequired,
     list: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    maxResults: PropTypes.number,
     onChange: PropTypes.func,
     options: PropTypes.array.isRequired,
     filterOption: PropTypes.func,
     renderOption: PropTypes.func
-};
-
-DropdownMenu.defaultProps = {
-    maxResults: 10,
-    filterOption: (option, searchTerm) => option.address.toLowerCase().includes(searchTerm.toLowerCase()),
-    renderOption: (option) => option.address
 };

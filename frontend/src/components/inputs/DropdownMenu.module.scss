@@ -24,6 +24,7 @@
             outline: 1px solid $tc-dark;
             padding-block: 1.25rem;
             height: 3.125rem;
+            color: $pc-700;
 
             &::-webkit-calendar-picker-indicator {
                 display: none !important;

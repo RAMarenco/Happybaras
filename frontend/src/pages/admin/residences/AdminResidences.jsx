@@ -5,30 +5,35 @@ import classes from './AdminResidences.module.scss';
 
 export const AdminResidences = () => {
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+    const [selectedUser, setSelectedUser] = useState(null);
 
     const data = [
         {
+            id: 1,
             name: "John Doe",
             email: "john@mail.com",
+            role: "admin",
+            address: "Olivos #16"
+        },
+        {
+            id: 2,
+            name: "Mich",
+            email: "mich@mail.com",
+            role: "mainResident",
+            address: "Olivos #16"
+        },
+        {
+            id: 3,
+            name: "Malenco",
+            email: "malenco@mail.com",
             role: "normalResident",
             address: "Olivos #16"
         },
         {
-            name: "John Doe",
-            email: "john@mail.com",
-            role: "mainResident",
-            address: "Olivos #16"
-        },
-        {
-            name: "John Doe",
-            email: "john@mail.com",
-            role: "mainResident",
-            address: "Olivos #16"
-        },
-        {
-            name: "John Doe",
-            email: "john@mail.com",
-            role: "mainResident",
+            id: 4,
+            name: "Kike",
+            email: "kike@mail.com",
+            role: "visitor",
             address: "Olivos #16"
         }
     ]
@@ -40,10 +45,11 @@ export const AdminResidences = () => {
         "Dirección": "address"
     };
 
-    const handleEditClick = () => {
-        document.body.classList.add(classes["modal-open"])
+    const handleEditClick = (user) => {
+        setSelectedUser(user);
+        document.body.classList.add(classes["modal-open"]);
         setIsEditModalOpen(true);
-    }
+    };
 
     const handleOnDismiss = () => {
         document.body.classList.remove(classes["modal-open"])
@@ -62,6 +68,7 @@ export const AdminResidences = () => {
             />
             {isEditModalOpen &&
                 <EditModal
+                    userData={selectedUser}
                     onDismiss={handleOnDismiss}
                 />
             }

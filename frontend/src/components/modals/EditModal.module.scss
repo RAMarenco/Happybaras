@@ -33,6 +33,11 @@
 
             input {
                 outline: 1px solid $pc-700;
+                color: $pc-700;
+
+                &:disabled {
+                    opacity: 0.5;
+                }
             }
         }
 
@@ -61,7 +66,7 @@
                     }
                 }
 
-                &.save {
+                &.edit {
                     padding-inline: 1.5rem;
                     background-color: $pc-500;
                     color: $tc-light;

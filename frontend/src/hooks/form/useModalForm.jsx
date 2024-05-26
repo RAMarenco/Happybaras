@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { URL } from "../../consts/consts";
 
-const useModalForm = (user) => {
+const useModalForm = (user, endpoint, method = "PATCH", onSuccess) => {
     const [data, setData] = useState(user)
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setData(prevData => ({
+        setData((prevData) => ({
             ...prevData,
-            [name]: value
+            [name]: value,
         }));
     };
 
@@ -16,8 +16,8 @@ const useModalForm = (user) => {
         e.preventDefault();
 
         try {
-            const response = await fetch(`${URL}/users/${user.id}`, {
-                method: "PATCH",
+            const response = await fetch(`${URL}/${endpoint}`, {
+                method: method,
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -25,20 +25,26 @@ const useModalForm = (user) => {
             });
 
             if(!response.ok) {
-                throw new Error("Error updating user");
+                throw new Error("Error updating data");
             }
 
             const updatedUser = await response.json();
             setData(updatedUser);
+
+            if(onSuccess) {
+                onSuccess(updatedUser);
+            }
 
         } catch (error) {
             console.error("Error:", error);
         }
     }
 
-    return (
-        data, handleChange, handleOnSubmit
-    )
+    return {
+        data,
+        handleChange,
+        handleOnSubmit
+    };
 }
 
 export default useModalForm;
