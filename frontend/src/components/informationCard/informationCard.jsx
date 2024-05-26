@@ -21,7 +21,9 @@ const InformationCard = (props) => {
             </div>
             {
                 role === ROLES.VISITOR ? 
-                    <div className={classes["Button"]}></div>
+                    <div className={classes["Button"]}>
+                        <figure></figure>
+                    </div>
                 :
                     <></>
             }
