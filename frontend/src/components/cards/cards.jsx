@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import usePermitsInfo from '../../hooks/permitsInfo/usePermitsInfo';
 import InformationCard from './informationCard/informationCard';
 
-const Cards = () => {
+const Cards = (props) => {
     const [data, loadData] = usePermitsInfo([]);
     
     useEffect(() => {
@@ -24,6 +24,8 @@ const Cards = () => {
                             first={permit.resident} 
                             second={permit.date} 
                             third={permit.address}
+                            handleClick={props.handleClick}
+                            disabled={index === 0 ? false : true}
                         />
                     )
                 })

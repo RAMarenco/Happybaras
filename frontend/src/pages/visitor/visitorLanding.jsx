@@ -23,7 +23,7 @@ const VisitorLanding = () => {
                         <Instructions/>
                     :
                         <div className={classes["QRContainer"]}>
-
+                            
                         </div>
                 }
             </div>
