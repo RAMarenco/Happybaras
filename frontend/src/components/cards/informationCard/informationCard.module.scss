@@ -7,8 +7,9 @@
     padding: 1rem;
     gap: 1rem;
 
-    border: 0.05px solid $pc-500;
-    box-shadow: 3px $pc-100;
+    background-color: #fff;
+
+    border: 0.05px solid rgba($pc-500, 0.5);
     border-radius: 0.5rem;
 
     .Number {
