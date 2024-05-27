@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import TableComponent from '../../../components/tableComponent/tableComponent';
 import { EditModal } from '../../../components/modals/EditModal';
-import classes from './AdminResidences.module.scss';
+import classes from './AdminUserManagement.module.scss';
 
-export const AdminResidences = () => {
+export const AdminUserManagement = () => {
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
 
