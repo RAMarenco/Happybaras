@@ -11,7 +11,7 @@ export const EditModal = ({ userData , onDismiss }) => {
     const { handleChange, handleOnSubmit, data } = useModalForm(
         userData,
         `users/${userData.id}`,
-        "PATCH",
+        "PUT",
         () => {
             onDismiss();
         }
