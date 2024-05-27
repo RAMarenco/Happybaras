@@ -37,9 +37,14 @@
             }
         }
 
-        // Esto es para el placeholder, luego se quitará
         .Button {
             flex-grow: 1;
+            height: 88px;
+
+            @media screen and (max-width: 900px) {
+                height: 40px;
+            }
         }
     }
 }
+

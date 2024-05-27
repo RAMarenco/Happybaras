@@ -2,10 +2,8 @@
 
 .VisitorLandingContainer {
     width: 100vw;
-    height: 100%;
+    height: calc(100dvh - 5rem);
     padding: 1rem;
-
-    background-color: $pc-50;
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
