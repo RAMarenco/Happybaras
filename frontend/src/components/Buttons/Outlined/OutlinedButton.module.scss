@@ -1,0 +1,43 @@
+@use '../../../variables' as *;
+
+@mixin outlinedButton($border-color, $hover-color, $active-color, $disabled-color, $text-color, $background-color) {
+    color: $text-color;
+    padding: 0.75rem 1.25rem;
+    border: 1.75px solid $border-color;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 10px;
+    
+    &:hover {
+        background-color: $background-color;
+        border: 1.75px solid $border-color;
+    }
+
+    &:active {
+        background-color: $background-color;
+        border: 1.75px solid $active-color;
+    }
+
+    &:disabled {
+        border: 1.75px solid $disabled-color;
+        cursor: not-allowed;
+        color: $disabled-color;
+    }
+}
+
+.primary {
+  @include outlinedButton($pc-500, $pc-300, $pc-700, $pc-200, $pc-600, $pc-50);
+}
+
+.secondary {
+  @include outlinedButton($sc-500, $sc-500, $sc-700, $sc-200, $sc-500, $sc-50);
+}
+
+.accent-green {
+  @include outlinedButton($acg-500, $acg-600, $acg-700, $acg-200, $acg-500, $acg-50);
+}
+
+.accent-red {
+  @include outlinedButton($acr-600, $acr-700, $acr-800, $acr-200, $acr-600, $acr-50);
+}

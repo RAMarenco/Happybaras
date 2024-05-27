@@ -3,6 +3,7 @@ import classes from "./InputGroup.module.scss";
 
 const InputGroup = ({inputs = [], onChange}) => {
     const inputsMap = inputs.map((input) => {
+
         return (
             <label key={useId()} className={classes[input.class]}>
                 {input.text}
