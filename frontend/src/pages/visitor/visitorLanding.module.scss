@@ -16,15 +16,12 @@
         gap: 1rem;
         display: flex;
         flex-direction: column;
-
-        .CardsContainer {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
     }
 
     .RightContainer {
         grid-column: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

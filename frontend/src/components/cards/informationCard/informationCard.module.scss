@@ -1,0 +1,52 @@
+@import "/src/variables";
+
+.Card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+
+    border: 0.05px solid $pc-500;
+    box-shadow: 3px $pc-100;
+    border-radius: 0.5rem;
+
+    .Number {
+        flex-grow: 0.25;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .Data {
+        flex-grow: 3;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        .Information {
+            flex-grow: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.625rem;
+    
+            padding: 0.25rem 0 0.25rem 0;
+            .Title {
+                font-weight: bold;
+            }
+        }
+
+        // Esto es para el placeholder, luego se quitará
+        .Button {
+            flex-grow: 1;
+            
+            figure {
+                border-radius: 0.25rem;
+                background-color: $pc-500;
+                min-width: 150px;
+                max-height: 88px;
+                min-height: 40px;
+            }
+        }
+    }
+}
