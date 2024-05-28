@@ -1,6 +1,6 @@
 import QRGenerator from "./qrGenerator/qrGenerator";
-import classes from './qrGenerator/qrGenerator';
-import { FilledButton } from "../Buttons/Filled/FilledButton";
+import classes from './qrContainer.module.scss';
+import FilledButton from "../Buttons/Filled/FilledButton";
 import Timer from "./timer/timer";
 import { useState } from "react";
 
@@ -22,7 +22,7 @@ const QRContainer = ({info}) => {
 
     return(
         <div className={classes["QRContainer"]}>
-            <h1 style={{fontWeight: "bold"}}>Tiempo restante</h1>
+            <h1 style={{fontWeight: "bold", fontSize: "24px"}}>Tiempo restante</h1>
             <Timer timeLimit={timeLimit} handleDeadline={handleTimeLimitExceeded}/>
             {
                 !expired ? 

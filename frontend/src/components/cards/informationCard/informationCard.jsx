@@ -1,7 +1,7 @@
 import classes from './informationCard.module.scss';
 import { useAuth } from '../../../hooks/auth/useAuth';
 import ROLES from '../../../consts/roleConsts';
-import { FilledButton } from '../../Buttons/Filled/FilledButton';
+import FilledButton from '../../Buttons/Filled/FilledButton';
 
 const InformationCard = ({number, firstTitle, secondTitle, thirdTitle, first, second, third, handleClick, disabled}) => {
     const { getRole } = useAuth();
@@ -32,7 +32,7 @@ const InformationCard = ({number, firstTitle, secondTitle, thirdTitle, first, se
                 {
                     role === ROLES.VISITOR ? 
                         <div className={classes["Button"]}>
-                            <FilledButton onClick={() => {handleClick(info)}} disabled={disabled} color="primary" text="Generar QR"/>
+                            <FilledButton onClick={() => {handleClick(info)}} disabled={disabled} text="Generar QR"/>
                         </div>
                     :
                         <></>
