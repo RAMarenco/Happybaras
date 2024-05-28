@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
 
-const Timer = ({handleDeadline, timeLimit}) => {
+const Timer = ({handleDeadline, timeLimit, deadline, expired}) => {
     const [timeDelta, setTimeDelta] = useState({
         minutes: timeLimit.getMinutes(), 
         seconds: timeLimit.getSeconds(),
     });
-    const [expired, setExpired] = useState(false);
-
-    const deadline = new Date(); // Current time
-    deadline.setMinutes(deadline.getMinutes() + timeLimit.getMinutes()); // Add 10 minutes to the current time. This will be our deadline
 
     const getTime = () => {
+        //console.log(deadline)
         const time = deadline - Date.now(); // Get the remaining time until reaching the deadline
 
         if(time > 0)
@@ -20,15 +17,21 @@ const Timer = ({handleDeadline, timeLimit}) => {
             })
         else {
             handleDeadline();
-            setExpired(true);
         }
-    
     }
+
+    useEffect(() => {
+        setTimeDelta({
+            minutes: timeLimit.getMinutes(),
+            seconds: timeLimit.getSeconds(),
+        })
+
+    }, [deadline])
 
     useEffect(() => {
         const interval = setInterval(() => getTime(), 1000);
         return () => clearInterval(interval);
-    }, [])
+    }, [deadline])
 
     return(
         <div>

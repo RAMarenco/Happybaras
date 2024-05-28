@@ -7,10 +7,8 @@ import QRContainer from '../../components/qrContainer/qrContainer';
 
 const VisitorLanding = () => {
     const [showQR, setShowQR] = useState(false);
-    const [QRInfo, setQRInfo] = useState({});
 
     const handleGenerateQRClick = (info) => {
-        setQRInfo(info); 
         if(!showQR)
             setShowQR(true)
     }
@@ -26,7 +24,7 @@ const VisitorLanding = () => {
                     !showQR ? 
                         <Instructions/>
                     :
-                        <QRContainer info={QRInfo}/>
+                        <QRContainer/>
                 }
             </div>
         </div>
