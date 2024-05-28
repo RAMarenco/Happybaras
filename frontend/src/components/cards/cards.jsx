@@ -4,16 +4,16 @@ import usePermitsInfo from '../../hooks/permitsInfo/usePermitsInfo';
 import InformationCard from './informationCard/informationCard';
 
 const Cards = (props) => {
-    const [data, loadData] = usePermitsInfo([]);
+    const [permits, loadPermits] = usePermitsInfo();
     
     useEffect(() => {
-        loadData();
+        loadPermits("permits/all");
     }, []);
 
     return (
         <div className={classes["CardsContainer"]}>  
             {
-                data.map((permit, index) => {
+                permits.map((permit, index) => {
                     return (
                         <InformationCard 
                             key={index} 
@@ -26,6 +26,7 @@ const Cards = (props) => {
                             third={permit.address}
                             handleClick={props.handleClick}
                             disabled={index === 0 ? false : true}
+                            /* TODO: set if it is disabled depending on the date and hour */
                         />
                     )
                 })

@@ -1,6 +1,8 @@
 import classes from './instructions.module.scss';
 
 const Instructions = () => {
+    const timeLimit = 10; /* This value should be brought from the API since it can be changed by the ADMIN */
+
     const instructions = [
         {
             text: "Encuentra la invitación del residente que deseas visitar en la agenda",
@@ -23,8 +25,8 @@ const Instructions = () => {
             additional: ""
         },
         {
-            text: "Después de 10 minutos, genera un nuevo código QR:", 
-            additional: "Si han pasado 10 minutos desde que se generó el código QR anterior y aún no has ingresado a la residencia, regresa a la agenda y genera un nuevo código QR siguiendo los pasos anteriores."
+            text: `Después de ${timeLimit} minutos, genera un nuevo código QR:`, 
+            additional: `Si han pasado ${timeLimit} minutos desde que se generó el código QR anterior y aún no has ingresado a la residencia, regresa a la agenda y genera un nuevo código QR siguiendo los pasos anteriores.`
         }
     ]
 
