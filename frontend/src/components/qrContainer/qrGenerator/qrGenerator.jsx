@@ -1,9 +1,9 @@
-import QRCode from "react-qr-code";
+import { QRCode } from "react-qrcode-logo";
 
 const QRGenerator = ({value}) => {
     return(
         <div style={{ background: 'white', padding: '16px' }}>
-            <QRCode value={value} />
+            <QRCode value={value} logoImage="/src/assets/Logo.svg" logoPadding={4}/>
         </div>
     )
 }
