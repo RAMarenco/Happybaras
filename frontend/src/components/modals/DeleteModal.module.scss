@@ -1,5 +1,6 @@
 @use "./../../variables" as *;
 
+
 .modal-background {
     --shf: 4.9406564584124654e-322;
 
@@ -22,23 +23,16 @@
         padding: 1.5rem;
         max-width: 30rem;
         background-color: $tc-light;
-        line-height: 1.5rem;
         border-radius: 0.5rem;
         box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
 
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            color: $pc-700;
+        .modal-content {
+            line-height: 1.5rem;
+            font-size: 1.1rem;
+            padding-block: 1.25rem;
 
-            input {
-                outline: 1px solid $pc-700;
-                color: $pc-700;
-
-                &:disabled {
-                    opacity: 0.5;
-                }
+            .strong {
+                font-weight: 600;
             }
         }
 
@@ -68,13 +62,13 @@
                     }
                 }
 
-                &.edit {
+                &.confirm {
                     padding-inline: 1.5rem;
-                    background-color: $pc-500;
+                    background-color: $acr-600;
                     color: $tc-light;
 
                     &:hover {
-                        background-color: $pc-600;
+                        background-color: $acr-700;
                     }
                 }
 
@@ -86,19 +80,18 @@
         display: flex;
         gap: 1rem;
         align-items: start;
-        padding-bottom: 1.5rem;
         border-radius: 0.5rem 0.5rem 0 0;
         align-items: center;
 
-        .edit-icon {
+        .delete-icon {
             font-size: 2rem;
-            color: $pc-700;
+            color: $acr-700;
         }
 
         .modal-title {
             font-size: 1.25rem;
             font-weight: 500;
-            color: $pc-700;
+            color: $acr-700;
         }
     }
 }

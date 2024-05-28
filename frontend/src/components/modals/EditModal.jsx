@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
-import classes from './EditModal.module.scss'
 import { MdEdit } from "react-icons/md";
-import { DropdownMenu } from '../inputs/DropdownMenu';
-import * as INPUTS from "./modalInputs";
-import ROLES from "../../consts/roleConsts"
+import ROLES from "../../consts/roleConsts";
 import useModalForm from '../../hooks/form/useModalForm';
-import { GeneralInput } from '../inputs/GeneralInput';
+import { DropdownMenu } from '../inputs/Dropdown/DropdownMenu';
+import { GeneralInput } from '../inputs/GeneralInput/GeneralInput';
+import classes from './EditModal.module.scss';
+import * as INPUTS from "./modalInputs";
 
-export const EditModal = ({ userData , onDismiss }) => {
+export const EditModal = ({ userData, onDismiss }) => {
     const { handleChange, handleOnSubmit, data } = useModalForm(
         userData,
         `users/${userData.id}`,
@@ -39,7 +38,7 @@ export const EditModal = ({ userData , onDismiss }) => {
                     <h2 className={classes["modal-title"]}>Editar datos</h2>
                 </div>
                 <div className={classes["input-group"]}>
-                    <GeneralInput 
+                    <GeneralInput
                         type="text"
                         name="name"
                         label="Nombre"

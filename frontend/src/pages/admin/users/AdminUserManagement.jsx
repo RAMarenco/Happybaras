@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
-import TableComponent from '../../../components/tableComponent/tableComponent';
+import React, { useState } from 'react';
+import { DeleteModal } from '../../../components/modals/DeleteModal.jsx';
 import { EditModal } from '../../../components/modals/EditModal';
+import TableComponent from '../../../components/tableComponent/tableComponent';
 import classes from './AdminUserManagement.module.scss';
 
 export const AdminUserManagement = () => {
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
 
     const data = [
@@ -17,7 +19,7 @@ export const AdminUserManagement = () => {
         },
         {
             id: 2,
-            name: "Mich",
+            name: "Michelle Rivas Gutierritos",
             email: "mich@mail.com",
             role: "mainResident",
             address: "Olivos #16"
@@ -54,6 +56,13 @@ export const AdminUserManagement = () => {
     const handleOnDismiss = () => {
         document.body.classList.remove(classes["modal-open"])
         setIsEditModalOpen(false);
+        setIsDeleteModalOpen(false);
+    }
+
+    const handleDeleteClick = (user) => {
+        setSelectedUser(user);
+        document.body.classList.add(classes["modal-open"]);
+        setIsDeleteModalOpen(true);
     }
 
     return (
@@ -64,10 +73,16 @@ export const AdminUserManagement = () => {
                 role="admin"
                 permission={true}
                 onEditClick={handleEditClick}
-                onDeleteClick={() => console.log("Delete")}
+                onDeleteClick={handleDeleteClick}
             />
             {isEditModalOpen &&
                 <EditModal
+                    userData={selectedUser}
+                    onDismiss={handleOnDismiss}
+                />
+            }
+            {isDeleteModalOpen &&
+                <DeleteModal
                     userData={selectedUser}
                     onDismiss={handleOnDismiss}
                 />
