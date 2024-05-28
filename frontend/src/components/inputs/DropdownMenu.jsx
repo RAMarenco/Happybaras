@@ -9,7 +9,7 @@ export const DropdownMenu = ({
     onChange,
     options = [],
     filterOption = useCallback((option, searchTerm) => option.address.toLowerCase().includes(searchTerm.toLowerCase()), []),
-    renderOption = (option) => option.label,
+    renderOption = (option) => option.address,
     defaultValue = ""
 }) => {
     const [searchTerm, setSearchTerm] = useState(defaultValue);
@@ -42,6 +42,7 @@ export const DropdownMenu = ({
                     onChange={handleInputChange}
                     className={classes["input"]}
                     value={searchTerm}
+                    defaultValue={searchTerm}
                     onFocus={() => setFilteredOptions(
                         options.filter(option => filterOption(option, searchTerm))
                     )}
