@@ -1,0 +1,32 @@
+@import "/src/variables";
+
+.react-datepicker-wrapper {
+    flex-grow: 1;
+}
+
+.react-datepicker__input-container {
+    position: relative;
+}
+
+svg {
+    left: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $pc-500;
+}
+
+.DatePicker {
+    padding: 5px 5px 5px 40px !important;
+    padding-block: 1.25rem;
+    border-radius: 0.5rem;
+    border: none;
+    outline: 1px solid $pc-500;
+    height: 3.125rem;
+    color: $pc-700;
+}
+
+div.react-datepicker__tab-loop {
+    .react-datepicker__tab-loop__start {
+        display: none;
+    }
+}

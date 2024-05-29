@@ -1,9 +1,7 @@
 import classes from './filters.module.scss';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { FaRegCalendarAlt } from "react-icons/fa";
 import { useState } from 'react';
-import { useRef } from 'react';
+import Picker from '../inputs/datePicker/datePicker';
+import {GeneralInput} from "./../inputs/GeneralInput";
 
 const Filters = () => {
     const [startDate, setStartDate] = useState(new Date());
@@ -12,49 +10,25 @@ const Filters = () => {
         date.setDate(date.getDate() + 7);
         return date;
     });
-    const [inputClicked, setInputClicked] = useState({
-        startDateClicked: false, 
-        endDateClicked: false,
-    })
-
-    const icon = <FaRegCalendarAlt/>
-    
-    const startDateRef = useRef(null);
-    const endDateRef = useRef(null);
-
-    const handleStartDateClick = () => {
-        if(startDateRef.current.isCalendarOpen) {
-            setInputClicked((prev) => ({
-                startDateClicked: true,
-                ...prev
-            }))
-        }
-    }
-
-    const handleEndDateClick = () => {
-
-    }
 
     return (
         <div className={classes["Filters"]}>
-            <DatePicker
-                ref={startDateRef}
-                showIcon
-                icon={icon}
-                dateFormat={"dd/MM/yyyy"}
-                selected={startDate}
-                onInputClick={handleStartDateClick}
-                onChange={(date) => setStartDate(date)}
+            <Picker 
+                date={startDate}
+                setDate={setStartDate}
+                className={classes["DatePicker"]}
             />
-            <DatePicker
-                ref={endDateRef}
-                showIcon
-                icon={icon}
-                dateFormat={"dd/MM/yyyy"}
-                selected={endDate}
-                onInputClick={handleEndDateClick}
-                onChange={(date) => setEndDate(date)}
+            <Picker
+                date={endDate}
+                setDate={setEndDate}
+                className={classes["DatePicker"]}
             />
+            <GeneralInput
+                value={"Ingrese el nombre de un residente"}
+                type="text"
+                name="name"
+            />
+
         </div>
     )
 }
