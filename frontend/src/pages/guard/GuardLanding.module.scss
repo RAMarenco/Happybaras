@@ -126,6 +126,10 @@
                 }
             }
         }
+
+        >:nth-child(3) {
+            height: auto!important;
+        }
     }
 
     > .Form_Container {
@@ -145,8 +149,8 @@
             gap: 1rem;
             width: 100%;
 
-            > button {
-                justify-self: end;
+            button {
+                margin-left: auto;
             }
         }
     }

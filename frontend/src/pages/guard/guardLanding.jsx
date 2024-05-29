@@ -1,10 +1,11 @@
 import { useEffect } from "react";
-import useForm from "./../../hooks/form/useForm";
 import { BsCameraFill } from "react-icons/bs";
-import useScanner from "../../hooks/scanner/useScanner";
-import classes from "./GuardLanding.module.scss";
-import InputGroup from "../../components/inputs/inputGroup";
 import { INPUTS } from "../../consts/consts";
+import useForm from "./../../hooks/form/useForm";
+import useScanner from "../../hooks/scanner/useScanner";
+import InputGroup from "../../components/inputs/inputGroup";
+import FilledButton from "../../components/Buttons/Filled/FilledButton";
+import classes from "./GuardLanding.module.scss";
 
 const GuardLanding = () => {
     const info = {
@@ -81,12 +82,14 @@ const GuardLanding = () => {
                         ].join(" ")}
                     ></div>
                 </div>
-                <button
+                {
+                    //
+                }
+                <FilledButton
+                    text={!scanning ? "Escanear QR" : "Dejar de escanear"}
                     disabled={selectedCamera == ""}
                     onClick={handleStartScanning}
-                >
-                    {!scanning ? "Escanear QR" : "Dejar de escanear"}
-                </button>
+                />
             </section>
             <section className={classes["Form_Container"]}>
                 <h3>Registro de autoridades o servicios</h3>
@@ -95,9 +98,11 @@ const GuardLanding = () => {
                         inputs={INPUTS.ManualInputs}
                         onChange={(e) => handleOnChange(e)}
                     />
-                    <button onClick={handleOnSubmit} disabled={!validForm()}>
-                        Registrar
-                    </button>
+                    <FilledButton
+                        onClick={handleOnSubmit}
+                        disabled={!validForm()}
+                        text="Registrar"
+                    />
                 </div>
             </section>
         </div>
