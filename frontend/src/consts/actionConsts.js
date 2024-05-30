@@ -1,7 +1,7 @@
 const ADMINACTIONS = [
     {
         name: "Usuarios", 
-        link: "/",
+        link: "./users",
     },
     {
         name: "Residencias", 
@@ -9,7 +9,7 @@ const ADMINACTIONS = [
     },
     {
         name: "Reportes", 
-        link: "/",
+        link: "./reports",
     },
 ];
 

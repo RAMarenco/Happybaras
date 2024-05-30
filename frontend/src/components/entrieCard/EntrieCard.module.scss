@@ -1,0 +1,31 @@
+@use "./../../variables" as colors;
+
+.Entrie_Card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.625rem;
+    gap: 1rem;
+    min-width: 12.75rem;
+    max-width: 12.75rem;
+    height: 11rem;
+    box-shadow: none;
+    border-radius: 0.5rem;
+    background-color: colors.$acg-100;
+
+    > p {
+        line-height: 1.25;
+        b {
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        @media screen and (max-width: 900px) {
+            font-size: 0.95rem;
+
+            b {
+                font-size: 0.75rem;
+            }
+        }
+    }
+}

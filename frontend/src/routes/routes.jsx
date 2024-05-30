@@ -5,6 +5,7 @@ import VisitorLayout from "../layouts/visitor/visitorLayout";
 import AdminLanding from "../pages/admin/landing/adminLanding";
 import ProtectedRoutes from "../components/protectedRoutes/protectedRoutes";
 import { AdminUserManagement } from "../pages/admin/users/AdminUserManagement";
+import AdminReports from "../pages/admin/reports/adminReports";
 /*
     TODO import NotFound from "../pages/notFound/NotFound";
 */
@@ -36,6 +37,10 @@ const Routes = [
                     {
                         path: "users",
                         element: <AdminUserManagement />,
+                    },
+                    {
+                        path: "reports",
+                        element: <AdminReports/>
                     }
                 ],
             },
