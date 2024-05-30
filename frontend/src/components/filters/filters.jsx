@@ -1,7 +1,7 @@
 import classes from './filters.module.scss';
 import { useEffect } from 'react';
 import Picker from '../inputs/picker/picker';
-import {GeneralInput} from "./../inputs/GeneralInput";
+import {GeneralInput} from "./../inputs/GeneralInput/GeneralInput";
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -27,28 +27,21 @@ const Filters = ({startDate, endDate, setStartDate, setEndDate}) => {
 
     return (
         <div className={classes["Filters"]}>
-            <div className={classes["PlaceHolder"]}>
-                Resident Placeholder
-            </div>
-            <div className={classes["DatePickerWrapper"]}>
-                <Picker 
-                    date={startDate}
-                    setDate={setStartDate}
-                    className={classes["DatePicker"]}
-                />
-            </div>
-            <div className={classes["DatePickerWrapper"]}>
-                <Picker
-                    date={endDate}
-                    setDate={setEndDate}
-                    className={classes["DatePicker"]}
-                />
-            </div>
-            {/* <GeneralInput
+            <Picker 
+                date={startDate}
+                setDate={setStartDate}
+                className={classes["DatePicker"]}
+            />
+            <Picker
+                date={endDate}
+                setDate={setEndDate}
+                className={classes["DatePicker"]}
+            />
+            <GeneralInput
                 value={"Ingrese el nombre de un residente"}
                 type="text"
                 name="name"
-            /> */}
+            />
             <ToastContainer
                 position="bottom-right"
                 autoClose={5000}
