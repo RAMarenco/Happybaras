@@ -10,7 +10,7 @@ const Home = () => {
         JSON.stringify({
             token: "something",
             user: {
-                role: "normalResident",
+                role: "admin",
             },
         })
     );*/
