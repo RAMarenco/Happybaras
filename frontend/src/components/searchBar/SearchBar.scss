@@ -1,0 +1,32 @@
+@use "../../variables" as colors;
+
+@mixin searchBar($borderColor, $focusColor) {
+  border: 1px solid $borderColor;
+  border-radius: 0.4rem;
+  height: 51px;
+  width: 100%;
+  max-width: 400px;
+  padding: 0 1rem;
+  color: $borderColor;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &:focus {
+    outline: 2px solid $focusColor;
+  }
+
+  &::placeholder {
+    color: $borderColor;
+  }
+
+  @media(max-width: 900px) {
+    font-size: 0.75rem;
+}
+}
+
+input {
+    &.searchbar {
+        @include searchBar(colors.$pc-500, colors.$pc-700);
+    }
+}
