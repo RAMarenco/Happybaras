@@ -5,38 +5,61 @@ import { useMediaQuery } from 'react-responsive';
 
 const Items = ({role}) => {
     const isMovile = useMediaQuery({ query: '(max-width: 900px)' });
+    const getActions = () => {
+        if(role === ROLES.ADMIN){
+            return ACTIONS.ADMINACTIONS;
+        }
 
+        if(role === ROLES.MAINRESIDENT){
+            return ACTIONS.ENCARGADOACTIONS;
+        }
+
+        if(role === ROLES.NORMALRESIDENT){
+            return ACTIONS.RESIDENTACTIONS;
+        }
+    }
+
+    const setColors = () => {
+        switch(role) {
+            case ROLES.ADMIN:
+                if (isMovile) {
+                    return {color: "#001021", textDecoration: "none"};
+                } else {
+                    return {color: "#F4F8FB", textDecoration: "none"};
+                }
+            case ROLES.MAINRESIDENT: {
+                if (isMovile) {
+                    return {color: "#001021", textDecoration: "none"};
+                } else {
+                    return {color: "#254155", textDecoration: "none"};
+                }
+            }
+            case ROLES.NORMALRESIDENT: {
+                if (isMovile) {
+                    return {color: "#001021", textDecoration: "none"};
+                } else {
+                    return {color: "#254155", textDecoration: "none"};
+                }
+            }
+        }
+    }
+ 
+    const actions = getActions();
+    
     return(
         <>
             {   
-                role === ROLES.ADMIN ? 
-                ACTIONS.ADMINACTIONS.map((action) => {
-                        return (
-                            <Link 
+                actions.map((action) => {
+                    return (
+                        <Link 
                             key={action.name} 
                             to={action.link} 
-                            style={isMovile ? 
-                                {color: "#001021", textDecoration: "none"}  : 
-                                {color: "#F4F8FB", textDecoration: "none"}}
-                            >
-                                {action.name}
-                            </Link>
-                        )  
-                    })
-                :
-                ACTIONS.RESIDENTACTIONS.map((action) => {
-                        return (
-                            <Link 
-                                key={action.name} 
-                                to={action.link} 
-                                style={isMovile ? 
-                                    {color: "#001021", textDecoration: "none"}  : 
-                                    {color: "#254155", textDecoration: "none"}}
-                                >
-                                {action.name}
-                            </Link>
-                        )
-                    })
+                            style={setColors()}
+                        >
+                            {action.name}
+                        </Link>
+                    )
+                })
             }
         </>
     )

@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import classes from './GeneralInput.module.scss'
 
 export const GeneralInput = ({ type, name, label, value, onChange, disabled = false }) => {

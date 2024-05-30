@@ -6,6 +6,8 @@ import AdminLanding from "../pages/admin/landing/adminLanding";
 import ProtectedRoutes from "../components/protectedRoutes/protectedRoutes";
 import { AdminUserManagement } from "../pages/admin/users/AdminUserManagement";
 import AdminReports from "../pages/admin/reports/adminReports";
+import ResidentLayout from "../layouts/resident/residentLayout";
+import Members from "../pages/resident/members/members";
 /*
     TODO import NotFound from "../pages/notFound/NotFound";
 */
@@ -41,6 +43,16 @@ const Routes = [
                     {
                         path: "reports",
                         element: <AdminReports/>
+                    }
+                ],
+            },
+            {
+                path: "/resident",
+                element: <ResidentLayout />,
+                children: [
+                    {
+                        path: "members",
+                        element: <Members />,
                     }
                 ],
             },

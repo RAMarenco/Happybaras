@@ -41,7 +41,6 @@ export const DropdownMenu = ({
                     name={name}
                     onChange={handleInputChange}
                     className={classes["input"]}
-                    value={searchTerm}
                     defaultValue={searchTerm}
                     onFocus={() => setFilteredOptions(
                         options.filter(option => filterOption(option, searchTerm))
@@ -65,5 +64,6 @@ DropdownMenu.propTypes = {
     onChange: PropTypes.func,
     options: PropTypes.array.isRequired,
     filterOption: PropTypes.func,
-    renderOption: PropTypes.func
+    renderOption: PropTypes.func,
+    defaultValue: PropTypes.string.isRequired
 };

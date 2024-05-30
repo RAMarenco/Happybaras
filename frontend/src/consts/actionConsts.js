@@ -28,4 +28,23 @@ const RESIDENTACTIONS = [
     },
 ];
 
-export {ADMINACTIONS, RESIDENTACTIONS}
+const ENCARGADOACTIONS = [
+    { 
+        name: "Visitas",
+        link: "/" 
+    },
+    { 
+        name: "Historial",
+        link: "/" 
+    },
+    { 
+        name: "Miembros", 
+        link: "/" 
+    },
+    { 
+        name: "Solicitudes", 
+        link: "/" 
+    },
+];
+
+export {ADMINACTIONS, RESIDENTACTIONS, ENCARGADOACTIONS}

@@ -1,5 +1,6 @@
 @use "./../../variables" as *;
 
+
 .modal-background {
     --shf: 4.9406564584124654e-322;
 
@@ -22,71 +23,52 @@
         padding: 1.5rem;
         max-width: 30rem;
         background-color: $tc-light;
-        line-height: 1.5rem;
         border-radius: 0.5rem;
         box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
 
-        .modal-content {    
-            display: flex;
-            height: 100%;
-            flex-direction: column;
-            justify-content: space-between;
+        .modal-content {
+            line-height: 1.5rem;
+            font-size: 1.1rem;
+            padding-block: 1.25rem;
 
-            .input-group {
-                display: flex;
-                flex-direction: column;
-                gap: 1.5rem;
-                color: $pc-700;
-
-                input {
-                    outline: 1px solid $pc-700;
-                    color: $pc-700;
-
-                    &:disabled {
-                        opacity: 0.5;
-                    }
-                }
-            }
-
-            .modal-actions {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: flex-end;
-                gap: 1rem;
-                padding-top: 1rem;
+            .strong {
+                font-weight: 600;
             }
         }
 
+        .modal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 1rem;
+            padding-top: 1rem;
+        }
     }
 
     .modal-header {
         display: flex;
         gap: 1rem;
         align-items: start;
-        padding-bottom: 1.5rem;
         border-radius: 0.5rem 0.5rem 0 0;
         align-items: center;
 
-        .edit-icon {
+        .delete-icon {
             font-size: 2rem;
-            color: $pc-700;
+            color: $acr-700;
         }
 
         .modal-title {
             font-size: 1.25rem;
             font-weight: 500;
-            color: $pc-700;
+            color: $acr-700;
         }
     }
 }
 
 @media screen and (max-width: 767px) {
     .modal-background {
-        padding-block: 1.5rem;
-
         .modal-container {
             width: 80%;
-            height: 100%
         }
     }
 }
