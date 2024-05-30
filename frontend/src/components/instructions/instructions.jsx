@@ -1,7 +1,10 @@
 import classes from './instructions.module.scss';
+import { useMediaQuery } from 'react-responsive';
+import FilledButton from '../Buttons/Filled/FilledButton';
 
-const Instructions = () => {
+const Instructions = ({onAgreementClick}) => {
     const timeLimit = 10; /* This value should be brought from the API since it can be changed by the ADMIN */
+    const isMovile = useMediaQuery({ query: "(max-width: 900px)" });
 
     const instructions = [
         {
@@ -45,6 +48,12 @@ const Instructions = () => {
                     })
                 }
             </ol>
+            {
+                isMovile ? 
+                    <FilledButton text='Entendido' onClick={onAgreementClick} color='secondary'/>
+                :
+                    <></>
+            }
         </div>
     );
 }

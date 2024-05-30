@@ -3,6 +3,7 @@
 .Card {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
     align-items: center;
     padding: 1rem;
     gap: 1rem;
@@ -13,7 +14,6 @@
     border-radius: 0.5rem;
 
     .Number {
-        flex-grow: 0.25;
         font-size: 24px;
         font-weight: bold;
     }
@@ -32,8 +32,12 @@
             gap: 0.625rem;
     
             padding: 0.25rem 0 0.25rem 0;
-            .Title {
-                font-weight: bold;
+            
+            p {
+                line-height: 25px;
+                .Title {
+                    font-weight: bold;
+                }
             }
         }
 
@@ -42,7 +46,8 @@
             height: 88px;
 
             @media screen and (max-width: 900px) {
-                height: 40px;
+                min-height: 50px;
+                max-height: 50px;
             }
         }
     }

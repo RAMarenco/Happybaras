@@ -2,9 +2,12 @@ import QRGenerator from "./qrGenerator/qrGenerator";
 import classes from './qrContainer.module.scss';
 import FilledButton from "../Buttons/Filled/FilledButton";
 import Timer from "./timer/timer";
+import { MdArrowBackIos } from "react-icons/md";
 import { useEffect, useState } from "react";
+import { useMediaQuery } from 'react-responsive';
 
-const QRContainer = () => {
+const QRContainer = ({onGoBack}) => {
+    const isMovile = useMediaQuery({ query: "(max-width: 900px)" });
     /* TODO: this value should be retrieved from the API since it can be changed by the ADMIN */
     const timeLimit = new Date();
     timeLimit.setMinutes(10,0);
@@ -15,7 +18,7 @@ const QRContainer = () => {
     const [value, setValue] = useState(JSON.stringify(`This is message ${i}`)) // Obtain this value from the API
     const [deadline, setDeadline] = useState(); 
 
-    const handleClick = () => {
+    const handleGenerateNewQR = () => {
         // TODO: Ask for a new code from the API
         setValue(`This is message ${i++}`)
         setDeadline(Date.now() + timeLimit);
@@ -39,6 +42,16 @@ const QRContainer = () => {
             {
                 deadline != undefined ? 
                 <>
+                    {
+                        isMovile ? 
+                            <MdArrowBackIos 
+                                onClick={onGoBack} 
+                                className={classes["Arrow"]}
+                                style={{color: "#001021"}}
+                            /> 
+                        : 
+                            <></>
+                    }
                     <h1 style={{fontWeight: "bold", fontSize: "24px"}}>Tiempo restante</h1>
                     <Timer timeLimit={timeLimit} handleDeadline={handleTimeLimitExceeded} expired={expired} deadline={deadline}/>
                     {
@@ -47,7 +60,7 @@ const QRContainer = () => {
                         :
                             <QRGenerator value="QR CODE NOT VALID"/>
                     }
-                    <FilledButton onClick={() => {handleClick()}} color="secondary" text="Generar otro QR"/>
+                    <FilledButton onClick={() => {handleGenerateNewQR()}} color="secondary" text="Generar otro QR"/>
                 </>
                 : 
                 <h1>Loading</h1>

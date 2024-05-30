@@ -1,6 +1,9 @@
 @import "/src/variables";
 
 .InstructionsContainer {
+    text-align: justify;
+    text-justify: inter-word;
+
     padding: 1rem;
     gap: 1rem;
 
@@ -29,6 +32,11 @@
                 line-height: 1.5;
             }
         }
+
+        @media screen and (max-width: 900px) {
+            padding: 0 2rem 0 2rem;
+        }
+
     }
 
 

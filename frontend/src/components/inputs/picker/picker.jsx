@@ -1,7 +1,8 @@
 import { FaRegCalendarAlt } from "react-icons/fa";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import classes from './datePicker.module.scss';
+import classes from './picker.module.scss';
+import { GeneralInput } from "../GeneralInput";
 
 const Picker = ({date, setDate}) => {
     const icon = <FaRegCalendarAlt/>

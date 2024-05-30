@@ -12,6 +12,8 @@ svg {
 }
 
 .DatePicker {
+    width: 100%;
+    //min-width: 600px;
     padding: 5px 5px 5px 40px !important;
     //padding-block: 1.25rem;
     border-radius: 0.5rem;
@@ -19,4 +21,8 @@ svg {
     outline: 1px solid $pc-500;
     height: 3.125rem;
     color: $pc-700;
+
+    @media screen and (max-width: 900px) {
+        width: 300px;
+    }
 }
