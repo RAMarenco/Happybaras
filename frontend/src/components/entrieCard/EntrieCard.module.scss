@@ -15,14 +15,13 @@
 
     > p {
         line-height: 1.25;
+        font-size: 0.9rem;
         b {
             font-size: 0.8rem;
             font-weight: 700;
         }
 
         @media screen and (max-width: 900px) {
-            font-size: 0.95rem;
-
             b {
                 font-size: 0.75rem;
             }

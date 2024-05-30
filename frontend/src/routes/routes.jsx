@@ -42,8 +42,8 @@ const Routes = [
                     },
                     {
                         path: "reports",
-                        element: <AdminReports/>
-                    }
+                        element: <AdminReports />,
+                    },
                 ],
             },
             {
@@ -53,7 +53,7 @@ const Routes = [
                     {
                         path: "members",
                         element: <Members />,
-                    }
+                    },
                 ],
             },
         ],

@@ -23,7 +23,7 @@ const AdminReports = () => {
                     periodo)"
                     type="1"
                 />
-                <Chart text="Entradas de la colonia (por usuario)"/>
+                <Chart text="Entradas de la colonia (por usuario)" />
             </div>
             <div className={classes["Entries_Container"]}>
                 <h4>Entradas recientes</h4>

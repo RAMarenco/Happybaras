@@ -10,29 +10,29 @@ const dummyData = [
     {
         name: "Juan Perez",
         email: "juanperez@gmail.com",
-        role: "normalResident"
+        role: "normalResident",
     },
     {
         name: "Juan Perez",
         email: "juanperez@gmail.com",
-        role: "normalResident"
+        role: "normalResident",
     },
     {
         name: "Juan Perez",
         email: "juanperez@gmail.com",
-        role: "mainResident"
+        role: "mainResident",
     },
     {
         name: "Juan Perez",
         email: "juanperez@gmail.com",
-        role: "mainResident"
+        role: "mainResident",
     },
     {
         name: "Juan Perez",
         email: "juanperez@gmail.com",
-        role: "mainResident"
-    }
-]
+        role: "mainResident",
+    },
+];
 
 const Members = () => {
     const [search, setSearch] = useState("");
@@ -41,53 +41,54 @@ const Members = () => {
 
     const handleSearchChange = (value) => {
         setSearch(value);
-    }
+    };
 
     const handlePermission = (role) => {
-        if(role === ROLES.MAINRESIDENT){
-            return true
-        }else{
-            return false
+        if (role === ROLES.MAINRESIDENT) {
+            return true;
+        } else {
+            return false;
         }
-    }
+    };
 
-    console.log(role.user.role)
-
-    return(
+    return (
         <div className="members-container">
             <div className="members-info">
                 <div className="members-data">
                     <p>Residencia #16</p>
                     <p>Miembros totales: 5</p>
                 </div>
-                { handlePermission(role.user.role) ? 
+                {handlePermission(role.user.role) ? (
                     <div className="members-actions">
-                        <SearchBar 
-                            value={search} 
-                            onSearchChange={handleSearchChange} 
+                        <SearchBar
+                            value={search}
+                            onSearchChange={handleSearchChange}
                             placeHolder={"Buscar por correo electronico..."}
                         />
-                        <FilledButton icon={<FaPlus/>}  text="Agregar residente" />
-                    </div> :
+                        <FilledButton
+                            icon={<FaPlus />}
+                            text="Agregar residente"
+                        />
+                    </div>
+                ) : (
                     <></>
-                }
+                )}
             </div>
             <div className="members-cards-content">
-                {
-                    dummyData.map((data, index) => {
-                        return(
-                            <MemberCard 
-                            key={index} 
+                {dummyData.map((data, index) => {
+                    return (
+                        <MemberCard
+                            key={index}
                             name={data.name}
                             role={data.role}
                             email={data.email}
-                            permission={handlePermission(role.user.role)} />
-                        )
-                    })
-                }
+                            permission={handlePermission(role.user.role)}
+                        />
+                    );
+                })}
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Members;

@@ -24,7 +24,7 @@ const RESIDENTACTIONS = [
     },
     {
         name: "Miembros", 
-        link: "/",
+        link: "./members",
     },
 ];
 
@@ -39,7 +39,7 @@ const ENCARGADOACTIONS = [
     },
     { 
         name: "Miembros", 
-        link: "/" 
+        link: "./members" 
     },
     { 
         name: "Solicitudes", 
