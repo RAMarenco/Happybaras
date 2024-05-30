@@ -5,6 +5,12 @@ import classes from "./Home.module.scss"
 import Welcome from "./../../assets/Welcome.png"
 
 const Home = () => {
+    localStorage.setItem("dataStorage", JSON.stringify({
+        "token": "something",
+        "user": {
+            "role": "admin"
+        }
+    }));
     /*const login = useGoogleLogin({
         onSuccess: tokenResponse => console.log(tokenResponse),
         onError: error => console.log(error),
