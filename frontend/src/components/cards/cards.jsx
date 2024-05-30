@@ -5,10 +5,24 @@ import InformationCard from './informationCard/informationCard';
 
 const Cards = (props) => {
     const [permits, loadPermits] = usePermitsInfo();
+    const filters = {...props.filters};
+
+    const filterCards = () => {
+        permits.map((permit) => {
+            if(filters.begin_date <= permit.begin_date) {
+                if(filters.end_date >= permit.begin_date) 
+                    return(permit);
+            }
+        })
+    }
     
     useEffect(() => {
         loadPermits("permits/all");
     }, []);
+
+    useEffect(() => {
+        filterCards();
+    }, [filters])
 
     return (
         <div className={classes["CardsContainer"]}>  
@@ -22,7 +36,7 @@ const Cards = (props) => {
                             secondTitle="Fecha y hora: " 
                             thirdTitle="Dirección: " 
                             first={permit.resident} 
-                            second={permit.date} 
+                            second={permit.begin_date} 
                             third={permit.address}
                             handleClick={props.handleClick}
                             disabled={index === 0 ? false : true}

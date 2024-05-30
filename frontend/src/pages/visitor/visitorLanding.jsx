@@ -7,6 +7,17 @@ import QRContainer from '../../components/qrContainer/qrContainer';
 
 const VisitorLanding = () => {
     const [showQR, setShowQR] = useState(false);
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(() => {
+        const date = new Date();
+        date.setDate(date.getDate() + 7);
+        return date;
+    });
+
+    const filters = {
+        startDate, 
+        endDate, 
+    }
 
     const handleGenerateQRClick = (info) => {
         if(!showQR)
@@ -16,8 +27,8 @@ const VisitorLanding = () => {
     return(
         <div className={classes["VisitorLandingContainer"]}>
             <div className={classes["LeftContainer"]}> 
-                <Filters/>
-                <Cards handleClick={handleGenerateQRClick}/>
+                <Filters startDate={startDate} endDate={endDate} setStartDate={setStartDate} setEndDate={setEndDate}/>
+                <Cards filters={filters} handleClick={handleGenerateQRClick}/>
             </div>
             <div className={classes["RightContainer"]}>
                 {

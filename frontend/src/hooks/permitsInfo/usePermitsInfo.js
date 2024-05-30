@@ -8,25 +8,37 @@ const usePermitsInfo = () => {
         {
             id: "A378F7E1-94AD-432E-9DB1-41BADDBDAE8F",
             resident: "John Doe",
-            date: "2024-10-29 10:00 a 13:00",
-            address: "Calle Primavera #123, Residencial Las Flores"
-        },
-        {
-            id: "A378F7E1-94AD-432E-9DB1-41BADDBDAE8F",
-            resident: "Jane Doe",
-            date: "2024-10-29 - 12:00 a 13:00",
+            begin_date: "2024-10-29",
+            end_date: "2024-10-29",
+            begin_hour: "10:00",
+            end_hour: "13:00",
             address: "Calle Primavera #123, Residencial Las Flores"
         },
         {
             id: "A378F7E1-94AD-432E-9DB1-41BADDBDAE8F",
             resident: "John Doe",
-            date: "2024-10-29 - 14:00 a 15:00",
+            begin_date: "2024-10-29",
+            end_date: "2024-10-29",
+            begin_hour: "10:00",
+            end_hour: "13:00",
             address: "Calle Primavera #123, Residencial Las Flores"
         },
         {
             id: "A378F7E1-94AD-432E-9DB1-41BADDBDAE8F",
-            resident: "Jane Doe",
-            date: "2024-10-29 - 18:00 a 20:00",
+            resident: "John Doe",
+            begin_date: "2024-10-29",
+            end_date: "2024-10-29",
+            begin_hour: "10:00",
+            end_hour: "13:00",
+            address: "Calle Primavera #123, Residencial Las Flores"
+        },
+        {
+            id: "A378F7E1-94AD-432E-9DB1-41BADDBDAE8F",
+            resident: "John Doe",
+            begin_date: "2024-10-29",
+            end_date: "2024-10-29",
+            begin_hour: "10:00",
+            end_hour: "13:00",
             address: "Calle Primavera #123, Residencial Las Flores"
         }
     ]

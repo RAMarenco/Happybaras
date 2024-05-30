@@ -5,14 +5,7 @@ import {GeneralInput} from "./../inputs/GeneralInput";
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Filters = () => {
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(() => {
-        const date = new Date();
-        date.setDate(date.getDate() + 7);
-        return date;
-    });
-
+const Filters = ({startDate, endDate, setStartDate, setEndDate}) => {
     const notify = () => toast.warn('Fecha no válida', {
         position: "bottom-right",
         autoClose: 5000,
