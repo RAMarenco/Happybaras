@@ -4,7 +4,7 @@ import useModalForm from '../../hooks/form/useModalForm';
 import { DropdownMenu } from '../inputs/Dropdown/DropdownMenu';
 import { GeneralInput } from '../inputs/GeneralInput/GeneralInput';
 import classes from './EditModal.module.scss';
-import * as INPUTS from "./modalInputs";
+import * as INPUTS from "../../consts/admin/modalInputs.js";
 
 export const EditModal = ({ userData, onDismiss }) => {
     const { handleChange, handleOnSubmit, data } = useModalForm(
@@ -37,47 +37,49 @@ export const EditModal = ({ userData, onDismiss }) => {
                     <MdEdit className={classes["edit-icon"]} />
                     <h2 className={classes["modal-title"]}>Editar datos</h2>
                 </div>
-                <div className={classes["input-group"]}>
-                    <GeneralInput
-                        type="text"
-                        name="name"
-                        label="Nombre"
-                        value={data.name}
-                        onChange={(e) => handleChange(e)}
-                        disabled={true}
-                    />
-                    <GeneralInput
-                        type="email"
-                        name="email"
-                        label="Correo electrónico"
-                        value={data.email}
-                        onChange={(e) => { handleChange(e) }}
-                        disabled={true}
-                    />
-                    <DropdownMenu
-                        label={"Residencia"}
-                        list={"address-list"}
-                        name={"address"}
-                        options={INPUTS.dummyAddresses}
-                        onChange={(e) => { handleChange(e) }}
-                        className={classes["dropdown"]}
-                        defaultValue={data.address}
-                    />
-                    <DropdownMenu
-                        label={"Rol"}
-                        list={"role-list"}
-                        name="role"
-                        options={rolesArray}
-                        onChange={(e) => { handleChange(e) }}
-                        className={classes["dropdown"]}
-                        filterOption={(option, searchTerm) => option.label.toLowerCase().includes(searchTerm.toLowerCase())}
-                        renderOption={(option) => option.label}
-                        defaultValue={rolesArray.find(role => role.name === data.role)?.label || ""}
-                    />
-                </div>
-                <div className={classes["modal-actions"]}>
-                    <button className={classes["cancel"]} onClick={onDismiss}>Cancelar</button>
-                    <button className={classes["edit"]} onClick={handleOnSubmit}>Editar</button>
+                <div className={classes["modal-content"]}>
+                    <div className={classes["input-group"]}>
+                        <GeneralInput
+                            type="text"
+                            name="name"
+                            label="Nombre"
+                            value={data.name}
+                            onChange={(e) => handleChange(e)}
+                            disabled={true}
+                        />
+                        <GeneralInput
+                            type="email"
+                            name="email"
+                            label="Correo electrónico"
+                            value={data.email}
+                            onChange={(e) => { handleChange(e) }}
+                            disabled={true}
+                        />
+                        <DropdownMenu
+                            label={"Residencia"}
+                            list={"address-list"}
+                            name={"address"}
+                            options={INPUTS.dummyAddresses}
+                            onChange={(e) => { handleChange(e) }}
+                            className={classes["dropdown"]}
+                            defaultValue={data.address}
+                        />
+                        <DropdownMenu
+                            label={"Rol"}
+                            list={"role-list"}
+                            name="role"
+                            options={rolesArray}
+                            onChange={(e) => { handleChange(e) }}
+                            className={classes["dropdown"]}
+                            filterOption={(option, searchTerm) => option.label.toLowerCase().includes(searchTerm.toLowerCase())}
+                            renderOption={(option) => option.label}
+                            defaultValue={rolesArray.find(role => role.name === data.role)?.label || ""}
+                        />
+                    </div>
+                    <div className={classes["modal-actions"]}>
+                        <button className={classes["cancel"]} onClick={onDismiss}>Cancelar</button>
+                        <button className={classes["edit"]} onClick={handleOnSubmit}>Editar</button>
+                    </div>
                 </div>
             </div>
         </div>

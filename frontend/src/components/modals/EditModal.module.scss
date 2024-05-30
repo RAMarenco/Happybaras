@@ -26,60 +26,68 @@
         border-radius: 0.5rem;
         box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
 
-        .input-group {
+        .modal-content {    
             display: flex;
+            height: 100%;
             flex-direction: column;
-            gap: 1.5rem;
-            color: $pc-700;
+            justify-content: space-between;
 
-            input {
-                outline: 1px solid $pc-700;
+            .input-group {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
                 color: $pc-700;
 
-                &:disabled {
-                    opacity: 0.5;
+                input {
+                    outline: 1px solid $pc-700;
+                    color: $pc-700;
+
+                    &:disabled {
+                        opacity: 0.5;
+                    }
+                }
+            }
+
+            .modal-actions {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                gap: 1rem;
+                padding-top: 1rem;
+
+                >button {
+                    padding: 0.5rem 1rem;
+                    border-radius: 0.5rem;
+                    font-weight: 500;
+                    cursor: pointer;
+                    transition: background-color 0.2s;
+                    border: none;
+                    padding: 1rem;
+
+                    &.cancel {
+                        background-color: white;
+                        border: 1px solid $acr-500;
+                        color: $acr-500;
+
+                        &:hover {
+                            background-color: $sc-50;
+                        }
+                    }
+
+                    &.edit {
+                        padding-inline: 1.5rem;
+                        background-color: $pc-500;
+                        color: $tc-light;
+
+                        &:hover {
+                            background-color: $pc-600;
+                        }
+                    }
+
                 }
             }
         }
 
-        .modal-actions {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            gap: 1rem;
-            padding-top: 1rem;
-
-            >button {
-                padding: 0.5rem 1rem;
-                border-radius: 0.5rem;
-                font-weight: 500;
-                cursor: pointer;
-                transition: background-color 0.2s;
-                border: none;
-                padding: 1rem;
-
-                &.cancel {
-                    background-color: white;
-                    border: 1px solid $acr-500;
-                    color: $acr-500;
-
-                    &:hover {
-                        background-color: $sc-50;
-                    }
-                }
-
-                &.edit {
-                    padding-inline: 1.5rem;
-                    background-color: $pc-500;
-                    color: $tc-light;
-
-                    &:hover {
-                        background-color: $pc-600;
-                    }
-                }
-
-            }
-        }
     }
 
     .modal-header {
@@ -105,8 +113,11 @@
 
 @media screen and (max-width: 767px) {
     .modal-background {
+        padding-block: 1.5rem;
+
         .modal-container {
             width: 80%;
+            height: 100%
         }
     }
 }
