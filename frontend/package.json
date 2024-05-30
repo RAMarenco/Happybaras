@@ -19,6 +19,7 @@
     "react-qrcode-logo": "^3.0.0",
     "react-responsive": "^10.0.0",
     "react-router-dom": "^6.23.0",
+    "react-toastify": "^10.0.5",
     "sass": "^1.76.0"
   },
   "devDependencies": {
