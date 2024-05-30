@@ -1,3 +1,9 @@
 .modal-open {
     overflow: hidden;
-}  
+}
+
+.AdminUserManagement_Container {
+    overflow-y: auto;
+    min-height: calc(100dvh - 5rem);
+    max-height: calc(100dvh - 5rem);
+}
