@@ -5,6 +5,9 @@ import { DropdownMenu } from '../inputs/Dropdown/DropdownMenu';
 import { GeneralInput } from '../inputs/GeneralInput/GeneralInput';
 import classes from './EditModal.module.scss';
 import * as INPUTS from "../../consts/admin/modalInputs.js";
+import OutlinedButton from "../Buttons/Outlined/OutlinedButton";
+import FilledButton from "../Buttons/Filled/FilledButton.jsx"
+import { buttonColorsStrings } from "../Buttons/ButtonColorStrings.js";
 
 export const EditModal = ({ userData, onDismiss }) => {
     const { handleChange, handleOnSubmit, data } = useModalForm(
@@ -77,8 +80,8 @@ export const EditModal = ({ userData, onDismiss }) => {
                         />
                     </div>
                     <div className={classes["modal-actions"]}>
-                        <button className={classes["cancel"]} onClick={onDismiss}>Cancelar</button>
-                        <button className={classes["edit"]} onClick={handleOnSubmit}>Editar</button>
+                        <OutlinedButton text={"Cancelar"} onClick={onDismiss} color={buttonColorsStrings.accentRed} />
+                        <FilledButton text={"Editar"} onClick={handleOnSubmit} />
                     </div>
                 </div>
             </div>

@@ -1,5 +1,8 @@
 import { MdDelete } from "react-icons/md";
 import useModalForm from "../../hooks/form/useModalForm.jsx";
+import { buttonColorsStrings } from "../Buttons/ButtonColorStrings.js";
+import FilledButton from "../Buttons/Filled/FilledButton.jsx";
+import OutlinedButton from "../Buttons/Outlined/OutlinedButton.jsx";
 import classes from './DeleteModal.module.scss';
 
 export const DeleteModal = ({ userData, onDismiss }) => {
@@ -23,8 +26,8 @@ export const DeleteModal = ({ userData, onDismiss }) => {
                     <p>¿Está seguro de eliminar el usuario <b className={classes["strong"]}>{data.name}</b>?</p>
                 </div>
                 <div className={classes["modal-actions"]}>
-                    <button className={classes["cancel"]} onClick={onDismiss}>Cancelar</button>
-                    <button className={classes["confirm"]} onClick={handleOnSubmit}>Confirmar</button>
+                    <OutlinedButton text="Cancelar" onClick={onDismiss} color={buttonColorsStrings.accentRed} />
+                    <FilledButton text="Confirmar" onClick={handleOnSubmit} color={buttonColorsStrings.accentRed} />
                 </div>
             </div>
         </div>

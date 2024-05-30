@@ -42,37 +42,6 @@
             justify-content: flex-end;
             gap: 1rem;
             padding-top: 1rem;
-
-            >button {
-                padding: 0.5rem 1rem;
-                border-radius: 0.5rem;
-                font-weight: 500;
-                cursor: pointer;
-                transition: background-color 0.2s;
-                border: none;
-                padding: 1rem;
-
-                &.cancel {
-                    background-color: white;
-                    border: 1px solid $acr-500;
-                    color: $acr-500;
-
-                    &:hover {
-                        background-color: $sc-50;
-                    }
-                }
-
-                &.confirm {
-                    padding-inline: 1.5rem;
-                    background-color: $acr-600;
-                    color: $tc-light;
-
-                    &:hover {
-                        background-color: $acr-700;
-                    }
-                }
-
-            }
         }
     }
 
