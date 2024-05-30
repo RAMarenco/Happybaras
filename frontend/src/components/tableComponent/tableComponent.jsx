@@ -76,7 +76,7 @@ const TableComponent = (props) => {
                                     onApproveClick={props.onApproveClick}
                                     onDenyClick={props.onDenyClick}
                                     onEditClick={() => props.onEditClick(row)}
-                                    onDeleteClick={() => props.onDeleteClick(row.id)}
+                                    onDeleteClick={() => props.onDeleteClick(row)}
                                 />
                             ))}
                         </tr>

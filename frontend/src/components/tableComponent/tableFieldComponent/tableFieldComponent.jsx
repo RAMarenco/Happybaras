@@ -1,18 +1,17 @@
 import PropTypes from 'prop-types';
-import ChipComponent from '../../chipComponent/chipComponent'
-import ActionButtonComponent from '../../actionButtonComponent/actionButtonComponent'
-import { RiPencilFill } from "react-icons/ri";
-import { FaTrash } from "react-icons/fa";
-import { FaCheck } from "react-icons/fa";
+import { FaCheck, FaTrash } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
+import { RiPencilFill } from "react-icons/ri";
+import ActionButtonComponent from '../../actionButtonComponent/actionButtonComponent';
+import ChipComponent from '../../chipComponent/chipComponent';
 
 const TableFieldComponent = (props) => {
     const deleteSpaces = (string) => {
         return string.replace(/\s+/g, '');
     }
 
-    const settingRole = (rol) => {
-        switch (rol) {
+    const settingRole = (role) => {
+        switch (role) {
             case 'admin':
                 return 'Administrador'
             case 'guard':
@@ -29,55 +28,55 @@ const TableFieldComponent = (props) => {
     }
 
     switch (props.type) {
-        case 'header': 
+        case 'header':
             return (
                 <th
-                className='table-header-field'>
+                    className='table-header-field'>
                     {props.value}
                 </th>
             );
         case 'normal':
             return (
-                <td 
-                data-label={props.dataLabel}
-                className='table-normal-field'>
+                <td
+                    data-label={props.dataLabel}
+                    className='table-normal-field'>
                     {props.value}
                 </td>
             );
         case 'action':
             if (props.role === 'mainResident') {
                 return (
-                    <td 
-                    data-label={props.dataLabel} 
-                    className='table-action-field'>
-                        <ActionButtonComponent icon={<FaCheck />} type="approve" onClick={props.onApproveClick}/>
-                        <ActionButtonComponent icon={<IoClose />} type="deny" onClick={props.onDenyClick}/>
+                    <td
+                        data-label={props.dataLabel}
+                        className='table-action-field'>
+                        <ActionButtonComponent icon={<FaCheck />} type="approve" onClick={props.onApproveClick} />
+                        <ActionButtonComponent icon={<IoClose />} type="deny" onClick={props.onDenyClick} />
                     </td>
                 );
             } else {
                 return (
-                    <td 
-                    data-label={props.dataLabel} 
-                    className='table-action-field'>
-                        <ActionButtonComponent icon={<RiPencilFill />} type="edit" onClick={props.onEditClick}/>
-                        <ActionButtonComponent icon={<FaTrash />} type="delete" onClick={props.onDeleteClick}/>
+                    <td
+                        data-label={props.dataLabel}
+                        className='table-action-field'>
+                        <ActionButtonComponent icon={<RiPencilFill />} type="edit" onClick={props.onEditClick} />
+                        <ActionButtonComponent icon={<FaTrash />} type="delete" onClick={props.onDeleteClick} />
                     </td>
                 );
             }
         case 'role':
             return (
-                <td 
-                data-label={props.dataLabel} 
-                className='table-action-field'>
-                    <ChipComponent value={settingRole(props.value)} data={props.value}/>
+                <td
+                    data-label={props.dataLabel}
+                    className='table-action-field'>
+                    <ChipComponent value={settingRole(props.value)} data={props.value} />
                 </td>
             );
         case 'state':
             return (
-                <td 
-                data-label={props.dataLabel} 
-                className='table-action-field'>
-                    <ChipComponent value={props.value} data={deleteSpaces(props.value)}/>
+                <td
+                    data-label={props.dataLabel}
+                    className='table-action-field'>
+                    <ChipComponent value={props.value} data={deleteSpaces(props.value)} />
                 </td>
             );
         default:
@@ -87,7 +86,7 @@ const TableFieldComponent = (props) => {
 
 
 TableFieldComponent.propTypes = {
-    type: PropTypes.oneOf(['header', 'normal', 'action', 'rol', 'state']).isRequired,
+    type: PropTypes.oneOf(['header', 'normal', 'action', 'role', 'state']).isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     dataLabel: PropTypes.string,
     role: PropTypes.string,

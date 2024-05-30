@@ -1,7 +1,7 @@
 const ADMINACTIONS = [
     {
         name: "Usuarios", 
-        link: "/",
+        link: "./users",
     },
     {
         name: "Residencias", 
@@ -9,7 +9,7 @@ const ADMINACTIONS = [
     },
     {
         name: "Reportes", 
-        link: "/",
+        link: "./reports",
     },
 ];
 
@@ -24,8 +24,27 @@ const RESIDENTACTIONS = [
     },
     {
         name: "Miembros", 
-        link: "/",
+        link: "./members",
     },
 ];
 
-export {ADMINACTIONS, RESIDENTACTIONS}
+const ENCARGADOACTIONS = [
+    { 
+        name: "Visitas",
+        link: "/" 
+    },
+    { 
+        name: "Historial",
+        link: "/" 
+    },
+    { 
+        name: "Miembros", 
+        link: "./members" 
+    },
+    { 
+        name: "Solicitudes", 
+        link: "/" 
+    },
+];
+
+export {ADMINACTIONS, RESIDENTACTIONS, ENCARGADOACTIONS}
