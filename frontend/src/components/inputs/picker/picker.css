@@ -1,0 +1,10 @@
+.react-datepicker__calendar-icon {
+    left: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #4281A4;
+}
+
+div.react-datepicker-wrapper {
+    width: 100%;
+}

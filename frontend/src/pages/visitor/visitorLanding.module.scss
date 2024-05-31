@@ -1,0 +1,34 @@
+@import "/src/variables";
+
+.VisitorLandingContainer {
+    width: 100vw;
+    min-height: calc(100dvh - 5rem);
+    padding: 1rem;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    .LeftContainer {
+        grid-column: 1;
+        height: calc(100dvh - 10rem);
+        padding: 0 1rem 0 1rem;
+
+        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .RightContainer {
+        grid-column: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media screen and (max-width: 900px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

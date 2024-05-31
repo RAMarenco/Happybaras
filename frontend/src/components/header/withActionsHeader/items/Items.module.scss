@@ -1,0 +1,29 @@
+@use "./../../../../variables" as colors;
+
+.Item {
+    position: relative;
+    > .Line {
+        bottom: -5px;
+        left: 50%;
+        position: absolute;
+        width: 0%;
+        background-color: colors.$acg-300;
+        height: 2px;
+        transition: 200ms all ease-in-out;
+        transform-origin: center;
+        transform: translateX(-50%);
+    }
+
+    &:hover {
+        > .Line {
+            width: 100%;
+        }
+    }
+
+    &.Active {
+        > .Line {
+            width: 100%;
+            height: 4px;
+        }
+    }
+}

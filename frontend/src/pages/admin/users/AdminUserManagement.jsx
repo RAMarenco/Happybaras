@@ -66,7 +66,7 @@ export const AdminUserManagement = () => {
     }
 
     return (
-        <div>
+        <div className={classes["AdminUserManagement_Container"]}>
             <TableComponent
                 data={data}
                 headers={headers}

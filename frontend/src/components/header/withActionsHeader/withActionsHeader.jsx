@@ -2,6 +2,7 @@ import classes from "../header.module.scss";
 import { ROLES } from "../../../consts/consts";
 import { useMediaQuery } from "react-responsive";
 import { MdOutlineMenu } from "react-icons/md";
+import Bubble from "../../bubble/bubble";
 import Modal from "./modal/modal";
 import Items from "./items/items";
 import { Link } from "react-router-dom";
@@ -21,19 +22,17 @@ const WithActionsHeader = ({ role, imgSource, isClicked, handleClick }) => {
             );
         else
             return (
-                <figure
-                    onClick={() => {
-                        handleClick();
-                    }}
-                    className={classes["MenuButton"]}
-                    style={
-                        role === ROLES.ADMIN
-                            ? { backgroundColor: "#6BAA75" }
-                            : { backgroundColor: "#4281A4" }
-                    }
-                >
-                    <MdOutlineMenu />
-                </figure>
+                <>
+                    <Bubble
+                        icon={<MdOutlineMenu />}
+                        handleClick={() => {handleClick()}}
+                        color={
+                            role === ROLES.ADMIN
+                                ? "#6BAA75"
+                                : "#4281A4" 
+                        }
+                    />
+                </>
             );
     };
 
