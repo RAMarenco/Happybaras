@@ -1,15 +1,13 @@
 @import "/src/variables";
 
 header {
-    position:  sticky;
-    top: 0;
-    z-index: 2;
-    
     display: flex;
+    
     justify-content: space-between;
     align-items: center;
 
     height: 5rem;
+
     padding: 0 1rem;
     box-shadow: 1px 1px 10px rgba(0,0,0,0.12), 1px 1px 10px rgba(0,0,0,0.24);
 

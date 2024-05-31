@@ -5,7 +5,7 @@ import classes from "./Home.module.scss";
 import Welcome from "./../../assets/Welcome.png";
 
 const Home = () => {
-    /*localStorage.setItem(
+    localStorage.setItem(
         "dataStorage",
         JSON.stringify({
             token: "something",
@@ -13,7 +13,7 @@ const Home = () => {
                 role: "admin",
             },
         })
-    );*/
+    );
     /*const login = useGoogleLogin({
         onSuccess: tokenResponse => console.log(tokenResponse),
         onError: error => console.log(error),
