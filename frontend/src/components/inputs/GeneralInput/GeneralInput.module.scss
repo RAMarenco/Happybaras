@@ -7,7 +7,7 @@
     .label {
         font-weight: 500;
         padding-block: 0.3rem;
-        color: $pc-700;
+        color: $pc-500;
     }
 
     >input {
@@ -16,8 +16,8 @@
         border: none;
         padding-inline: 1.25rem;
         border-radius: 0.5rem;
-        outline: 1px solid $pc-700;
-        color: $pc-700;
+        outline: 1px solid $pc-500;
+        color: $pc-500;
 
         &:disabled {
             opacity: 0.5;
