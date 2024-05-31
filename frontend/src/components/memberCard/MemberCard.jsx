@@ -1,8 +1,8 @@
-import "./MemberCard.scss";
-import ChipComponent from "../chipComponent/chipComponent";
 import { FaTrash } from "react-icons/fa";
-import ActionButtonComponent from "../actionButtonComponent/actionButtonComponent";
 import ROLES from "../../consts/roleConsts";
+import ActionButtonComponent from "../actionButtonComponent/actionButtonComponent";
+import ChipComponent from "../chipComponent/chipComponent";
+import "./MemberCard.scss";
 
 const MemberCard = (props) => {
 
@@ -17,10 +17,10 @@ const MemberCard = (props) => {
         }
     }
 
-    return(
+    return (
         <div className="members-card-container">
             <figure className="card-img">
-            <img src="https://www.rainforest-alliance.org/wp-content/uploads/2021/06/capybara-square-1.jpg.optimal.jpg" alt="Avatar"/>
+                <img src="https://www.rainforest-alliance.org/wp-content/uploads/2021/06/capybara-square-1.jpg.optimal.jpg" alt="Avatar" />
             </figure>
             <div className="card-info">
                 <div className="card-data">
@@ -34,7 +34,7 @@ const MemberCard = (props) => {
             {
                 props.permission && props.role === ROLES.NORMALRESIDENT && (
                     <div className="card-action">
-                        <ActionButtonComponent icon={<FaTrash />} type="delete"/>
+                        <ActionButtonComponent icon={<FaTrash />} type="delete" onClick={() => props.onClick(props)} />
                     </div>
                 )
             }

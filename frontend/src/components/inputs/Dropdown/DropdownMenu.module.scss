@@ -9,6 +9,7 @@
 
     .label {
         font-weight: 500;
+        color: $pc-700;
     }
 
     .input-container {
@@ -21,7 +22,7 @@
             border-radius: 0.5rem;
             width: 100%;
             border: none;
-            outline: 1px solid $tc-dark;
+            outline: 1px solid $pc-700;
             padding-block: 1.25rem;
             height: 3.125rem;
             color: $pc-700;

@@ -1,33 +1,39 @@
 import { useState } from "react";
-import FilledButton from "../../../components/Buttons/Filled/FilledButton";
-import SearchBar from "../../../components/searchBar/SearchBar";
 import { FaPlus } from "react-icons/fa";
-import "./members.scss";
+import FilledButton from "../../../components/Buttons/Filled/FilledButton";
 import MemberCard from "../../../components/memberCard/MemberCard";
+import { DeleteModal } from "../../../components/modals/DeleteModal.jsx";
+import SearchBar from "../../../components/searchBar/SearchBar";
 import ROLES from "../../../consts/roleConsts";
+import "./members.scss";
 
 const dummyData = [
     {
+        id: "1",
         name: "Juan Perez",
         email: "juanperez@gmail.com",
         role: "normalResident",
     },
     {
-        name: "Juan Perez",
-        email: "juanperez@gmail.com",
+        id: "2",
+        name: "Michelle Rivas Gutierritos",
+        email: "mrivasasdasdasas@gmail.com",
         role: "normalResident",
     },
     {
+        id: "3",
         name: "Juan Perez",
         email: "juanperez@gmail.com",
         role: "mainResident",
     },
     {
+        id: "4",
         name: "Juan Perez",
         email: "juanperez@gmail.com",
         role: "mainResident",
     },
     {
+        id: "5",
         name: "Juan Perez",
         email: "juanperez@gmail.com",
         role: "mainResident",
@@ -38,6 +44,19 @@ const Members = () => {
     const [search, setSearch] = useState("");
     const getLocalRole = localStorage.getItem("dataStorage");
     const role = JSON.parse(getLocalRole);
+    const [isClicked, setIsClicked] = useState(false);
+    const [selectedUser, setSelectedUser] = useState(null);
+
+    const handleDeleteClick = (user) => {
+        setSelectedUser(user)
+        document.body.classList.add("modal-open");
+        setIsClicked(true);
+    };
+
+    const handleOnDismiss = () => {
+        document.body.classList.remove("modal-open")
+        setIsClicked(false);
+    }
 
     const handleSearchChange = (value) => {
         setSearch(value);
@@ -53,6 +72,12 @@ const Members = () => {
 
     return (
         <div className="members-container">
+            {isClicked &&
+                <DeleteModal
+                    userData={selectedUser}
+                    onDismiss={handleOnDismiss}
+                />
+            }
             <div className="members-info">
                 <div className="members-data">
                     <p>Residencia #16</p>
@@ -79,10 +104,12 @@ const Members = () => {
                     return (
                         <MemberCard
                             key={index}
+                            id={data.id}
                             name={data.name}
                             role={data.role}
                             email={data.email}
                             permission={handlePermission(role.user.role)}
+                            onClick={handleDeleteClick}
                         />
                     );
                 })}
