@@ -2,6 +2,7 @@ import classes from "./modal.module.scss";
 import Items from "../items/items";
 import { MdOutlineClear } from "react-icons/md";
 import { ROLES } from "../../../../consts/consts";
+import Bubble from "../../../bubble/bubble";
 import { useEffect, useState } from "react";
 
 const Modal = ({ role, imgSource, handleClick }) => {
@@ -29,7 +30,16 @@ const Modal = ({ role, imgSource, handleClick }) => {
                 <figure className={classes["Avatar"]}>
                     <img src={imgSource} alt="Avatar" />
                 </figure>
-                <figure
+                <Bubble 
+                    icon={<MdOutlineClear/>}
+                    handleClick={() => {handleClose()}}
+                    color={
+                        role === ROLES.ADMIN
+                            ? "#6BAA75"
+                            : "#4281A4"
+                    }
+                />
+                {/* <figure
                     onClick={() => {
                         handleClose();
                     }}
@@ -41,7 +51,7 @@ const Modal = ({ role, imgSource, handleClick }) => {
                     }
                 >
                     <MdOutlineClear />
-                </figure>
+                </figure> */}
             </div>
             <div className={classes["BottomContainer"]}>
                 <Items role={role} />

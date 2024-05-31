@@ -1,0 +1,27 @@
+@import "/src/variables";
+
+.Filters {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem 0 0.5rem 0;
+
+    .PlaceHolder {
+        flex-grow: 1;
+        padding-inline: 1.25rem;
+        border-radius: 0.5rem;
+        width: 100%;
+        border: solid 1px $pc-500;
+        outline: 1px solid $tc-dark;
+        padding-block: 1.25rem;
+        height: 3.125rem;
+        color: $pc-700;
+    }
+
+    label {
+        display: none;
+    }
+}

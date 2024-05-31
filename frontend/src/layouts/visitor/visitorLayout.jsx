@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import Header from "../../components/header/header";
 import ROLES from "../../consts/roleConsts";
 import { useAuth } from "../../hooks/auth/useAuth";
-import Visitor from "../../pages/visitor/visitor";
+import VisitorLanding from "../../pages/visitor/visitorLanding";
 
 const VisitorLayout = () => {
     const { verifyRole } = useAuth();
@@ -12,7 +12,7 @@ const VisitorLayout = () => {
     return (
         <>
             <Header />
-            <Visitor />
+            <VisitorLanding />
         </>
     );
 };
