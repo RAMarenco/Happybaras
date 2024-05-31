@@ -1,9 +1,13 @@
 @use "../../../variables" as colors;
 
+.modal-open {
+    overflow: hidden;
+}      
+
 .members-container {
     display: flex;
     flex-direction: column;
-    padding: 1.5rem;
+    padding: 1.5rem
     gap: 2rem;
     min-height: calc(100dvh - 5rem);
     max-height: calc(100dvh - 5rem);

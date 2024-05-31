@@ -60,3 +60,9 @@ $gap: 1rem;
 .accent-red {
   @include filledButton($acr-600, $acr-700, $acr-800, $acr-100, $acr-400);
 }
+
+@media screen and (max-width: 664px) {
+  button {
+    font-size: 0.75rem;
+  }
+}

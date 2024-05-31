@@ -1,15 +1,16 @@
 import { MdEdit } from "react-icons/md";
+import * as INPUTS from "../../consts/admin/modalInputs.js";
 import ROLES from "../../consts/roleConsts";
 import useModalForm from '../../hooks/form/useModalForm';
+import { buttonColorsStrings } from "../Buttons/ButtonColorStrings.js";
+import FilledButton from "../Buttons/Filled/FilledButton.jsx";
+import OutlinedButton from "../Buttons/Outlined/OutlinedButton";
 import { DropdownMenu } from '../inputs/Dropdown/DropdownMenu';
 import { GeneralInput } from '../inputs/GeneralInput/GeneralInput';
 import classes from './EditModal.module.scss';
-import * as INPUTS from "../../consts/admin/modalInputs.js";
-import OutlinedButton from "../Buttons/Outlined/OutlinedButton";
-import FilledButton from "../Buttons/Filled/FilledButton.jsx"
-import { buttonColorsStrings } from "../Buttons/ButtonColorStrings.js";
 
 export const EditModal = ({ userData, onDismiss }) => {
+
     const { handleChange, handleOnSubmit, data } = useModalForm(
         userData,
         `users/${userData.id}`,
