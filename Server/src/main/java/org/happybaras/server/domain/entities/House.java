@@ -23,7 +23,7 @@ public class House {
 
     private String telephone;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     private User owner;
 
     @OneToMany(mappedBy = "house", fetch = FetchType.LAZY)

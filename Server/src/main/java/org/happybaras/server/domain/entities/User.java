@@ -15,7 +15,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String email;
-    private String name;
+    private String username;
     private String password;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
