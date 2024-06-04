@@ -10,8 +10,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RegisterEntryDTO {
+    // TODO: Modify RegisterEntryDTO for requiring the vigilant token
     @NotBlank
-    private String name;
+    private String identifier;
 
     @NotBlank
     private String identityDocument;

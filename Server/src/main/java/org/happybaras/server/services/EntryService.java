@@ -5,16 +5,16 @@ import org.happybaras.server.domain.entities.Entry;
 import org.happybaras.server.domain.entities.House;
 import org.happybaras.server.domain.entities.User;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface EntryService {
-    Entry registerEntry(RegisterEntryDTO info);
+    void registerEntry(User user, House house, User vigilant, RegisterEntryDTO info);
     List<Entry> findAll();
     List<Entry> findByUser(User user);
     List<Entry> findByHouse(House house);
-    List<Entry> findByPeriod(Date beginDate, Date endDate);
-    List<Entry> findByUserAnPeriod(User user, Date beginDate, Date endDate);
-    List<Entry> findByHouseAndPeriod(House house, Date beginDate, Date endDate);
+    List<Entry> findByPeriod(LocalDateTime beginDate, LocalDateTime endDate);
+    List<Entry> findByUserAndPeriod(User user, LocalDateTime beginDate, LocalDateTime endDate);
+    List<Entry> findByHouseAndPeriod(House house, LocalDateTime beginDate, LocalDateTime endDate);
 
 }

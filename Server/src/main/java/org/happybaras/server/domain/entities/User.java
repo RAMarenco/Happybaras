@@ -11,6 +11,8 @@ import java.util.UUID;
 @Entity
 @Table(name = "happy_user")
 public class User {
+
+//    TODO: Investigar sobre la paginación desde aquí para el dashboard 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;

@@ -3,7 +3,7 @@ package org.happybaras.server.domain.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
@@ -13,7 +13,7 @@ public class Entry {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private Date timestamp;
+    private LocalDateTime timestamp;
     private String comment;
     private String document;
 
