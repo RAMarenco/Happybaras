@@ -6,9 +6,9 @@ spring:
   mustache:
     suffix: .html
   datasource:
-    url: jdbc:postgresql://localhost:5432/happybaras
+    url: jdbc:postgresql://localhost:5500/happybaras
     username: postgres
-    password: P0k3M0n-212@#$
+    password: Abrilar-542
   jpa:
     show-sql: true
     hibernate:
