@@ -5,16 +5,15 @@ import org.happybaras.server.domain.entities.House;
 import org.happybaras.server.domain.entities.User;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface HouseService {
     List<House> findAll();
     House findByHouseNumber(int number);
     House findByOwner(User user);
-    void create(RegisterHouseDTO info);
+    void create(RegisterHouseDTO info, User owner);
     void delete(House house);
-    void edit(RegisterHouseDTO info);
-    List<User> getListOfHabitants();
-    List<User> addHabitant();
-    List<User> deleteHabitant();
+    void update(RegisterHouseDTO info, House house, User owner);
+    List<User> getListOfHabitants(House house);
+    void addHabitant(House house, User user);
+    void deleteHabitant(House house, User user);
 }
