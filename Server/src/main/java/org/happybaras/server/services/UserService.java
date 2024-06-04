@@ -6,6 +6,7 @@ import org.happybaras.server.domain.entities.Token;
 import org.happybaras.server.domain.entities.User;
 
 public interface UserService {
+    // Token management
     Token registerToken(User user) throws Exception;
 
     Boolean isTokenValid(User user, String token);
@@ -18,10 +19,5 @@ public interface UserService {
 
     User findByUsernameOrEmail(UserRegisterDTO info);
 
-    boolean checkPassword(User user, String password);
-
-    void create(UserRegisterDTO info);
-
-    void edit(UserEditionDTO info);
-    void delete();
+    void createUser(UserRegisterDTO info);
 }

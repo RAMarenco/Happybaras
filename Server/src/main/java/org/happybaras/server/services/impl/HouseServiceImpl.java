@@ -30,6 +30,11 @@ public class HouseServiceImpl implements HouseService {
     }
 
     @Override
+    public House findByOwner(User user) {
+        return houseRepository.findByOwner(user).orElse(null);
+    }
+
+    @Override
     public void create(RegisterHouseDTO info) {
 
     }

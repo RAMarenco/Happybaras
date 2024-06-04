@@ -4,19 +4,18 @@ import jakarta.validation.Valid;
 import org.happybaras.server.domain.dtos.GeneralResponse;
 import org.happybaras.server.domain.dtos.RegisterEntryDTO;
 import org.happybaras.server.domain.entities.Entry;
+import org.happybaras.server.domain.entities.House;
+import org.happybaras.server.domain.entities.User;
 import org.happybaras.server.services.EntryService;
 import org.happybaras.server.services.HouseService;
 import org.happybaras.server.services.UserService;
 import org.happybaras.server.utils.EntriesFilters;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
-import java.time.Year;
 import java.util.List;
 
 @RestController
@@ -26,6 +25,7 @@ public class EntryController {
     private final UserService userService;
     private final HouseService houseService;
     private final EntriesFilters entriesFilters;
+
     public EntryController(EntryService entryService, UserService userService, HouseService houseService, EntriesFilters entriesFilters) {
         this.entryService = entryService;
         this.userService = userService;
@@ -35,20 +35,25 @@ public class EntryController {
 
     @PostMapping("/register")
     public ResponseEntity<GeneralResponse> registerNewEntry(@RequestBody @Valid RegisterEntryDTO info) {
-//        User user = userService.findOneByIdentifier(info.getIdentifier());
-//        if(user == null)
-//            return GeneralResponse.builder().status(HttpStatus.NOT_FOUND).getResponse();
-//
-//        House house = houseService.findByHouseNumber(info.getHouseNumber());
-//        if(house == null)
-//            return GeneralResponse.builder().status(HttpStatus.NOT_FOUND).getResponse();
+        User user = userService.findOneByIdentifier(info.getIdentifier());
+        if(user == null)
+            return GeneralResponse.builder().status(HttpStatus.NOT_FOUND).getResponse();
 
-//        User vigilant = userService.findOneByIdentifier()
-//        if(vigilant == null)
-//            return GeneralResponse.builder().status(HttpStatus.NOT_FOUND).getResponse();
+        House house = houseService.findByHouseNumber(info.getHouseNumber());
+        if(house == null)
+            return GeneralResponse.builder().status(HttpStatus.NOT_FOUND).getResponse();
 
-//        entryService.registerEntry(user, house, user, info);
-        return GeneralResponse.builder().status(HttpStatus.OK).message("Entrada creada").getResponse();
+        User vigilant = null;
+        try {
+            vigilant = userService.findUserAuthenticated();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        if(vigilant == null)
+            return GeneralResponse.builder().status(HttpStatus.NOT_FOUND).getResponse();
+
+        entryService.registerEntry(user, house, vigilant, info);
+        return GeneralResponse.builder().status(HttpStatus.OK).message("Entrada registrada").getResponse();
     }
 
     @GetMapping("/all")
@@ -123,5 +128,26 @@ public class EntryController {
         return GeneralResponse.builder().data(entriesFilters.mapEntriesByYear(entries)).status(HttpStatus.OK).getResponse();
     }
 
+//    TODO: Implementar paginación para obtener el registro de entradas realizadas a la casa
+    @GetMapping("/byHouse")
+    public ResponseEntity<GeneralResponse> getByHouse() {
+        User user = null;
+        try {
+            user = userService.findUserAuthenticated();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        if(user == null)
+            return GeneralResponse.builder().status(HttpStatus.NOT_FOUND).getResponse();
+
+        House house = houseService.findByOwner(user);
+
+        if(house == null)
+            return GeneralResponse.builder().status(HttpStatus.NOT_FOUND).getResponse();
+
+        List<Entry> entries = entryService.findByHouse(house);
+
+        return GeneralResponse.builder().data(entries).status(HttpStatus.OK).getResponse();
+    }
 
 }

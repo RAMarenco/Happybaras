@@ -10,6 +10,7 @@ import java.util.Optional;
 public interface HouseService {
     List<House> findAll();
     House findByHouseNumber(int number);
+    House findByOwner(User user);
     void create(RegisterHouseDTO info);
     void delete(House house);
     void edit(RegisterHouseDTO info);
