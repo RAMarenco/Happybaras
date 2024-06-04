@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.Year;
 import java.util.List;
 
 @RestController
@@ -73,13 +75,34 @@ public class EntryController {
         // When Monday the dashboard will show only the entries of Monday
         // It will be showing the entries of each day of the week until it reaches Sunday and then the cycle repeats
         switch (now.getDayOfWeek()) {
-            case MONDAY -> {beginDate = now; endDate = now.plusDays(6);}
-            case TUESDAY -> {beginDate = now.minusDays(1); endDate = now.plusDays(5);}
-            case WEDNESDAY -> {beginDate = now.minusDays(2); endDate = now.plusDays(4);}
-            case THURSDAY -> {beginDate = now.minusDays(3); endDate = now.plusDays(3);}
-            case FRIDAY -> {beginDate = now.minusDays(4); endDate = now.plusDays(2);}
-            case SATURDAY -> {beginDate = now.minusDays(5); endDate = now.plusDays(1);}
-            case SUNDAY -> {beginDate = now.minusDays(6); endDate = now;}
+            case MONDAY -> {
+                beginDate = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), 0, 0);
+                endDate = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), 23, 59).plusDays(6);
+            }
+            case TUESDAY -> {
+                beginDate = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), 0, 0).minusDays(1);
+                endDate = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), 23, 59).plusDays(5);
+            }
+            case WEDNESDAY -> {
+                beginDate = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), 0, 0).minusDays(2);
+                endDate = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), 23, 59).plusDays(4);
+            }
+            case THURSDAY -> {
+                beginDate = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), 0, 0).minusDays(3);
+                endDate = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), 23, 59).plusDays(3);
+            }
+            case FRIDAY -> {
+                beginDate = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), 0, 0).minusDays(4);
+                endDate = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), 23, 59).plusDays(2);
+            }
+            case SATURDAY -> {
+                beginDate = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), 0, 0).minusDays(5);
+                endDate = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), 23, 59).plusDays(1);
+            }
+            case SUNDAY -> {
+                beginDate = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), 0, 0).minusDays(6);
+                endDate = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), 23, 59);
+            }
             default -> {
                 return GeneralResponse.builder().status(HttpStatus.INTERNAL_SERVER_ERROR).getResponse();
             }
@@ -90,10 +113,15 @@ public class EntryController {
         return GeneralResponse.builder().data(entriesFilters.mapEntriesByWeek(entries)).status(HttpStatus.OK).getResponse();
 
     }
-//    @GetMapping("/byYear")
-//    public ResponseEntity<GeneralResponse> getSumByYears() {
-//
-//    }
+    @GetMapping("/byYear")
+    public ResponseEntity<GeneralResponse> getSumByYears() {
+        LocalDateTime beginDate = LocalDateTime.of(2020, Month.JANUARY, 1, 0, 0);
+        LocalDateTime endDate = LocalDateTime.of(2024, Month.DECEMBER, 31, 23, 59);
+
+        List<Entry> entries = entryService.findByPeriod(beginDate, endDate);
+
+        return GeneralResponse.builder().data(entriesFilters.mapEntriesByYear(entries)).status(HttpStatus.OK).getResponse();
+    }
 
 
 }

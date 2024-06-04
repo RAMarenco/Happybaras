@@ -5,12 +5,25 @@ import org.springframework.stereotype.Component;
 
 import java.time.DayOfWeek;
 import java.time.Month;
+import java.time.Year;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Component
 public class EntriesFilters {
+
+    public Map<Integer, Integer> mapEntriesByYear (List<Entry> entries) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        map.put(2020, getSumOfYear(entries, 2020));
+        map.put(2021, getSumOfYear(entries, 2021));
+        map.put(2022, getSumOfYear(entries, 2022));
+        map.put(2023, getSumOfYear(entries, 2023));
+        map.put(2024, getSumOfYear(entries, 2024));
+
+        return map;
+    }
 
     public Map<String, Integer> mapEntriesByWeek (List<Entry> entries) {
         Map<String, Integer> map = new HashMap<>();
@@ -42,6 +55,14 @@ public class EntriesFilters {
         map.put(Month.DECEMBER.name(), getSumOfMonth(entries, Month.DECEMBER));
 
         return map;
+    }
+
+    private Integer getSumOfYear (List<Entry> entries, Integer year) {
+        return entries
+                .stream()
+                .filter(e -> e.getTimestamp().getYear() == year)
+                .toList()
+                .size();
     }
 
     private Integer getSumOfDay (List<Entry> entries, DayOfWeek day) {
