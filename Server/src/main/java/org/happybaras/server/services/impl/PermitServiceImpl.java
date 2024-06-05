@@ -3,12 +3,10 @@ package org.happybaras.server.services.impl;
 import org.happybaras.server.domain.dtos.PermitRegisterDTO;
 import org.happybaras.server.domain.entities.*;
 import org.happybaras.server.domain.enums.PermitStatusEnum;
-import org.happybaras.server.domain.enums.PermitTypeEnum;
 import org.happybaras.server.repositories.PermitRepository;
 import org.happybaras.server.services.PermitService;
 import org.happybaras.server.services.PermitStatusService;
 import org.happybaras.server.services.PermitTypeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;

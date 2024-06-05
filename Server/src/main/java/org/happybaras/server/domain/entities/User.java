@@ -21,7 +21,9 @@ public class User implements UserDetails{
     private UUID id;
     private String email;
     private String username;
+//    TODO: Instead of password should be something related to google auth
     private String password;
+    private String avatar;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     @JsonIgnore
@@ -30,8 +32,13 @@ public class User implements UserDetails{
     @ManyToOne(fetch = FetchType.LAZY)
     private House house;
 
-    @ManyToOne(optional = false)
-    private UserRole userRole;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "Permissions",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private List<UserRole> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
