@@ -129,6 +129,7 @@ public class EntryController {
     }
 
 //    TODO: Implementar paginación para obtener el registro de entradas realizadas a la casa
+//    TODO: Implementar filtros para obtener los registros de entradas realizadas a la casa dependiendo de si son visitantes o residentes
     @GetMapping("/byHouse")
     public ResponseEntity<GeneralResponse> getByHouse() {
         User user = null;

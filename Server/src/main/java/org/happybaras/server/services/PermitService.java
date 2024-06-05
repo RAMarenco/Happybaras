@@ -1,18 +1,24 @@
 package org.happybaras.server.services;
 
-import org.happybaras.server.domain.entities.House;
-import org.happybaras.server.domain.entities.Permit;
-import org.happybaras.server.domain.entities.PermitStatus;
-import org.happybaras.server.domain.entities.User;
+import org.happybaras.server.domain.dtos.PermitRegisterDTO;
+import org.happybaras.server.domain.entities.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface PermitService {
-    void create();
-    List<Permit> findAll();
-    List<Permit> findByVisitorAndStatusApproved(User user);
+//    TODO: add methods for validating permits
+    void create(User visitor, User resident, House house, PermitRegisterDTO info);
+    void approve(Permit permit);
+    void reject(Permit permit);
+    // Normal resident
+    List<Permit> findByResident(User resident);
+    List<Permit> findLatestPermitRequestsByResident(User resident, LocalDateTime beginDate, LocalDateTime endDate);
+    // Main resident
     List<Permit> findByHouse(House house);
-    List<Permit> findLatestPermitsRequests(House house, PermitStatus status);
+    List<Permit> findLatestPermitRequestsByHouse(House house, LocalDateTime beginDate, LocalDateTime endDate);
+    // Visitor
+    List<Permit> findByVisitorAndStatusApproved(User visitor);
 
 
 }

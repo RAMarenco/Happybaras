@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Date;
 import java.util.UUID;
 
 @Data
@@ -15,7 +15,7 @@ public class Permit {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private Date timestamp;
+    private LocalDateTime timestamp;
     private LocalTime beginHour;
     private LocalTime endHour;
     private LocalDate beginDate;
