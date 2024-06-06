@@ -8,8 +8,7 @@ import FilledButton from '../Buttons/Filled/FilledButton';
 import { CiSearch } from "react-icons/ci";
 import 'react-toastify/dist/ReactToastify.css';
 
-const Filters = ({startDate, endDate, setStartDate, setEndDate}) => {
-    const [email, setEmail] = useState("Correo electrónico");
+const Filters = ({startDate, endDate, setStartDate, setEndDate, email, setEmail, handleFiltersClick}) => {
 
     const notify = () => toast.warn('Fecha no válida', {
         position: "bottom-right",
@@ -22,10 +21,6 @@ const Filters = ({startDate, endDate, setStartDate, setEndDate}) => {
         theme: "light",
         transition: Bounce,
         });
-
-    const handleFilters = () => {
-        console.log("Filtros aplicados");
-    }
 
     useEffect(() => {
         if(startDate > endDate) {
@@ -54,13 +49,14 @@ const Filters = ({startDate, endDate, setStartDate, setEndDate}) => {
                     type="text"
                     name="name"
                     onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Correo electrónico"
                 />
             </div>
             <div className={classes["ButtonContainer"]}>
                 <FilledButton
                     text='Aplicar filtros'
                     color='primary'
-                    onClick={() => {handleFilters()}}
+                    onClick={() => {handleFiltersClick()}}
                 />
 
             </div>

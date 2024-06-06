@@ -13,17 +13,25 @@ const VisitorLanding = () => {
     const isMovile = useMediaQuery({ query: "(max-width: 900px)" });
     const [showQR, setShowQR] = useState(false);
     const [showCards, setShowCards] = useState(false);
-    const [startDate, setStartDate] = useState(new Date());
     const [showInstructions, setShowInstructions] = useState(false);
+    const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(() => {
         const date = new Date();
         date.setDate(date.getDate() + 7);
         return date;
     });
+    const [email, setEmail] = useState("");
+    const [filters, setFilters] = useState({});
+    const [filter, setFilter] = useState(false);
 
-    const filters = {
-        startDate, 
-        endDate, 
+    const handleFilters = () => {
+        setFilters({
+            startDate, 
+            endDate, 
+            email
+        })
+
+        setFilter(true);
     }
 
     const handleBubbleClick = () => {
@@ -62,8 +70,13 @@ const VisitorLanding = () => {
                                         endDate={endDate} 
                                         setStartDate={setStartDate} 
                                         setEndDate={setEndDate}
+                                        email={email}
+                                        setEmail={setEmail}
+                                        handleFiltersClick={handleFilters}
                                     />
                                     <Cards 
+                                        filter={filter}
+                                        setFilter={setFilter}
                                         filters={filters} 
                                         handleClick={handleGenerateQRClick}
                                     />

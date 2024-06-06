@@ -3,17 +3,21 @@ import { useEffect, useState } from "react";
 import usePermitsInfo from '../../hooks/permitsInfo/usePermitsInfo';
 import InformationCard from './informationCard/informationCard';
 
-const Cards = (props) => {
+const Cards = ({filter, setFilter, filters, handleClick}) => {
     const [permits, loadPermits] = usePermitsInfo();
-    const filters = {...props.filters};
+    const [cards, setCards] = useState([]);
 
     const filterCards = () => {
-        permits.map((permit) => {
-            if(filters.begin_date <= permit.begin_date) {
-                if(filters.end_date >= permit.begin_date) 
-                    return(permit);
-            }
+
+        const filtered = permits.filter((permit) => {
+            return permit.email === filters.email
         })
+
+        console.log(filtered);
+
+        setCards(filtered);
+
+        setFilter(false);
     }
     
     useEffect(() => {
@@ -21,13 +25,15 @@ const Cards = (props) => {
     }, []);
 
     useEffect(() => {
-        filterCards();
+        if(filter)
+            filterCards();
+
     }, [filters])
 
     return (
         <div className={classes["CardsContainer"]}>  
             {
-                permits.map((permit, index) => {
+                cards.map((permit, index) => {
                     return (
                         <InformationCard 
                             key={index} 
@@ -38,7 +44,7 @@ const Cards = (props) => {
                             first={permit.resident} 
                             second={permit.begin_date} 
                             third={permit.address}
-                            handleClick={props.handleClick}
+                            handleClick={handleClick}
                             disabled={index === 0 ? false : true}
                             /* TODO: set if it is disabled depending on the date and hour */
                         />
