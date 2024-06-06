@@ -3,9 +3,12 @@ import { useEffect } from 'react';
 import Picker from '../inputs/picker/picker';
 import {GeneralInput} from "./../inputs/GeneralInput/GeneralInput";
 import { ToastContainer, toast, Bounce } from 'react-toastify';
+import { useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Filters = ({startDate, endDate, setStartDate, setEndDate}) => {
+    const [email, setEmail] = useState("Correo electrónico");
+
     const notify = () => toast.warn('Fecha no válida', {
         position: "bottom-right",
         autoClose: 5000,
@@ -39,10 +42,10 @@ const Filters = ({startDate, endDate, setStartDate, setEndDate}) => {
             />
             <div className={classes["Input"]}>
                 <GeneralInput
-                    value={"Ingrese el nombre de un residente"}
+                    value={email}
                     type="text"
                     name="name"
-                    className={classes["Input"]}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
             </div>
             <ToastContainer
