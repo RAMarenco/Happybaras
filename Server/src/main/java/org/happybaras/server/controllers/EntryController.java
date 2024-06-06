@@ -109,7 +109,7 @@ public class EntryController {
                 endDate = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), 23, 59);
             }
             default -> {
-                return GeneralResponse.builder().status(HttpStatus.INTERNAL_SERVER_ERROR).getResponse();
+                return GeneralResponse.builder().status(HttpStatus.NOT_FOUND).getResponse();
             }
         }
 
