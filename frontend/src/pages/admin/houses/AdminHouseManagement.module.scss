@@ -4,13 +4,16 @@
     overflow: hidden;
 }
 
-.AdminUserManagement_Container {
+.AdminHouseManagement_Container {
     overflow-y: auto;
     min-height: calc(100dvh - 5rem);
     max-height: calc(100dvh - 5rem);
 
     .search-bar-div {
         margin: 1rem;
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
 
         >input {
             border: 1px solid $acg-500;

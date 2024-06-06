@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import classes from './DropdownMenu.module.scss';
 import PropTypes from 'prop-types';
+import React, { useCallback, useEffect, useState } from 'react';
+import classes from './DropdownMenu.module.scss';
 
 export const DropdownMenu = ({
     label,
@@ -8,7 +8,7 @@ export const DropdownMenu = ({
     name,
     onChange,
     options = [],
-    filterOption = useCallback((option, searchTerm) => option.address.toLowerCase().includes(searchTerm.toLowerCase()), []),
+    filterOption = useCallback((option, searchTerm) => option.name.toLowerCase().includes(searchTerm.toLowerCase()), []),
     renderOption = (option) => option.address,
     defaultValue = ""
 }) => {
@@ -65,5 +65,5 @@ DropdownMenu.propTypes = {
     options: PropTypes.array.isRequired,
     filterOption: PropTypes.func,
     renderOption: PropTypes.func,
-    defaultValue: PropTypes.string.isRequired
+    defaultValue: PropTypes.string
 };
