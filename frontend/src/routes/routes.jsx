@@ -10,6 +10,8 @@ import ResidentLayout from "../layouts/resident/residentLayout";
 import Members from "../pages/resident/members/members";
 import AdminHouseManagement from "../pages/admin/houses/AdminHouseManagement";
 import ResidentRequests from "../pages/resident/requests/ResidentRequests";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { CLIENTID } from "../consts/consts";
 /*
     TODO import NotFound from "../pages/notFound/NotFound";
 */
@@ -17,7 +19,7 @@ import ResidentRequests from "../pages/resident/requests/ResidentRequests";
 const Routes = [
     {
         path: "/",
-        element: <Home />,
+        element: <GoogleOAuthProvider clientId={CLIENTID}><Home /></GoogleOAuthProvider>,
     },
     {
         element: <ProtectedRoutes />,
