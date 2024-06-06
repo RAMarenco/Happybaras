@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("api/user")
+@RequestMapping("/api/user")
 public class UserController {
     private final UserService userService;
 
@@ -20,22 +20,22 @@ public class UserController {
 
     @GetMapping("/all")
     public ResponseEntity<GeneralResponse> findAll() {
-        return GeneralResponse.builder().status(HttpStatus.INTERNAL_SERVER_ERROR).getResponse();
+        return GeneralResponse.builder().status(HttpStatus.NOT_FOUND).getResponse();
     }
 
     @GetMapping("/search")
     public ResponseEntity<GeneralResponse> findByEmail() {
-        return GeneralResponse.builder().status(HttpStatus.INTERNAL_SERVER_ERROR).getResponse();
+        return GeneralResponse.builder().status(HttpStatus.NOT_FOUND).getResponse();
     }
 
     @DeleteMapping("/delete")
     public ResponseEntity<GeneralResponse> delete() {
-        return GeneralResponse.builder().status(HttpStatus.INTERNAL_SERVER_ERROR).getResponse();
+        return GeneralResponse.builder().status(HttpStatus.NOT_FOUND).getResponse();
     }
 
     @PostMapping("/update")
     public ResponseEntity<GeneralResponse> update() {
-        return GeneralResponse.builder().status(HttpStatus.INTERNAL_SERVER_ERROR).getResponse();
+        return GeneralResponse.builder().status(HttpStatus.NOT_FOUND).getResponse();
     }
 
 }
