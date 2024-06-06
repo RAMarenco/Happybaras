@@ -37,11 +37,14 @@ const Filters = ({startDate, endDate, setStartDate, setEndDate}) => {
                 setDate={setEndDate}
                 className={classes["DatePicker"]}
             />
-            <GeneralInput
-                value={"Ingrese el nombre de un residente"}
-                type="text"
-                name="name"
-            />
+            <div className={classes["Input"]}>
+                <GeneralInput
+                    value={"Ingrese el nombre de un residente"}
+                    type="text"
+                    name="name"
+                    className={classes["Input"]}
+                />
+            </div>
             <ToastContainer
                 position="bottom-right"
                 autoClose={5000}

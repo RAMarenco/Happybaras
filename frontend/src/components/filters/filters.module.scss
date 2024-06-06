@@ -2,12 +2,14 @@
 
 .Filters {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
-    justify-content: flex-start;
-    align-items: center;
     padding: 1rem 0 0.5rem 0;
+
+    .Input {
+        grid-column: 3;
+    }
 
     .PlaceHolder {
         flex-grow: 1;
@@ -23,5 +25,15 @@
 
     label {
         display: none;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .Filters {
+        display: flex;
+        flex-wrap: wrap;
+        >div {
+            flex: 1 2 100%;
+        }
     }
 }
