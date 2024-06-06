@@ -4,12 +4,11 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: $tc-light;
-    gap: 0.25rem;
 
     .label {
         font-weight: 500;
-        color: $pc-700;
+        padding-block: 0.3rem;
+        color: $pc-500;
     }
 
     .input-container {
@@ -25,7 +24,7 @@
             outline: 1px solid $pc-700;
             padding-block: 1.25rem;
             height: 3.125rem;
-            color: $pc-700;
+            color: $pc-500;
 
             &::-webkit-calendar-picker-indicator {
                 display: none !important;

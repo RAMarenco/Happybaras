@@ -1,0 +1,24 @@
+@use "../../variables" as colors;
+
+.guess-card-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid colors.$pc-200;
+    background-color: white;
+
+    > .guess-card-field {
+        > p {
+            > span {
+                font-weight: bold;
+            }
+        }
+
+        > span {
+            font-weight: bold;
+        }
+    }
+}
