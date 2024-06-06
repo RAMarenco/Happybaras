@@ -33,6 +33,11 @@ $gap: 1rem;
     width: calc(30% - $gap / 3);
   }
 
+  &.selected {
+    background-color: $border-color;
+    color: $tc-light;
+  }
+
   &:hover {
     background-color: $background-color;
     border: 1.75px solid $border-color;

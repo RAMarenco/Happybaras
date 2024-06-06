@@ -12,10 +12,13 @@ import { buttonColorsStrings } from '../ButtonColorStrings.js';
     size_w = sm, md, full (default)
 */
 
-const OutlinedButton = ({ text = "Default", onClick, disabled = false, color = buttonColorsStrings.primary, size_w = "full-w"}) => {
+const OutlinedButton = ({ text = "Default", onClick, disabled = false, color = buttonColorsStrings.primary, size_w = "full-w", isSelected = false }) => {
     return (
-        <div style={{display: "flex", height: "100%"}}>
-            <button onClick={onClick} disabled={disabled} className={[classes[color] , classes[size_w]].join(" ")}>
+        <div style={{ display: "flex", height: "100%" }}>
+            <button
+                onClick={onClick}
+                disabled={disabled}
+                className={[classes[color], classes[size_w], isSelected ? classes.selected : ""].join(" ")}>
                 {text}
             </button>
         </div>

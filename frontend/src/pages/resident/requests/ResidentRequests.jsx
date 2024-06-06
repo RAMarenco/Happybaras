@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { buttonColorsStrings } from "../../../components/Buttons/ButtonColorStrings";
 import OutlinedButton from "../../../components/Buttons/Outlined/OutlinedButton";
 import SearchBar from "../../../components/searchBar/SearchBar";
 import TableComponent from "../../../components/tableComponent/tableComponent";
@@ -7,6 +6,17 @@ import classes from "./ResidentRequests.module.scss";
 
 const ResidentRequests = () => {
     const [search, setSearch] = useState("");
+    const [selectedButton, setSelectedButton] = useState(null);
+
+    const handleButtonClick = (index) => {
+        setSelectedButton(index);
+    };
+
+    const buttons = [
+        { text: "Todas" },
+        { text: "Residentes" },
+        { text: "Visitas" },
+    ];
 
     const data = [
         {
@@ -80,18 +90,18 @@ const ResidentRequests = () => {
                     classname={classes["search-bar"]}
                 />
                 <div className={classes["buttons-container"]}>
-                    <OutlinedButton
-                        text="Todas"
-                        color={buttonColorsStrings.primary}
-                    />
-                    <OutlinedButton
-                        text="Residentes"
-                        color={buttonColorsStrings.primary}
-                    />
-                    <OutlinedButton
-                        text="Visitas"
-                        color={buttonColorsStrings.primary}
-                    />
+                    {buttons.map((button, index) => {
+                        return (
+                            <OutlinedButton
+                                key={index}
+                                text={button.text}
+                                color={button.color}
+                                isSelected={selectedButton === index}
+                                onClick={() => handleButtonClick(index)}
+                            />
+                        )
+                    })
+                    }
                 </div>
             </div>
             <TableComponent
