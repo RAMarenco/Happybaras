@@ -36,6 +36,11 @@ $gap: 1rem;
   &.selected {
     background-color: $border-color;
     color: $tc-light;
+    
+    &:hover {
+      background-color: darken($border-color, 10%);
+      color: $tc-light;
+    }
   }
 
   &:hover {
