@@ -29,7 +29,12 @@
 .css-1aqny2q-MuiPickersCalendarHeader-root {
     padding: 0 !important;
     margin-top: 0 !important;
+}
 
+.css-e47596-MuiDateRangeCalendar-root {
+    > :first-child {
+        color: transparent !important;
+    }
 }
 
 .visit-container {
@@ -44,6 +49,7 @@
         flex: 1;
         display: flex;
         flex-direction: column;
+        overflow-y: auto;
         gap: 0.8rem;
         padding: 1.5rem 0rem 1.5rem 1.5rem;
         > :first-child {
@@ -177,7 +183,7 @@
 
         > .form-visit-action {
             display: flex;
-            justify-content: end;
+            justify-content: start;
             > :first-child {
                 max-width: 300px;
                 flex: 1;
@@ -194,6 +200,7 @@
 
         > .visit-card-info-container {
             padding: 1.5rem;
+            overflow-y: unset;
 
             > :first-child {
                 font-size: 1.2rem;

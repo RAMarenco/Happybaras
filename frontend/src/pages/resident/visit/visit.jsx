@@ -278,13 +278,12 @@ const Visit = () => {
 
                 { MapTypeVisit(typeVisit) == "No periodica" && MapTypeArrive(arrival) == "Multiple" ?
                     <div className="form-calendar-picker">
-                        <p>Selecciona las fechas de visita</p>
                         <FilledButton text={ open ? "Cerrar" : "Seleccionar fechas"} onClick={handleOpen} />
                         <MultipleDatesPicker
                             open={open}
                             selectedDates={[]}
                             onCancel={handleOpen}
-                            onSubmit={dates => console.log('selected dates', dates)}
+                            onSubmit={dates => setMultipleDates(dates)}
                         />
                     </div>
                 :<></>}
