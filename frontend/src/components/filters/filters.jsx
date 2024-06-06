@@ -4,6 +4,8 @@ import Picker from '../inputs/picker/picker';
 import {GeneralInput} from "./../inputs/GeneralInput/GeneralInput";
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import { useState } from 'react';
+import FilledButton from '../Buttons/Filled/FilledButton';
+import { CiSearch } from "react-icons/ci";
 import 'react-toastify/dist/ReactToastify.css';
 
 const Filters = ({startDate, endDate, setStartDate, setEndDate}) => {
@@ -21,6 +23,10 @@ const Filters = ({startDate, endDate, setStartDate, setEndDate}) => {
         transition: Bounce,
         });
 
+    const handleFilters = () => {
+        console.log("Filtros aplicados");
+    }
+
     useEffect(() => {
         if(startDate > endDate) {
             notify();
@@ -30,16 +36,18 @@ const Filters = ({startDate, endDate, setStartDate, setEndDate}) => {
 
     return (
         <div className={classes["Filters"]}>
-            <Picker 
-                date={startDate}
-                setDate={setStartDate}
-                className={classes["DatePicker"]}
-            />
-            <Picker
-                date={endDate}
-                setDate={setEndDate}
-                className={classes["DatePicker"]}
-            />
+            <div className={classes["DatePickersContainer"]}>
+                <Picker 
+                    date={startDate}
+                    setDate={setStartDate}
+                    className={classes["DatePicker"]}
+                />
+                <Picker
+                    date={endDate}
+                    setDate={setEndDate}
+                    className={classes["DatePicker"]}
+                />
+            </div>
             <div className={classes["Input"]}>
                 <GeneralInput
                     value={email}
@@ -47,6 +55,14 @@ const Filters = ({startDate, endDate, setStartDate, setEndDate}) => {
                     name="name"
                     onChange={(e) => setEmail(e.target.value)}
                 />
+            </div>
+            <div className={classes["ButtonContainer"]}>
+                <FilledButton
+                    text='Aplicar filtros'
+                    color='primary'
+                    onClick={() => {handleFilters()}}
+                />
+
             </div>
             <ToastContainer
                 position="bottom-right"

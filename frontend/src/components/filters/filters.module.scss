@@ -4,11 +4,26 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
     gap: 1rem;
     padding: 1rem 0 0.5rem 0;
 
+    .DatePickersContainer {
+        grid-column: 1 / span 2;
+        display: flex;
+        gap: 1rem;
+
+        >div {
+            flex: 1 1 50%;
+        }
+    }
+
     .Input {
         grid-column: 3;
+    }
+
+    .ButtonContainer {
+        grid-column: 1 / span 3;
     }
 
     label {
