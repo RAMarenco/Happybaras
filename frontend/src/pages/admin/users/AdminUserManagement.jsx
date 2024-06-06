@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { DeleteModal } from '../../../components/modals/DeleteModal.jsx';
-import { EditModal } from '../../../components/modals/EditModal';
+import DataModal from '../../../components/modals/DataModal.jsx';
+import DeleteModal from '../../../components/modals/DeleteModal.jsx';
+import SearchBar from '../../../components/searchBar/SearchBar.jsx';
 import TableComponent from '../../../components/tableComponent/tableComponent';
 import classes from './AdminUserManagement.module.scss';
 
 export const AdminUserManagement = () => {
-    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+    const [isDataModalOpen, setIsDataModalOpen] = useState(false);
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
+    const [search, setSearch] = useState("");
 
     const data = [
         {
@@ -37,8 +39,120 @@ export const AdminUserManagement = () => {
             email: "kike@mail.com",
             role: "visitor",
             address: "Olivos #16"
-        }
-    ]
+        },
+        {
+            id: 1,
+            name: "John Doe",
+            email: "john@mail.com",
+            role: "admin",
+            address: "Olivos #16"
+        },
+        {
+            id: 2,
+            name: "Michelle Rivas Gutierritos",
+            email: "mich@mail.com",
+            role: "mainResident",
+            address: "Olivos #16"
+        },
+        {
+            id: 3,
+            name: "Malenco",
+            email: "malenco@mail.com",
+            role: "normalResident",
+            address: "Olivos #16"
+        },
+        {
+            id: 4,
+            name: "Kike",
+            email: "kike@mail.com",
+            role: "visitor",
+            address: "Olivos #16"
+        },
+        {
+            id: 1,
+            name: "John Doe",
+            email: "john@mail.com",
+            role: "admin",
+            address: "Olivos #16"
+        },
+        {
+            id: 2,
+            name: "Michelle Rivas Gutierritos",
+            email: "mich@mail.com",
+            role: "mainResident",
+            address: "Olivos #16"
+        },
+        {
+            id: 3,
+            name: "Malenco",
+            email: "malenco@mail.com",
+            role: "normalResident",
+            address: "Olivos #16"
+        },
+        {
+            id: 4,
+            name: "Kike",
+            email: "kike@mail.com",
+            role: "visitor",
+            address: "Olivos #16"
+        },
+        {
+            id: 1,
+            name: "John Doe",
+            email: "john@mail.com",
+            role: "admin",
+            address: "Olivos #16"
+        },
+        {
+            id: 2,
+            name: "Michelle Rivas Gutierritos",
+            email: "mich@mail.com",
+            role: "mainResident",
+            address: "Olivos #16"
+        },
+        {
+            id: 3,
+            name: "Malenco",
+            email: "malenco@mail.com",
+            role: "normalResident",
+            address: "Olivos #16"
+        },
+        {
+            id: 4,
+            name: "Kike",
+            email: "kike@mail.com",
+            role: "visitor",
+            address: "Olivos #16"
+        },
+        {
+            id: 1,
+            name: "John Doe",
+            email: "john@mail.com",
+            role: "admin",
+            address: "Olivos #16"
+        },
+        {
+            id: 2,
+            name: "Michelle Rivas Gutierritos",
+            email: "mich@mail.com",
+            role: "mainResident",
+            address: "Olivos #16"
+        },
+        {
+            id: 3,
+            name: "Malenco",
+            email: "malenco@mail.com",
+            role: "normalResident",
+            address: "Olivos #16"
+        },
+        {
+            id: 4,
+            name: "Kike",
+            email: "kike@mail.com",
+            role: "visitor",
+            address: "Olivos #16"
+        },
+    ];
 
     const headers = {
         "Nombre": "name",
@@ -50,23 +164,35 @@ export const AdminUserManagement = () => {
     const handleEditClick = (user) => {
         setSelectedUser(user);
         document.body.classList.add(classes["modal-open"]);
-        setIsEditModalOpen(true);
+        setIsDataModalOpen(true);
     };
 
     const handleOnDismiss = () => {
         document.body.classList.remove(classes["modal-open"])
-        setIsEditModalOpen(false);
+        setIsDataModalOpen(false);
         setIsDeleteModalOpen(false);
-    }
+    };
 
     const handleDeleteClick = (user) => {
         setSelectedUser(user);
         document.body.classList.add(classes["modal-open"]);
         setIsDeleteModalOpen(true);
-    }
+    };
+
+    const handleSearchChange = (value) => {
+        setSearch(value);
+    };
 
     return (
         <div className={classes["AdminUserManagement_Container"]}>
+            <div className={classes["search-bar-div"]}>
+                <SearchBar
+                    value={search}
+                    onSearchChange={handleSearchChange}
+                    placeHolder={"Buscar por correo electrónico..."}
+                    classname={classes["search-bar"]}
+                />
+            </div>
             <TableComponent
                 data={data}
                 headers={headers}
@@ -75,16 +201,18 @@ export const AdminUserManagement = () => {
                 onEditClick={handleEditClick}
                 onDeleteClick={handleDeleteClick}
             />
-            {isEditModalOpen &&
-                <EditModal
+            {isDataModalOpen &&
+                <DataModal
                     userData={selectedUser}
                     onDismiss={handleOnDismiss}
+                    mode={"user"}
                 />
             }
             {isDeleteModalOpen &&
                 <DeleteModal
                     userData={selectedUser}
                     onDismiss={handleOnDismiss}
+                    mode={"user"}
                 />
             }
         </div>

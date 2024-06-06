@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import FilledButton from "../../../components/Buttons/Filled/FilledButton";
 import MemberCard from "../../../components/memberCard/MemberCard";
-import { DeleteModal } from "../../../components/modals/DeleteModal.jsx";
+import DeleteModal from "../../../components/modals/DeleteModal.jsx";
 import SearchBar from "../../../components/searchBar/SearchBar";
 import ROLES from "../../../consts/roleConsts";
 import "./members.scss";

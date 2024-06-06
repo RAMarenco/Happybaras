@@ -8,6 +8,7 @@ import { AdminUserManagement } from "../pages/admin/users/AdminUserManagement";
 import AdminReports from "../pages/admin/reports/adminReports";
 import ResidentLayout from "../layouts/resident/residentLayout";
 import Members from "../pages/resident/members/members";
+import AdminHouseManagement from "../pages/admin/houses/AdminHouseManagement";
 /*
     TODO import NotFound from "../pages/notFound/NotFound";
 */
@@ -39,6 +40,10 @@ const Routes = [
                     {
                         path: "users",
                         element: <AdminUserManagement />,
+                    },
+                    {
+                        path: "houses",
+                        element: <AdminHouseManagement />,
                     },
                     {
                         path: "reports",

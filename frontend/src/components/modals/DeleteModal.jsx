@@ -5,14 +5,23 @@ import FilledButton from "../Buttons/Filled/FilledButton.jsx";
 import OutlinedButton from "../Buttons/Outlined/OutlinedButton.jsx";
 import classes from './DeleteModal.module.scss';
 
-export const DeleteModal = ({ userData, onDismiss }) => {
+const DeleteModal = ({ userData, onDismiss, mode }) => {
+    console.log(userData);
     const { handleOnSubmit, data } = useModalForm(
         userData,
         `users/${userData.id}`,
-        "PUT",
+        "PATCH",
         () => {
             onDismiss();
         }
+    );
+
+    const isUserMode = mode === "user";
+    const title = isUserMode ? "Eliminar usuario" : "Eliminar residencia";
+    const message = isUserMode ? (
+        <>¿Está seguro de eliminar el usuario <strong className={classes["strong"]}>{data.name}</strong>?</>
+    ) : (
+        <>¿Está seguro de eliminar la residencia #<strong className={classes["strong"]}>{data.residence}</strong>?</>
     );
 
     return (
@@ -20,10 +29,10 @@ export const DeleteModal = ({ userData, onDismiss }) => {
             <div className={classes["modal-container"]}>
                 <div className={classes["modal-header"]}>
                     <MdDelete className={classes["delete-icon"]} />
-                    <h2 className={classes["modal-title"]}>Eliminar usuario</h2>
+                    <h2 className={classes["modal-title"]}>{title}</h2>
                 </div>
                 <div className={classes["modal-content"]}>
-                    <p>¿Está seguro de eliminar el usuario <b className={classes["strong"]}>{data.name}</b>?</p>
+                    <p>{message}</p>
                 </div>
                 <div className={classes["modal-actions"]}>
                     <OutlinedButton text="Cancelar" onClick={onDismiss} color={buttonColorsStrings.accentRed} />
@@ -33,3 +42,5 @@ export const DeleteModal = ({ userData, onDismiss }) => {
         </div>
     )
 }
+
+export default DeleteModal;

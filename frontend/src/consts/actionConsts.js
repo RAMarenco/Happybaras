@@ -5,7 +5,7 @@ const ADMINACTIONS = [
     },
     {
         name: "Residencias", 
-        link: "/",
+        link: "./houses",
     },
     {
         name: "Reportes", 
@@ -47,4 +47,4 @@ const ENCARGADOACTIONS = [
     },
 ];
 
-export {ADMINACTIONS, RESIDENTACTIONS, ENCARGADOACTIONS}
+export { ADMINACTIONS, ENCARGADOACTIONS, RESIDENTACTIONS };
