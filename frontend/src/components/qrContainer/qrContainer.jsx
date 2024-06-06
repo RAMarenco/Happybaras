@@ -5,6 +5,8 @@ import Timer from "./timer/timer";
 import { MdArrowBackIos } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { useMediaQuery } from 'react-responsive';
+import { GiPadlock } from "react-icons/gi"
+
 
 const QRContainer = ({onGoBack}) => {
     const isMovile = useMediaQuery({ query: "(max-width: 900px)" });
@@ -25,6 +27,7 @@ const QRContainer = ({onGoBack}) => {
         const newTime = new Date();
         newTime.setMinutes(newTime.getMinutes() + timeLimit.getMinutes());
         setDeadline(newTime);
+        setExpired(false);
     }
 
     const handleTimeLimitExceeded = () => {
@@ -47,7 +50,7 @@ const QRContainer = ({onGoBack}) => {
                             <MdArrowBackIos 
                                 onClick={onGoBack} 
                                 className={classes["Arrow"]}
-                                style={{color: "#001021"}}
+                                style={{color: "#001021", cursor: "pointer"}}
                             /> 
                         : 
                             <></>
@@ -58,7 +61,7 @@ const QRContainer = ({onGoBack}) => {
                         !expired ? 
                             <QRGenerator value={value}/>
                         :
-                            <QRGenerator value="QR CODE NOT VALID"/>
+                            <GiPadlock style={{fontSize: "200px", padding: "16px"}}/>
                     }
                     <FilledButton onClick={() => {handleGenerateNewQR()}} color="secondary" text="Generar otro QR"/>
                 </>

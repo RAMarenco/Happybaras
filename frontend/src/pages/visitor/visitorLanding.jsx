@@ -5,12 +5,16 @@ import Cards from '../../components/cards/cards';
 import { useState } from 'react';
 import QRContainer from '../../components/qrContainer/qrContainer';
 import { useMediaQuery } from 'react-responsive';
+import Bubble from '../../components/bubble/bubble';
+import { IoInformation } from "react-icons/io5";
+import InstructionsModal from '../../components/modals/instructionsModal/instructionsModal';
 
 const VisitorLanding = () => {
     const isMovile = useMediaQuery({ query: "(max-width: 900px)" });
     const [showQR, setShowQR] = useState(false);
     const [showCards, setShowCards] = useState(false);
     const [startDate, setStartDate] = useState(new Date());
+    const [showInstructions, setShowInstructions] = useState(false);
     const [endDate, setEndDate] = useState(() => {
         const date = new Date();
         date.setDate(date.getDate() + 7);
@@ -20,6 +24,10 @@ const VisitorLanding = () => {
     const filters = {
         startDate, 
         endDate, 
+    }
+
+    const handleBubbleClick = () => {
+        setShowInstructions(showInstructions ? false : true);
     }
 
     const handleGoBack = () => {
@@ -45,21 +53,41 @@ const VisitorLanding = () => {
                             <Instructions onAgreementClick={() => {handleAgreementClick()}}/>
                         </div>
                     : 
-                        !showQR ?
-                            <div className={classes["LeftContainer"]}> 
-                                <Filters 
-                                    startDate={startDate} 
-                                    endDate={endDate} 
-                                    setStartDate={setStartDate} 
-                                    setEndDate={setEndDate}
-                                />
-                                <Cards 
-                                    filters={filters} 
-                                    handleClick={handleGenerateQRClick}
-                                />
-                            </div>
-                        : 
-                            <QRContainer onGoBack={() => {handleGoBack()}}/>
+                    <>
+                        {    
+                            !showQR ?
+                                <div className={classes["LeftContainer"]}> 
+                                    <Filters 
+                                        startDate={startDate} 
+                                        endDate={endDate} 
+                                        setStartDate={setStartDate} 
+                                        setEndDate={setEndDate}
+                                    />
+                                    <Cards 
+                                        filters={filters} 
+                                        handleClick={handleGenerateQRClick}
+                                    />
+                                </div>
+                            : 
+                                <QRContainer onGoBack={() => {handleGoBack()}}/> 
+                        }
+                        <div 
+                            className={classes["BubbleContainer"]}
+                            style={{zIndex: 20000}}    
+                        >
+                            <Bubble 
+                                icon={<IoInformation />} 
+                                color={"#9EC4DB"}
+                                handleClick={() => {handleBubbleClick()}}
+                            />
+                        </div>
+                        {
+                            showInstructions ? 
+                                <InstructionsModal/>
+                            :
+                                <> </>
+                        }
+                    </>
 
                 : 
                     <>
