@@ -12,7 +12,7 @@ const QRContainer = ({onGoBack}) => {
     const isMovile = useMediaQuery({ query: "(max-width: 900px)" });
     /* TODO: this value should be retrieved from the API since it can be changed by the ADMIN */
     const timeLimit = new Date();
-    timeLimit.setMinutes(1,0);
+    timeLimit.setMinutes(10,0);
 
     var i = 0; // Esto se va a quitar después
 
@@ -50,7 +50,7 @@ const QRContainer = ({onGoBack}) => {
                             <MdArrowBackIos 
                                 onClick={onGoBack} 
                                 className={classes["Arrow"]}
-                                style={{color: "#001021"}}
+                                style={{color: "#001021", cursor: "pointer"}}
                             /> 
                         : 
                             <></>

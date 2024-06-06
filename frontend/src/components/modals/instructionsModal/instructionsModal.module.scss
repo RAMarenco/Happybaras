@@ -1,0 +1,23 @@
+@import "/src/variables";
+
+.ModalBackground {
+    --shf: 4.9406564584124654e-322;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+    .ModalContainer {
+        width: 80%;
+        background-color: #fff;
+        border-radius: 8px;
+    }
+}

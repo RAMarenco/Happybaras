@@ -2,7 +2,7 @@ import classes from './instructions.module.scss';
 import { useMediaQuery } from 'react-responsive';
 import FilledButton from '../Buttons/Filled/FilledButton';
 
-const Instructions = ({onAgreementClick}) => {
+const Instructions = ({onAgreementClick, isModal}) => {
     const timeLimit = 10; /* This value should be brought from the API since it can be changed by the ADMIN */
     const isMovile = useMediaQuery({ query: "(max-width: 900px)" });
 
@@ -49,8 +49,11 @@ const Instructions = ({onAgreementClick}) => {
                 }
             </ol>
             {
-                isMovile ? 
-                    <FilledButton text='Entendido' onClick={onAgreementClick} color='secondary'/>
+                isMovile && !isModal ? 
+                    <FilledButton 
+                        text='Entendido' onClick={onAgreementClick} 
+                        color='secondary'
+                    />
                 :
                     <></>
             }
