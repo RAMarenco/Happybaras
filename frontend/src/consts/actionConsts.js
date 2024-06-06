@@ -43,7 +43,7 @@ const ENCARGADOACTIONS = [
     },
     { 
         name: "Solicitudes", 
-        link: "/" 
+        link: "./requests" 
     },
 ];
 

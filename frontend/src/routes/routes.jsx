@@ -9,6 +9,7 @@ import AdminReports from "../pages/admin/reports/adminReports";
 import ResidentLayout from "../layouts/resident/residentLayout";
 import Members from "../pages/resident/members/members";
 import AdminHouseManagement from "../pages/admin/houses/AdminHouseManagement";
+import ResidentRequests from "../pages/resident/requests/ResidentRequests";
 /*
     TODO import NotFound from "../pages/notFound/NotFound";
 */
@@ -59,6 +60,10 @@ const Routes = [
                         path: "members",
                         element: <Members />,
                     },
+                    {
+                        path: "requests",
+                        element: <ResidentRequests />
+                    }
                 ],
             },
         ],
