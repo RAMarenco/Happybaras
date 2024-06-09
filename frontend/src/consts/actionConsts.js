@@ -15,6 +15,10 @@ const ADMINACTIONS = [
 
 const RESIDENTACTIONS = [
     {
+        name: "Generar QR", 
+        link: "./",
+    },
+    {
         name: "Visitas", 
         link: "/",
     },
@@ -29,6 +33,10 @@ const RESIDENTACTIONS = [
 ];
 
 const ENCARGADOACTIONS = [
+    {
+        name: "Generar QR", 
+        link: "./",
+    },
     { 
         name: "Visitas",
         link: "/" 
