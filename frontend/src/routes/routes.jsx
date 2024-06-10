@@ -8,6 +8,7 @@ import { AdminUserManagement } from "../pages/admin/users/AdminUserManagement";
 import AdminReports from "../pages/admin/reports/adminReports";
 import ResidentLayout from "../layouts/resident/residentLayout";
 import Members from "../pages/resident/members/members";
+import Visit from "../pages/resident/visit/visit";
 import AdminHouseManagement from "../pages/admin/houses/AdminHouseManagement";
 import ResidentRequests from "../pages/resident/requests/ResidentRequests";
 import { GoogleOAuthProvider } from "@react-oauth/google";
@@ -62,6 +63,10 @@ const Routes = [
                     {
                         path: "",
                         element: <ResidentLanding />,
+                    },
+                    {
+                        path: "visits",
+                        element: <Visit />,
                     },
                     {
                         path: "members",
