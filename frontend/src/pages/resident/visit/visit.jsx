@@ -281,8 +281,6 @@ const Visit = () => {
                     <FilledButton text={ handlePermission(role.user.role) ? "Agendar visita" : "Realizar peticion"} />
                 </div>
             </div>
-
-            
         </div>
     );
 };

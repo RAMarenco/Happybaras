@@ -14,6 +14,7 @@ import ResidentRequests from "../pages/resident/requests/ResidentRequests";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { CLIENTID } from "../consts/consts";
 import ResidentLanding from "../pages/resident/landing/ResidentLanding.jsx";
+import ResidentHistorial from "../pages/resident/historial/ResidentHistorial.jsx";
 /*
     TODO import NotFound from "../pages/notFound/NotFound";
 */
@@ -67,6 +68,10 @@ const Routes = [
                     {
                         path: "visits",
                         element: <Visit />,
+                    },
+                    {
+                        path: "historial",
+                        element: <ResidentHistorial />,
                     },
                     {
                         path: "members",

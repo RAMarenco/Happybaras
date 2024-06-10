@@ -40,7 +40,7 @@ const TableFieldComponent = (props) => {
                 <td
                     data-label={props.dataLabel}
                     className='table-normal-field'>
-                    {props.value}
+                    {props.value === "" ? "-" : props.value }
                 </td>
             );
         case 'action':

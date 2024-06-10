@@ -1,0 +1,41 @@
+@use "../../../variables" as colors;
+
+.modal-open {
+    overflow: hidden;
+}
+
+.ResidentHistorial_Container {
+    overflow-y: auto;
+    min-height: calc(100dvh - 5rem);
+    max-height: calc(100dvh - 5rem);
+
+    .search-bar-div {
+        margin: 1rem;
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+
+        >input {
+            border: 1px solid colors.$pc-500;
+
+            &::placeholder {
+                color: colors.$pc-500;
+            }
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 1rem;
+
+            button {
+                height: 75%;
+                padding-block: 0;
+                font-weight: 500;
+            }
+
+            div {
+                align-items: center;
+            }
+        }
+    }
+}

@@ -275,7 +275,7 @@
 
         > .form-visit-action {
             display: flex;
-            justify-content: start;
+            justify-content: end;
             > :first-child {
                 max-width: 300px;
                 flex: 1;
@@ -286,9 +286,7 @@
 
 @media(max-width: 900px) {
     .visit-container {
-        flex-direction: column;   
-        min-height: auto;
-        max-height: auto;    
+        flex-direction: column;     
 
         > .visit-card-info-container {
             padding: 1.5rem;
@@ -301,6 +299,9 @@
 
         > .form-visit-container {
             overflow-y: unset;
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            justify-content: center;
 
             > .form-visit-info {
                 font-size: 1.2rem;
@@ -315,6 +316,7 @@
     .visit-container {
         > .form-visit-container {
             > .form-input-group {
+                gap: 0.5rem;
                 > .form-visit-group {
                     flex-direction: column;
                     gap: 0.5rem;

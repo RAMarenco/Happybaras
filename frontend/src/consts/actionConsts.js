@@ -20,11 +20,11 @@ const RESIDENTACTIONS = [
     },
     {
         name: "Visitas", 
-        link: "/",
+        link: "./visits",
     },
     {
         name: "Historial", 
-        link: "/",
+        link: "./historial",
     },
     {
         name: "Miembros", 
@@ -43,7 +43,7 @@ const ENCARGADOACTIONS = [
     },
     { 
         name: "Historial",
-        link: "/" 
+        link: "./historial" 
     },
     { 
         name: "Miembros", 
