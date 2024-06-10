@@ -1,34 +1,128 @@
 @use "../../../variables" as colors;
 
-
-
-.css-1vrd5hx-MuiPickersLayout-root {
-    display: flex !important;
-    flex-direction: column !important;
+.p-datepicker {
+    padding: 0.5rem;
+    max-width: 200px !important;
 }
 
-.css-m7rfmv-MuiPickersToolbar-root-MuiDatePickerToolbar-root {
-    padding: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
+.p-datepicker-header {
+    padding: 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+
+    > .p-datepicker-title {
+        > .p-datepicker-decade {
+            > span {
+                font-weight:600;
+            }
+        }
+    }
 }
 
-.css-1bz26re-MuiTypography-root-MuiDatePickerToolbar-title {
-    text-align: start !important;
-    width: 100% !important;
+.p-datepicker-calendar {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+
+    > thead {
+        font-weight: bold;
+    }
+
+    > tbody {
+        > tr {
+            > .p-datepicker-other-month {
+                vertical-align: middle;
+                padding: 0.5rem;
+                > span {
+                    margin: 0 auto;
+                }
+            }
+
+            >td {
+                vertical-align: middle;
+                padding: 0.5rem;
+                > span {
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
 }
 
-.css-1hbyad5-MuiTypography-root {
-    display: none !important;
+.p-monthpicker {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+
+    > .p-monthpicker-month {
+        padding: 0.5rem;
+    }
 }
 
-.css-gqp4xl-MuiPickersLayout-root .MuiPickersLayout-toolbar {
-    padding: 0 !important;
+.p-yearpicker {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+
+    > .p-yearpicker-year {
+        padding: 0.5rem;
+    }
 }
 
-.css-1aqny2q-MuiPickersCalendarHeader-root {
-    padding: 0 !important;
-    margin-top: 0 !important;
+@media screen and (max-width: 769px) {
+    .p-datepicker-calendar {
+        margin-top: 0.5rem;
+    
+
+        > thead {
+            > tr {
+                > th {
+                    padding: 0.3rem;
+                    font-size: 0.9rem;
+                }   
+            }
+        }
+
+        > tbody {
+            > tr {
+                > .p-datepicker-other-month {
+                    vertical-align: middle;
+                    padding: 0.0rem;
+                    font-size: 0.9rem;
+                }
+    
+                >td {
+                    vertical-align: middle;
+                    padding: 0.0rem;
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+    
+    .p-monthpicker {
+        margin-top: 0.5rem;
+    
+        > .p-monthpicker-month {
+            padding: 0.5rem;
+            font-size: 0.9rem;
+        }
+    }
+    
+    .p-yearpicker {
+        margin-top: 0.5rem;
+    
+        > .p-yearpicker-year {
+            padding: 0.5rem;
+            font-size: 0.9rem;
+        }
+    }
+
+    .p-datepicker-header {
+        > .p-datepicker-title {
+            > .p-datepicker-decade {
+                > span {
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
 
 }
 
@@ -166,18 +260,22 @@
         }
 
         > .form-calendar-picker {
-            max-width: 300px;   
+            width: 100%;  
 
             > :first-child {
                 font-weight: 500;
                 padding-block: 0.3rem;
                 color: #4281A4;
             }
+
+            > :last-child {
+                width: 100%;
+            }
         }
 
         > .form-visit-action {
             display: flex;
-            justify-content: end;
+            justify-content: start;
             > :first-child {
                 max-width: 300px;
                 flex: 1;

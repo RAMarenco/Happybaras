@@ -1,3 +1,5 @@
+@use "../../../variables" as *;
+
 .modal-open {
     overflow: hidden;
 }
@@ -6,4 +8,16 @@
     overflow-y: auto;
     min-height: calc(100dvh - 5rem);
     max-height: calc(100dvh - 5rem);
+
+    .search-bar-div {
+        margin: 1rem;
+
+        >input {
+            border: 1px solid $acg-500;
+
+            &::placeholder {
+                color: $acg-500;
+            }
+        }
+    }
 }

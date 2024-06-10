@@ -1,4 +1,4 @@
-//import { useGoogleLogin, GoogleLogin } from '@react-oauth/google';
+import { useGoogleLogin } from '@react-oauth/google';
 import { FcGoogle } from "react-icons/fc";
 
 import classes from "./Home.module.scss";
@@ -14,10 +14,19 @@ const Home = () => {
             },
         })
     );
-    /*const login = useGoogleLogin({
-        onSuccess: tokenResponse => console.log(tokenResponse),
-        onError: error => console.log(error),
-    });*/
+    const login = useGoogleLogin({
+        flow: "implicit",
+        onSuccess: async (tokenResponse) => {
+            const response = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+                headers: {
+                    Authorization: `Bearer ${tokenResponse.access_token}`,
+                }
+            })
+            const data = await response.json();
+            console.log(data);
+        },
+        onError: (error) => console.log(error),
+    });
 
     return (
         <div className={classes["Home_Container"]}>
@@ -27,19 +36,7 @@ const Home = () => {
                     <br />
                     <span>HAPPY</span>
                 </h1>
-
-                {/*
-                    <GoogleLogin
-                        onSuccess={credentialResponse => {
-                            console.log(credentialResponse);
-                        }}
-                        onError={() => {
-                            console.log('Login Failed');
-                        }}
-                        useOneTap
-                    />
-                */}
-
+                
                 <button onClick={() => login()}>
                     <FcGoogle />
                     Ingresar con Google

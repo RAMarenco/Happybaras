@@ -1,15 +1,11 @@
 import { useState } from "react";
 import GuessCard from "../../../components/guessCard/GuessCard";
-import { DropdownMenu } from "../../../components/inputs/Dropdown/DropdownMenu";
 import { GeneralInput } from "../../../components/inputs/GeneralInput/GeneralInput";
 import "./visit.scss";
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DateRangeCalendar } from '@mui/x-date-pickers-pro/DateRangeCalendar';
-import { DateCalendar } from "@mui/x-date-pickers/DateCalendar"; 
 import FilledButton from "../../../components/Buttons/Filled/FilledButton";
 import ROLES from "../../../consts/roleConsts";
-import MultipleDatesPicker from '@ambiot/material-ui-multiple-dates-picker'
+import StaticDropDownMenu from "../../../components/inputs/staticDropDownMenu/StaticDropDownMenu";
+import { Calendar } from 'primereact/calendar';
 
 const dummyData = [
     {
@@ -55,17 +51,12 @@ const Visit = () => {
     const [horaFinal, setHoraFinal] = useState("")
     const [arrival, setArrival] = useState("")
     const [typeVisit, setTypeVisit] = useState("")
-    const [dateRange, setDateRange] = useState([])
-    const [selectedDate, setSelectedDate] = useState();
-    const [multipleDates, setMultipleDates] = useState();
+    const [dateRange, setDateRange] = useState(null)
+    const [selectedDate, setSelectedDate] = useState(null);
+    const [multipleDates, setMultipleDates] = useState(null);
     const getLocalRole = localStorage.getItem("dataStorage");
     const role = JSON.parse(getLocalRole);
     const [selectedDays, setSelectedDays] = useState([]);
-    const [open, setOpen] = useState(false)
-
-    const handleOpen = () => {
-        setOpen(!open)
-    }
     
     const handleDayClick = (day) => {
         if (selectedDays.includes(day)) {
@@ -95,13 +86,13 @@ const Visit = () => {
         setHoraFinal(e.target.value)
     }
 
-    const handleArrivalChange = (e) => {
-        setArrival(e.target.value)
-    }
+    const handleArrivalChange = (option) => {
+        setArrival(option);
+    };
 
-    const handleTypeVisitChange = (e) => {
-        setTypeVisit(e.target.value)
-    }
+    const handleTypeVisitChange = (option) => {
+        setTypeVisit(option);
+    };
 
     const MapTypeArrive = (typeArrival) => {
         if (typeArrival === "Unica") {
@@ -127,7 +118,11 @@ const Visit = () => {
         return "Vacio"
     }
 
-    console.log(selectedDays)
+    const disableOptionTypeVisit = (arrival) => {
+        if (arrival === "Unica" || arrival === "") {
+            return true
+        }
+    }
 
     return (
         <div className="visit-container">
@@ -162,28 +157,20 @@ const Visit = () => {
                     /> 
 
                     <div className="form-visit-group">
-                        <DropdownMenu
-                            label={"Tipo de entrada"}
-                            list="arrival"
-                            name="arrival"
-                            defaultValue=""
-                            onChange={handleArrivalChange}
-                            options={[
-                                { id: 1, address: "Unica" },
-                                { id: 2, address: "Multiple" },
-                            ]}
-                        />
-                        <DropdownMenu
-                            label={"Repeticion de visita"}
-                            list="typeVisit"
-                            name="typeVisit"
-                            defaultValue=""
-                            onChange={handleTypeVisitChange}
-                            options={[
-                                { id: 1, address: "Periodica" },
-                                { id: 2, address: "No periodica" },
-                            ]}
-                        />
+                        <StaticDropDownMenu 
+                            options={["Unica", "Multiple"]}
+                            selectedOption={arrival}
+                            setSelectedOption={handleArrivalChange}
+                            placeHolder={"Tipo de entrada"}
+                            disabled={false}
+                            />
+                        <StaticDropDownMenu 
+                            options={["Periodica", "No periodica"]}
+                            selectedOption={typeVisit}
+                            setSelectedOption={handleTypeVisitChange}
+                            placeHolder={"Tipo de visita"}
+                            disabled={disableOptionTypeVisit(arrival)}
+                            />
                     </div>
                 </div>
 
@@ -253,12 +240,12 @@ const Visit = () => {
 
                         <div className="form-calendar-picker">
                             <p>Selecciona el dia de la visita</p>
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                    <DateCalendar
-                                        value={selectedDate}
-                                        onChange={(newValue) => setSelectedDate(newValue)}
-                                    />
-                            </LocalizationProvider>
+                            <Calendar 
+                                value={selectedDate} 
+                                onChange={(e) => setSelectedDate(e.value)}
+                                dateFormat="yy-mm-dd" 
+                                touchUI
+                            /> 
                         </div>
                     </>
                 : <> </>}
@@ -266,26 +253,28 @@ const Visit = () => {
                 { MapTypeVisit(typeVisit) == "Periodica" && MapTypeArrive(arrival) == "Multiple" ?
                     <div className="form-calendar-picker">
                         <p>Selecciona un rango de fecha de visitas</p>
-                        <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DateRangeCalendar
-                                    calendars={1}
-                                    value={dateRange}
-                                    onChange={(newValue) => setDateRange(newValue)}
-                                />
-                        </LocalizationProvider>
+                        <Calendar 
+                            value={dateRange} 
+                            onChange={(e) => setDateRange(e.value)}
+                            dateFormat="yy-mm-dd" 
+                            selectionMode="range"
+                            readOnlyInput
+                            touchUI
+                        /> 
                     </div>
                 :<></>}
-
+                
                 { MapTypeVisit(typeVisit) == "No periodica" && MapTypeArrive(arrival) == "Multiple" ?
                     <div className="form-calendar-picker">
-                        <p>Selecciona las fechas de visita</p>
-                        <FilledButton text={ open ? "Cerrar" : "Seleccionar fechas"} onClick={handleOpen} />
-                        <MultipleDatesPicker
-                            open={open}
-                            selectedDates={[]}
-                            onCancel={handleOpen}
-                            onSubmit={dates => console.log('selected dates', dates)}
-                        />
+                        <p>Fechas de visitas</p>
+                        <Calendar 
+                            value={multipleDates} 
+                            onChange={(e) => setMultipleDates(e.value)}
+                            dateFormat="yy-mm-dd" 
+                            selectionMode="multiple"
+                            readOnlyInput
+                            touchUI
+                        /> 
                     </div>
                 :<></>}
                 <div className="form-visit-action">

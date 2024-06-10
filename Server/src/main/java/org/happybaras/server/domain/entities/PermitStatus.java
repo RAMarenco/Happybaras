@@ -3,6 +3,7 @@ package org.happybaras.server.domain.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.happybaras.server.domain.enums.PermitStatusEnum;
 
 import java.util.List;
 import java.util.UUID;

@@ -5,12 +5,9 @@
 }
 
 .DatePickerWrapper {
-    flex-grow: 1;
     .DatePicker {
         width: 100%;
-        //min-width: 600px;
         padding: 5px 5px 5px 40px !important;
-        //padding-block: 1.25rem;
         border-radius: 0.5rem;
         border: none;
         outline: 1px solid $pc-500;

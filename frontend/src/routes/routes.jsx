@@ -9,6 +9,10 @@ import AdminReports from "../pages/admin/reports/adminReports";
 import ResidentLayout from "../layouts/resident/residentLayout";
 import Members from "../pages/resident/members/members";
 import Visit from "../pages/resident/visit/visit";
+import AdminHouseManagement from "../pages/admin/houses/AdminHouseManagement";
+import ResidentRequests from "../pages/resident/requests/ResidentRequests";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { CLIENTID } from "../consts/consts";
 /*
     TODO import NotFound from "../pages/notFound/NotFound";
 */
@@ -16,7 +20,7 @@ import Visit from "../pages/resident/visit/visit";
 const Routes = [
     {
         path: "/",
-        element: <Home />,
+        element: <GoogleOAuthProvider clientId={CLIENTID}><Home /></GoogleOAuthProvider>,
     },
     {
         element: <ProtectedRoutes />,
@@ -42,6 +46,10 @@ const Routes = [
                         element: <AdminUserManagement />,
                     },
                     {
+                        path: "houses",
+                        element: <AdminHouseManagement />,
+                    },
+                    {
                         path: "reports",
                         element: <AdminReports />,
                     },
@@ -59,6 +67,10 @@ const Routes = [
                         path: "members",
                         element: <Members />,
                     },
+                    {
+                        path: "requests",
+                        element: <ResidentRequests />
+                    }
                 ],
             },
         ],

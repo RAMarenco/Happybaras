@@ -15,6 +15,7 @@ const Chart = ({ text, type = "", endpoint = "" }) => {
     const isMovile = useMediaQuery({ query: '(max-width: 900px)' });
     const { chart, setData, setLabels } = useChart();
     const [dataType, setDataType] = useState("S");
+    const [selectedButton, setSelectedButton] = useState(null);
 
     useEffect(() => {
         setData(DUMMY_DAYS_DATA);
@@ -37,10 +38,13 @@ const Chart = ({ text, type = "", endpoint = "" }) => {
     const handleClick = (text) => {
         if (text === "S") {
             setDataType("S");
+            setSelectedButton("S");
         } else if (text === "M") {
             setDataType("M");
+            setSelectedButton("M");
         } else if (text === "A") {
             setDataType("A");
+            setSelectedButton("A");
         }
     };
 
@@ -54,19 +58,22 @@ const Chart = ({ text, type = "", endpoint = "" }) => {
                         onClick={() => handleClick("S")}
                         color={buttonColorsStrings.accentGreen}
                         size_w="sm"
+                        isSelected={selectedButton === "S"}
                     />
                     <OutlinedButton
                         text={isMovile ? "M" : "Mensual"}
                         onClick={() => handleClick("M")}
                         color={buttonColorsStrings.accentGreen}
                         size_w="sm"
+                        isSelected={selectedButton === "M"}
                     />
                     {type === "1" && (
                         <OutlinedButton
-                        text={isMovile ? "A" : "Anual"}
+                            text={isMovile ? "A" : "Anual"}
                             onClick={() => handleClick("A")}
                             color={buttonColorsStrings.accentGreen}
                             size_w="sm"
+                            isSelected={selectedButton === "A"}
                         />
                     )}
                 </div>

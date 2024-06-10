@@ -1,69 +1,56 @@
-const editModalInputs = [
-    {
-        text: "Nombre",
-        name: "name",
-        type: "text",
-        class: "full",
-        disabled: true
-    },
-    {
-        text: "Correo",
-        name: "name",
-        type: "text",
-        class: "full",
-        disabled: true
-    }
-]
-
-const editModalDropdown = [
-    {
-        text: "Residencia",
-        list: "address-list",
-        name: "address",
-        class: "full",
-    },
-    {
-        text: "Rol",
-        list: "role-list",
-        name: "role",
-        class: "full",
-    },
-]
-
 // TODO: Delete dummy data
 const dummyAddresses = [
     {
-        address: "Olivos #1",
+        name: "Olivos #1",
         value: "1",
     },
     {
-        address: "Olivos #2",
+        name: "Olivos #2",
         value: "2",
     },
     {
-        address: "Olivos #3",
+        name: "Olivos #3",
         value: "3",
     },
     {
-        address: "Olivos #11",
+        name: "Olivos #11",
         value: "11"
     },
     {
-        address: "Olivos #12",
+        name: "Olivos #12",
         value: "1",
     },
     {
-        address: "Olivos #13",
+        name: "Olivos #13",
         value: "2",
     },
     {
-        address: "Olivos #14",
+        name: "Olivos #14",
         value: "3",
     },
     {
-        address: "Olivos #21",
+        name: "Olivos #21",
         value: "11"
+    }
+];
+
+const dummyMainResidents = [
+    {
+        name: "juan@mail.com",
+        value: "1"
+    },
+    {
+        name: "john@mail.com",
+        value: "2"
+    },
+    {
+        name: "michelle_rivas@mail.com",
+        value: "3"
+    },
+    {
+        name: "malenco@mail.com",
+        value: "4"
     }
 ]
 
-export { editModalInputs, editModalDropdown, dummyAddresses };
+export { dummyAddresses, dummyMainResidents };

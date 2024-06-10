@@ -21,7 +21,7 @@
             border-radius: 0.5rem;
             width: 100%;
             border: none;
-            outline: 1px solid $pc-700;
+            outline: 1px solid $pc-500;
             padding-block: 1.25rem;
             height: 3.125rem;
             color: $pc-500;
@@ -38,12 +38,11 @@
         right: 5%;
         width: 0;
         height: 0;
-        border-left: 6px solid transparent; 
+        border-left: 6px solid transparent;
         border-right: 6px solid transparent;
         border-top: 8px solid $pc-700;
         transform: translateY(-50%);
         pointer-events: none;
         border-radius: 2px;
     }
-    
 }

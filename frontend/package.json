@@ -10,19 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@ambiot/material-ui-multiple-dates-picker": "^1.0.3",
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
-    "@mui/icons-material": "^5.15.19",
-    "@mui/lab": "^5.0.0-alpha.170",
-    "@mui/material": "^5.15.19",
-    "@mui/styled-engine-sc": "^6.0.0-alpha.18",
-    "@mui/x-date-pickers": "^7.6.1",
-    "@mui/x-date-pickers-pro": "^7.6.1",
     "@react-oauth/google": "^0.12.1",
     "@yudiel/react-qr-scanner": "^2.0.0-beta.3",
     "chart.js": "^4.4.3",
-    "dayjs": "^1.11.11",
+    "primereact": "^10.6.6",
     "react": "^18.3.1",
     "react-chartjs-2": "^5.2.0",
     "react-datepicker": "^6.9.0",
@@ -32,8 +23,7 @@
     "react-responsive": "^10.0.0",
     "react-router-dom": "^6.23.0",
     "react-toastify": "^10.0.5",
-    "sass": "^1.76.0",
-    "styled-components": "^6.1.11"
+    "sass": "^1.76.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

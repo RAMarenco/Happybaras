@@ -22,6 +22,9 @@ public class Token {
     @Column(name = "content")
     private String content;
 
+    @Column(name = "active")
+    private boolean active;
+
     @Column(name = "timestamp", updatable = false)
     private Date timestamp;
 

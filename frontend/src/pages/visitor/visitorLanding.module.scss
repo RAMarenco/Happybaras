@@ -16,6 +16,13 @@
         gap: 1rem;
         display: flex;
         flex-direction: column;
+
+    }
+
+    .BubbleContainer {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
     }
 
     .RightContainer {

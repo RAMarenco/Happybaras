@@ -2,26 +2,26 @@
 
 .Filters {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
-    justify-content: flex-start;
-    align-items: center;
     padding: 1rem 0 0.5rem 0;
 
-    .PlaceHolder {
-        flex-grow: 1;
-        padding-inline: 1.25rem;
-        border-radius: 0.5rem;
-        width: 100%;
-        border: solid 1px $pc-500;
-        outline: 1px solid $tc-dark;
-        padding-block: 1.25rem;
-        height: 3.125rem;
-        color: $pc-700;
+    .Input {
+        grid-column: 3;
     }
 
     label {
         display: none;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .Filters {
+        display: flex;
+        flex-wrap: wrap;
+        >div {
+            flex: 1 2 100%;
+        }
     }
 }
