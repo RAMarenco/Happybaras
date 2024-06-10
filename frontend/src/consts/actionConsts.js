@@ -39,7 +39,7 @@ const ENCARGADOACTIONS = [
     },
     { 
         name: "Visitas",
-        link: "/" 
+        link: "./visits" 
     },
     { 
         name: "Historial",
