@@ -1,0 +1,27 @@
+@import "/src/variables";
+
+.Filters {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1rem 0 0.5rem 0;
+
+    .Input {
+        grid-column: 3;
+    }
+
+    label {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .Filters {
+        display: flex;
+        flex-wrap: wrap;
+        >div {
+            flex: 1 2 100%;
+        }
+    }
+}

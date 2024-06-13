@@ -1,0 +1,191 @@
+@use "./../../variables" as colors;
+
+.GuardLanding_Container {
+    min-height: calc(100dvh - 5rem);
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "Scanner Form";
+    grid-template-rows: 1fr;
+    gap: 2rem;
+
+    position: relative;
+
+    h3 {
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    button {
+        width: 100%;
+        max-width: 18.75rem;
+        height: 3.125rem;
+        max-height: 3.125rem;
+        border: none;
+        background-color: colors.$acy-500;
+        border-radius: 0.5rem;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        color: colors.$pc-50;
+        font-weight: 500;
+        
+        &:hover {
+            cursor: pointer;
+            background-color: colors.$acy-600;
+        }
+
+        &:disabled {
+            background-color: colors.$acy-100;
+            color: colors.$acy-400;
+
+            &:hover {
+                background-color: colors.$acy-100;
+                cursor: default;
+            }
+        }
+    }
+
+    > .Scanner_Container {
+        grid-area: Scanner;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 5rem;
+        padding: 2rem;
+
+        > div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+    
+            > select {
+                width: clamp(13rem, 20vw + 5rem, 18.75rem);
+                border: none;
+                border-radius: 0.5rem;
+                padding: 0.5rem;
+                outline: 1px solid colors.$tc-dark;
+            }
+        }
+
+        > .Scanner_Frame {
+            position: relative;
+            > video {
+                object-fit: cover;
+                background-color: colors.$pc-50;
+                min-height: clamp(12.5rem, 9.2327rem + 14.9362vw, 17.625rem);
+                max-height: clamp(12.5rem, 9.2327rem + 14.9362vw, 17.625rem);
+                min-width: clamp(12.5rem, 9.2327rem + 14.9362vw, 17.625rem);
+                max-width: clamp(12.5rem, 9.2327rem + 14.9362vw, 17.625rem);
+                border-radius: 0.5rem;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            }
+
+            > svg {
+                position: absolute;
+                margin: auto;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                font-size: 9rem;
+            }
+
+            > .line {
+                width: clamp(1rem, 0.3625rem + 2.9144vw, 2rem);;
+                height: clamp(1rem, 0.3625rem + 2.9144vw, 2rem);;
+                position: absolute;
+                border-radius: 0.125rem 0.125rem 0.125rem 0.125rem;
+
+                &.bottom-left-line {
+                    border-left: 4px solid colors.$tc-dark;
+                    border-bottom: 4px solid colors.$tc-dark;
+                    left: -2rem;
+                    bottom: -2rem;
+                }
+    
+                &.top-left-line {
+                    border-left: 4px solid colors.$tc-dark;
+                    border-top: 4px solid colors.$tc-dark;
+                    left: -2rem;
+                    top: -2rem;
+                }
+    
+                &.top-right-line {
+                    border-right: 4px solid colors.$tc-dark;
+                    border-top: 4px solid colors.$tc-dark;
+                    right: -2rem;
+                    top: -2rem;
+                }
+                
+                &.bottom-right-line {
+                    border-right: 4px solid colors.$tc-dark;
+                    border-bottom: 4px solid colors.$tc-dark;
+                    right: -2rem;
+                    bottom: -2rem;
+                }
+            }
+        }
+
+        >:nth-child(3) {
+            height: auto!important;
+        }
+    }
+
+    > .Form_Container {
+        grid-area: Form;
+        background-color: colors.$tc-light;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.24);
+        border-radius: 1rem 0 0 1rem;
+
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 3rem;
+        gap: 1rem;
+
+        > div {
+            display: grid;
+            gap: 1rem;
+            width: 100%;
+
+            button {
+                margin-left: auto;
+            }
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        grid-template-areas: "Scanner" "Form";
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+
+        > .Scanner_Container {
+            padding: 1.5rem;
+            > div {
+                > h3 {
+                    padding-inline: 3rem; 
+                    text-align: center;
+                }
+            }
+
+            > .Scanner_Frame {
+                position: relative;
+                > video {
+                    border-radius: 0.5rem;
+                    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+                }
+            }
+        }
+
+        > .Form_Container {
+            border-radius: 1rem 1rem 0 0;
+            padding: 1.5rem;
+            > div {
+                > button {
+                    min-width: 100%;
+                }
+            }
+        }
+    }
+}

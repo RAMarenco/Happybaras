@@ -1,0 +1,17 @@
+@import "/src/variables";
+
+.react-datepicker__input-container {
+    position: relative;
+}
+
+.DatePickerWrapper {
+    .DatePicker {
+        width: 100%;
+        padding: 5px 5px 5px 40px !important;
+        border-radius: 0.5rem;
+        border: none;
+        outline: 1px solid $pc-500;
+        height: 3.125rem;
+        color: $pc-700;
+    }
+}

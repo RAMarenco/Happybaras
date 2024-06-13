@@ -1,0 +1,18 @@
+@import "/src/variables";
+
+.QRContainer {
+    width: 100%;
+    min-height: calc(100dvh - 8rem);
+
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .Arrow {
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+    }
+}

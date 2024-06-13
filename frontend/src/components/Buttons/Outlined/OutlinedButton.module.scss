@@ -1,0 +1,77 @@
+@use '../../../variables' as *;
+
+$gap: 1rem;
+
+@mixin outlinedButton($border-color, $hover-color, $active-color, $disabled-color, $text-color, $background-color) {
+  color: $text-color;
+  padding: 1rem 1.25rem;
+  border: 1.75px solid $border-color;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 5px;
+  --shf: 4.9406564584124654e-322;
+
+  // Sizes
+  &.full {
+    width: 100%;
+  }
+
+  &.full-w {
+    width: 100%;
+  }
+
+  &.full-h {
+    height: 100%;
+  }
+
+  &.md {
+    width: calc((100% / 2 - $gap / 2) * var(--shf) / var(--shf));
+  }
+
+  &.sm {
+    width: calc(30% - $gap / 3);
+  }
+
+  &.selected {
+    background-color: $border-color;
+    color: $tc-light;
+    
+    &:hover {
+      background-color: darken($border-color, 10%);
+      color: $tc-light;
+    }
+  }
+
+  &:hover {
+    background-color: $background-color;
+    border: 1.75px solid $border-color;
+  }
+
+  &:active {
+    background-color: $background-color;
+    border: 1.75px solid $active-color;
+  }
+
+  &:disabled {
+    border: 1.75px solid $disabled-color;
+    cursor: not-allowed;
+    color: $disabled-color;
+  }
+}
+
+.primary {
+  @include outlinedButton($pc-500, $pc-300, $pc-700, $pc-200, $pc-600, $pc-50);
+}
+
+.secondary {
+  @include outlinedButton($sc-500, $sc-500, $sc-700, $sc-200, $sc-500, $sc-50);
+}
+
+.accent-green {
+  @include outlinedButton($acg-500, $acg-600, $acg-700, $acg-200, $acg-500, $acg-50);
+}
+
+.accent-red {
+  @include outlinedButton($acr-600, $acr-700, $acr-800, $acr-200, $acr-600, $acr-50);
+}

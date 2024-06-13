@@ -1,0 +1,75 @@
+@use "../../variables" as colors;
+
+@mixin actionButton($buttonColor, $buttonTextColor, $hoverColor) {
+    all: unset;
+    display: inline-block;
+    background-color: $buttonColor;
+    width: 40px;
+    height: 40px;
+    color: $buttonTextColor;
+    border-radius: 0.5rem;
+    margin-left: 0.5rem;
+    transition: 0.1s ease-in-out;
+
+    &:hover {
+        background-color: $hoverColor;
+        cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+        font-size: 0.75rem;
+    }
+}
+
+.action-button-container {
+    &.approve {
+        @include actionButton(
+            colors.$acg-500,
+            colors.$tc-light,
+            colors.$acg-700
+        );
+        > :first-child {
+            padding: 0.5rem;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &.deny {
+        @include actionButton(
+            colors.$acr-500,
+            colors.$tc-light,
+            colors.$acr-700
+        );
+        > :first-child {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &.edit {
+        @include actionButton(
+            colors.$acy-500,
+            colors.$tc-light,
+            colors.$acy-700
+        );
+        > :first-child {
+            padding: 0.2rem;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &.delete {
+        @include actionButton(
+            colors.$acr-500,
+            colors.$tc-light,
+            colors.$acr-700
+        );
+        > :first-child {
+            padding: 0.5rem;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

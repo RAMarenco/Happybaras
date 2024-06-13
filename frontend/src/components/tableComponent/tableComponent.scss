@@ -1,0 +1,121 @@
+@use '../../variables' as colors;
+
+@mixin table($headerColor) {
+    .table {
+        width: 100%;
+        border-collapse: separate;
+        border-radius: 1rem;
+        border: 1px solid #D8DDE2;
+    }
+
+    .table thead {
+        background-color: $headerColor;
+    }
+
+    .table thead tr th:first-child {
+        border-top-left-radius: 1rem;
+    }
+
+    .table thead tr th:last-child {
+        border-top-right-radius: 1rem;
+    }
+
+    .table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    .table thead tr th {
+        height: 44px;
+        font-size: 1rem;
+        vertical-align: middle;
+        border-bottom: 1px solid #D8DDE2;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        text-align: start;
+    }
+
+    .table tbody tr td {
+        height: 64px;
+        font-size: 1rem;
+        vertical-align: middle;
+        border-bottom: 1px solid #D8DDE2;
+        color: black;
+        padding: 0.75rem 1.5rem;
+        text-align: start;
+    }
+
+    @media(max-width: 900px) {
+        .table {
+            border: none;
+        }
+        
+        .table thead {
+            display: none;
+        }
+    
+        .table, .table tbody, .table tr, .table td {
+            display: block;
+            width: 100%;
+        }
+    
+        .table tr {
+            margin-bottom: 1.5rem;
+            border: 1px solid #D8DDE2;
+            border-radius: 1rem;
+        }
+
+        .table tbody tr td:last-child {
+            border-bottom: none;
+        }
+
+        .table tbody tr:last-child td {
+            border-bottom: 1px solid #D8DDE2;
+        }
+    
+        .table tbody tr td {
+            text-align: right;
+            font-size: 0.75rem;
+            position: relative;
+            text-wrap: wrap;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+        }
+    
+        .table td::before {
+            content: attr(data-label);
+            display: flex;
+            align-items: center;
+            position: absolute;
+            background-color: $headerColor;
+            color: white;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 6rem;
+            text-align: left;
+            padding-left: 0.5rem;
+            font-size: 0.75rem;
+            text-wrap: wrap;
+            font-weight: bold;
+        }
+
+        .table td:first-child:before {
+            border-top-left-radius: 1rem;
+        }
+
+        .table td:last-child:before {
+            border-bottom-left-radius: 1rem;
+        }
+    }
+}
+
+.table-container.admin {
+    margin: 1rem;
+    @include table(colors.$acg-700);
+}
+
+.table-container.mainResident {
+    margin: 1rem;
+    @include table(colors.$pc-700);
+}

@@ -1,14 +1,32 @@
-//import { useGoogleLogin, GoogleLogin } from '@react-oauth/google';
+import { useGoogleLogin } from '@react-oauth/google';
 import { FcGoogle } from "react-icons/fc";
 
-import classes from "./Home.module.scss"
-import Welcome from "./../../assets/Welcome.png"
+import classes from "./Home.module.scss";
+import Welcome from "./../../assets/Welcome.png";
 
 const Home = () => {
-    /*const login = useGoogleLogin({
-        onSuccess: tokenResponse => console.log(tokenResponse),
-        onError: error => console.log(error),
-    });*/
+    localStorage.setItem(
+        "dataStorage",
+        JSON.stringify({
+            token: "something",
+            user: {
+                role: "mainResident",
+            },
+        })
+    );
+    const login = useGoogleLogin({
+        flow: "implicit",
+        onSuccess: async (tokenResponse) => {
+            const response = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+                headers: {
+                    Authorization: `Bearer ${tokenResponse.access_token}`,
+                }
+            })
+            const data = await response.json();
+            console.log(data);
+        },
+        onError: (error) => console.log(error),
+    });
 
     return (
         <div className={classes["Home_Container"]}>
@@ -18,21 +36,9 @@ const Home = () => {
                     <br />
                     <span>HAPPY</span>
                 </h1>
-
-                {/*
-                    <GoogleLogin
-                        onSuccess={credentialResponse => {
-                            console.log(credentialResponse);
-                        }}
-                        onError={() => {
-                            console.log('Login Failed');
-                        }}
-                        useOneTap
-                    />
-                */}
-
+                
                 <button onClick={() => login()}>
-                    <FcGoogle/>
+                    <FcGoogle />
                     Ingresar con Google
                 </button>
 
@@ -43,10 +49,13 @@ const Home = () => {
                 </span>
             </div>
             <div className={classes["Image_Container"]}>
-                <img src={Welcome} alt="Hand holding a phone thats scanning a QR code" />
+                <img
+                    src={Welcome}
+                    alt="Hand holding a phone thats scanning a QR code"
+                />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;

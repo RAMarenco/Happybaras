@@ -1,6 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "primereact/resources/themes/lara-light-blue/theme.css"
+import "primereact/resources/primereact.min.css"
+import { PrimeReactProvider } from 'primereact/api';
 //import { GoogleOAuthProvider } from "@react-oauth/google";
 //import { CLIENTID } from "./consts";
 
@@ -15,7 +18,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {
       //<GoogleOAuthProvider clientId={CLIENTID}>
     }
-    <RouterProvider router={router}/>
+    <PrimeReactProvider value={{ unstyled: false }}>
+      <RouterProvider router={router}/>
+    </PrimeReactProvider>
     {
       //</GoogleOAuthProvider>
     }

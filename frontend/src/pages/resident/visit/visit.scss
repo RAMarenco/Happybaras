@@ -1,0 +1,336 @@
+@use "../../../variables" as colors;
+
+.p-datepicker {
+    padding: 0.5rem;
+    max-width: 200px !important;
+}
+
+.p-datepicker-header {
+    padding: 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+
+    > .p-datepicker-title {
+        > .p-datepicker-decade {
+            > span {
+                font-weight:600;
+            }
+        }
+    }
+}
+
+.p-datepicker-calendar {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+
+    > thead {
+        font-weight: bold;
+    }
+
+    > tbody {
+        > tr {
+            > .p-datepicker-other-month {
+                vertical-align: middle;
+                padding: 0.5rem;
+                > span {
+                    margin: 0 auto;
+                }
+            }
+
+            >td {
+                vertical-align: middle;
+                padding: 0.5rem;
+                > span {
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}
+
+.p-monthpicker {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+
+    > .p-monthpicker-month {
+        padding: 0.5rem;
+    }
+}
+
+.p-yearpicker {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+
+    > .p-yearpicker-year {
+        padding: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .p-datepicker-calendar {
+        margin-top: 0.5rem;
+    
+
+        > thead {
+            > tr {
+                > th {
+                    padding: 0.3rem;
+                    font-size: 0.9rem;
+                }   
+            }
+        }
+
+        > tbody {
+            > tr {
+                > .p-datepicker-other-month {
+                    vertical-align: middle;
+                    padding: 0.0rem;
+                    font-size: 0.9rem;
+                }
+    
+                >td {
+                    vertical-align: middle;
+                    padding: 0.0rem;
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+    
+    .p-monthpicker {
+        margin-top: 0.5rem;
+    
+        > .p-monthpicker-month {
+            padding: 0.5rem;
+            font-size: 0.9rem;
+        }
+    }
+    
+    .p-yearpicker {
+        margin-top: 0.5rem;
+    
+        > .p-yearpicker-year {
+            padding: 0.5rem;
+            font-size: 0.9rem;
+        }
+    }
+
+    .p-datepicker-header {
+        > .p-datepicker-title {
+            > .p-datepicker-decade {
+                > span {
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+}
+
+.visit-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    min-height: calc(100dvh - 5rem);
+    max-height: calc(100dvh - 5rem);
+    overflow-y: auto;
+
+    > .visit-card-info-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        gap: 0.8rem;
+        padding: 1.5rem 0rem 1.5rem 1.5rem;
+        > :first-child {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+    }
+
+    > .form-visit-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        padding: 2rem;
+        gap: 1rem;
+        overflow-y: auto;
+        background-color: white;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        
+
+        > .form-visit-info {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        > .form-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            > .form-visit-group {
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+
+                > :first-child {
+                    flex: 1;
+                }
+
+                > :last-child {
+                    flex: 1;
+                }
+            }
+        }
+
+        > .form-multiple-date-range {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+
+            > :first-child {
+                flex: 1;
+            }
+
+            > :last-child {
+                flex: 1;
+            }
+        }
+
+        > .form-multiple-options {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+
+            > .form-multiple-group {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                gap: 1rem;
+
+                > .form-multiple-days {
+                    > p {
+                        font-weight: 500;
+                        padding-block: 0.3rem;
+                        color: #4281A4;
+                    }
+
+                    > .form-week-days {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        gap: 0.3rem;
+
+                        > .day-button {
+                            padding: 10px 20px;
+                            font-size: 16px;
+                            cursor: pointer;
+                            border-radius: 1rem;
+                            border: 1px solid colors.$pc-700;
+                            background-color: white;
+                            color: colors.$pc-500;
+                        }
+    
+                        > .day-button.selected {
+                            background-color: colors.$pc-200; 
+                        }
+                    }
+                }
+
+                > .form-multiple-date-range {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 1rem;
+
+                    > :first-child {
+                        flex: 1;
+                    }
+    
+                    > :last-child {
+                        flex: 1;
+                    }
+                }
+            }
+
+            > :last-child {
+                flex: 1;
+            }
+        }
+
+        > .form-calendar-picker {
+            width: 100%;  
+
+            > :first-child {
+                font-weight: 500;
+                padding-block: 0.3rem;
+                color: #4281A4;
+            }
+
+            > :last-child {
+                width: 100%;
+            }
+        }
+
+        > .form-visit-action {
+            display: flex;
+            justify-content: end;
+            > :first-child {
+                max-width: 300px;
+                flex: 1;
+            }
+        }
+    }
+}
+
+@media(max-width: 900px) {
+    .visit-container {
+        flex-direction: column;     
+
+        > .visit-card-info-container {
+            padding: 1.5rem;
+            overflow-y: unset;
+
+            > :first-child {
+                font-size: 1.2rem;
+            }
+        }
+
+        > .form-visit-container {
+            overflow-y: unset;
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            justify-content: center;
+
+            > .form-visit-info {
+                font-size: 1.2rem;
+            }
+
+            
+        }
+   }
+}
+
+@media(max-width: 500px) {
+    .visit-container {
+        > .form-visit-container {
+            > .form-input-group {
+                gap: 0.5rem;
+                > .form-visit-group {
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
+            }
+
+            > .form-visit-action {
+                display: flex;
+                justify-content: start;
+                > :first-child {
+                    max-width: 100%;
+                    flex: 1;
+                }
+            }
+        }
+   }
+}

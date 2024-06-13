@@ -1,0 +1,78 @@
+@import "/src/variables";
+
+header {
+    display: flex;
+    
+    justify-content: space-between;
+    align-items: center;
+
+    height: 5rem;
+
+    padding: 0 1rem;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.12), 1px 1px 10px rgba(0,0,0,0.24);
+
+    .Logo {
+        width: 3rem;
+        height: 3rem;
+
+        &.No_action {
+            &:hover {
+                cursor: default;
+            }
+        }
+        
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .RightContainer {
+        display: flex;
+        
+        justify-content: space-between;
+        align-items: center;
+
+        gap: 1.25rem;
+
+        .MenuButton {
+            width: 3.125rem;
+            height: 3.125rem;
+            box-shadow: 0 0.25rem 0.25rem rgba($tc-dark, 0.25);
+
+            border-radius: 50%;
+
+            display: flex;
+            
+            justify-content: center;
+            align-items: center;
+            
+            svg {
+                font-size: 1.5rem;
+                color: $pc-50;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .Avatar {
+        width: 4rem;
+        height: 4rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+
+            box-shadow: 0 0.25rem 0.25rem rgba($tc-dark, 0.25);
+
+            object-fit: cover;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

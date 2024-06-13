@@ -1,0 +1,54 @@
+@use "./../../variables" as colors;
+
+.Graph_Container {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 0.5rem;
+    background-color: colors.$tc-light;
+    height: 23.75rem;
+    padding: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    > .Graph_Info_Container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        > h4 {
+            font-weight: bold;
+
+            @media screen and (max-width: 900px) {
+                font-size: 0.875rem;
+            }
+        }
+
+        > .Button_Container {
+            display: flex;
+            gap: 0.625rem;
+            > div {
+                max-width: 6.125rem!important;
+                max-height: 1.875rem!important;
+                button {
+                    min-width: 6.125rem!important;
+                    height: 1.875rem!important;
+                    padding: 0;
+                }
+
+                @media screen and (max-width: 900px) {
+                    max-width: 2.5625rem!important;
+                    button {
+                        min-width: 2.5625rem!important;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    > canvas {
+        position: relative;
+        width: 100%!important;
+        height: calc(100% - 4rem)!important;
+    }
+}

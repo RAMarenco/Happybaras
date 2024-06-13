@@ -1,0 +1,78 @@
+@use "./../../variables" as *;
+
+
+.modal-background {
+    --shf: 4.9406564584124654e-322;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+    .modal-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 1.5rem;
+        max-width: 30rem;
+        background-color: $tc-light;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+
+        .modal-content {
+            line-height: 1.5rem;
+            font-size: 1.1rem;
+            padding-block: 1.25rem;
+
+            .strong {
+                font-weight: 600;
+            }
+        }
+
+        .modal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 1rem;
+            padding-top: 1rem;
+        }
+    }
+
+    .modal-header {
+        display: flex;
+        gap: 1rem;
+        align-items: start;
+        border-radius: 0.5rem 0.5rem 0 0;
+        align-items: center;
+
+        .delete-icon {
+            font-size: 2rem;
+            color: $acr-700;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: $acr-700;
+        }
+    }
+}
+
+@media screen and (max-width: 664px) {
+    .modal-background {
+        .modal-container {
+            width: 80%;
+
+            .modal-actions {
+                gap: 0.75rem;
+            }
+        }
+    }
+}
